@@ -1,0 +1,47 @@
+<section class="full-width">
+  <mdb-carousel class="carousel slide carousel-slide" [animation]="'slide'">
+    <mdb-carousel-item *ngFor="let item of slides; let i=index" class="media-slider-item">
+      <div class="view w-100">
+        <img *ngIf="item.mime.startsWith('image')" class="d-block media-slider-image mx-auto" [src]="item.media">
+        <video *ngIf="item.mime.startsWith('video')" class="media-slider-image mx-auto" [autoplay]="true" [loop]="true" [muted]="true">
+          <source [src]="item.media" [type]="item.mime" />
+        </video>
+        <div class="rgba-black-light waves-light" mdbWavesEffect></div>
+      </div>
+      <div class="carousel-caption">
+        <h3 class="h3-responsive">{{item.title}}</h3>
+        <p>{{item.description}}</p>
+      </div>
+    </mdb-carousel-item>
+<!--    <mdb-carousel-item>-->
+<!--      <div class="view w-100">-->
+<!--        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg" alt="First slide">-->
+<!--        <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>-->
+<!--      </div>-->
+<!--      <div class="carousel-caption">-->
+<!--        <h3 class="h3-responsive">Light mask</h3>-->
+<!--        <p>First text</p>-->
+<!--      </div>-->
+<!--    </mdb-carousel-item>-->
+<!--    <mdb-carousel-item>-->
+<!--      <div class="view w-100">-->
+<!--        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg" alt="Second slide">-->
+<!--        <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>-->
+<!--      </div>-->
+<!--      <div class="carousel-caption">-->
+<!--        <h3 class="h3-responsive">Strong mask</h3>-->
+<!--        <p>Secondary text</p>-->
+<!--      </div>-->
+<!--    </mdb-carousel-item>-->
+<!--    <mdb-carousel-item>-->
+<!--      <div class="view w-100">-->
+<!--        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg" alt="Third slide">-->
+<!--        <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>-->
+<!--      </div>-->
+<!--      <div class="carousel-caption">-->
+<!--        <h3 class="h3-responsive">Slight mask</h3>-->
+<!--        <p>Third text</p>-->
+<!--      </div>-->
+<!--    </mdb-carousel-item>-->
+  </mdb-carousel>
+</section>

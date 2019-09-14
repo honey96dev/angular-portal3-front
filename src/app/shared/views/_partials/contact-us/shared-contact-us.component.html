@@ -1,0 +1,149 @@
+<!--<section mdbScrollSpyElement="navbarScrollspy" id="contactUs" class="screen-breakpoint margin-auto-x my-5 px-3 row">-->
+<section class="screen-breakpoint margin-auto-x my-5 px-3">
+    <!-- Section heading -->
+    <h2 class="h1-responsive font-weight-bold text-center my-5">{{'HUMAN_LAYOUT.CONTACT_US' | translate}}</h2>
+    <!-- Section description -->
+    <p class="text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam
+      eum porro a pariatur veniam.</p>
+
+    <!-- Grid row -->
+<!--  <div class="col-md-7">-->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-8 mb-md-0 mb-5">
+
+        <form name="form" [formGroup]="form" (ngSubmit)="submit()">
+
+          <!-- Grid row -->
+          <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-6">
+              <div class="md-form mb-0">
+                <input type="text" id="name" class="form-control" formControlName="name" mdbInput mdbValidate>
+                <label for="name" class="">{{'SHARED_CONTACT_US.NAME' | translate}}</label>
+                <mdb-error *ngIf="f.name.errors && f.name.errors.required && (f.name.dirty || f.name.touched)"
+                           [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_CONTACT_US.NAME' | translate}"></mdb-error>
+              </div>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-6">
+              <div class="md-form mb-0">
+                <input type="email" id="email" class="form-control" formControlName="email" mdbInput mdbValidate>
+                <label for="email" class="">{{'SHARED_CONTACT_US.EMAIL' | translate}}</label>
+                <mdb-error *ngIf="f.email.errors && f.email.errors.required && (f.email.dirty || f.email.touched)"
+                           [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_CONTACT_US.EMAIL' | translate}"></mdb-error>
+                <mdb-error *ngIf="f.email.errors && f.email.errors.email && (f.email.dirty || f.email.touched)"
+                           [translate]="'COMMON.FIELD_INVALID'" [translateParams]="{field: 'SHARED_CONTACT_US.EMAIL' | translate}"></mdb-error>
+              </div>
+            </div>
+            <!-- Grid column -->
+
+          </div>
+          <!-- Grid row -->
+
+          <!-- Grid row -->
+          <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-12">
+              <div class="md-form mb-0">
+                <input type="text" id="subject" class="form-control" formControlName="subject" mdbInput mdbValidate>
+                <label for="subject" class="">{{'SHARED_CONTACT_US.SUBJECT' | translate}}</label>
+                <mdb-error *ngIf="f.subject.errors && f.subject.errors.required && (f.subject.dirty || f.subject.touched)"
+                           [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_CONTACT_US.SUBJECT' | translate}"></mdb-error>
+              </div>
+            </div>
+            <!-- Grid column -->
+
+          </div>
+          <!-- Grid row -->
+
+          <!-- Grid row -->
+          <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-12">
+              <div class="md-form">
+                <textarea type="text" id="message" class="form-control md-textarea" rows="8"
+                          formControlName="message" mdbInput mdbValidate></textarea>
+                <label for="message">{{'SHARED_CONTACT_US.MESSAGE' | translate}}</label>
+                <mdb-error *ngIf="f.message.errors && f.message.errors.required && (f.message.dirty || f.message.touched)"
+                           [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_CONTACT_US.MESSAGE' | translate}"></mdb-error>
+              </div>
+            </div>
+            <!-- Grid column -->
+
+          </div>
+          <!-- Grid row -->
+
+          <div class="text-center text-md-left">
+            <button type="submit" mdbBtn color="primary" mdbWavesEffect [disabled]="form.invalid || loading">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              {{'COMMON.SEND' | translate}}
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-4 text-center">
+        <ul class="list-unstyled mb-0">
+          <li>
+            <mdb-icon fas icon="map-marked" size="2x" class="blue-text"></mdb-icon>
+            <p>San Francisco, CA 94126, USA</p>
+          </li>
+          <li>
+            <mdb-icon fas icon="phone" size="2x" class="mt-4 blue-text"></mdb-icon>
+            <p>+ 01 234 567 89</p>
+          </li>
+          <li>
+            <mdb-icon fas icon="envelope" size="2x" class="mt-4 blue-text"></mdb-icon>
+            <p class="mb-0">contact@example.com</p>
+          </li>
+        </ul>
+        <div class="text-align-center mt-4">
+          <!--        <a type="button" href="https://www.facebook.com/saudi.hrc/" target="_blank" mdbBtn floating="true" size="sm" color="fb" class="waves-light mx-1" mdbWavesEffect>-->
+          <!--          <mdb-icon fab icon="facebook-f"></mdb-icon>-->
+          <!--        </a>-->
+          <a type="button" [href]="consts.socialLinks.twitter" target="_blank" mdbBtn floating="true" size="sm" color="tw" class="waves-light" mdbWavesEffect>
+            <mdb-icon fab icon="twitter"></mdb-icon>
+          </a>
+          <a type="button" [href]="consts.socialLinks.youtube" target="_blank" mdbBtn floating="true" size="sm" color="yt" class="waves-light" mdbWavesEffect>
+            <mdb-icon fab icon="youtube"></mdb-icon>
+          </a>
+          <a type="button" [href]="consts.socialLinks.linkedin" target="_blank" mdbBtn floating="true" size="sm" color="li" class="waves-light" mdbWavesEffect>
+            <mdb-icon fab icon="linkedin-in"></mdb-icon>
+          </a>
+          <a type="button" [href]="consts.socialLinks.snapchat" target="_blank" mdbBtn floating="true" size="sm" color="warning" class="waves-light" mdbWavesEffect>
+            <mdb-icon fab icon="snapchat"></mdb-icon>
+          </a>
+          <!--        <a type="button" href="https://www.instagram.com/g_chcs/" target="_blank" mdbBtn floating="true" size="sm" color="ins" class="waves-light" mdbWavesEffect>-->
+          <!--          <mdb-icon fab icon="instagram"></mdb-icon>-->
+          <!--        </a>-->
+          <a type="button" [href]="consts.socialLinks.whatsapp" target="_blank" mdbBtn floating="true" size="sm" color="success" class="waves-light" mdbWavesEffect>
+            <mdb-icon fab icon="whatsapp"></mdb-icon>
+          </a>
+        </div>
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+<!--  </div>-->
+<!--  <div class="col-md-5">-->
+    <!--Google map-->
+<!--    <agm-map class="z-depth-1-half map-container" style="height: 400px;" [latitude]="map.lat" [longitude]="map.lng">-->
+<!--      <agm-marker [latitude]="map.lat" [longitude]="map.lng"></agm-marker>-->
+<!--    </agm-map>-->
+<!--  </div>-->
+</section>
+<!-- Section: Contact v.2 -->

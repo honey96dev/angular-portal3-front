@@ -1,0 +1,29 @@
+<section class="screen-breakpoint margin-auto-x my-5">
+
+  <h2 class="h1-responsive font-weight-bold text-center my-5">{{'HUMAN_LAYOUT.OUR_SERVICES' | translate}}</h2>
+  <mdb-carousel [isControls]="true" class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'"
+                [animation]="'slide'" dir="ltr">
+    <mdb-carousel-item *ngFor="let item of slides; let i = index">
+      <div class="col-md-4" [ngClass]="{'d-none d-md-block': cardIndex !== 0}" *ngFor="let card of item; let cardIndex = index">
+        <mdb-card class="my-1 my-card">
+          <div class="view view-cascade overlay waves-light" mdbWavesEffect>
+            <!--            <mdb-card-img src="https://mdbootstrap.com/img/Photos/Others/men.jpg"></mdb-card-img>-->
+            <img [src]="card.img" alt="Card image cap" class="my-card-image round-border-top mx-auto">
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <mdb-card-body>
+            <mdb-card-title>
+              <h4>{{card.title}}</h4>
+            </mdb-card-title>
+            <mdb-card-text>{{card.description}}</mdb-card-text>
+            <!--            <a href="#" mdbBtn color="primary" class="waves-light" mdbWavesEffect>{{card.buttonText}}</a>-->
+          </mdb-card-body>
+        </mdb-card>
+      </div>
+    </mdb-carousel-item>
+  </mdb-carousel>
+
+</section>
+<!-- Section: Social newsfeed v.2 -->

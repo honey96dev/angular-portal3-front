@@ -1,0 +1,22 @@
+@import "../../../../../consts";
+$media-slider-item-height: 600px;
+$media-slider-item-height2: 400px;
+
+.media-slider-item {
+  height: $media-slider-item-height;
+}
+
+.media-slider-image {
+  width: auto;
+  height: $media-slider-item-height;
+}
+@media (max-width: $screen-breakpoint2) {
+  .media-slider-item {
+    height: $media-slider-item-height2;
+  }
+
+  .media-slider-image {
+    width: auto;
+    height: $media-slider-item-height2;
+  }
+}

@@ -1,0 +1,93 @@
+<main>
+  <div class="full-width">
+    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-light background-color-white sticky-top" [containerInside]="false">
+      <!-- Navbar brand -->
+      <mdb-navbar-brand><a class="navbar-brand"><img routerLink="/" src="./assets/media/logos/logo-sm.png" (click)="clearSection()"></a></mdb-navbar-brand>
+<!--      <div class="screen-breakpoint margin-auto-x">-->
+
+        <!-- Collapsible content -->
+        <links>
+
+          <!-- Links -->
+          <ul mdbScrollSpy="navbarScrollspy" class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a href="#main" mdbPageScroll [pageScrollOffset]="scrollOffset" [pageScrollDuration]="scrollDuration" class="nav-link waves-light" mdbWavesEffect>{{'HUMAN_LAYOUT.MAIN' | translate}}</a>
+            </li>
+            <li class="nav-item">
+              <a href="#ourService" mdbPageScroll [pageScrollOffset]="scrollOffset" [pageScrollDuration]="scrollDuration" class="nav-link waves-light" mdbWavesEffect>{{'HUMAN_LAYOUT.OUR_SERVICES' | translate}}</a>
+            </li>
+            <li class="nav-item">
+              <a href="#contactUs" mdbPageScroll [pageScrollOffset]="scrollOffset" [pageScrollDuration]="scrollDuration" class="nav-link waves-light" mdbWavesEffect>{{'HUMAN_LAYOUT.CONTACT_US' | translate}}</a>
+            </li>
+            <li class="nav-item">
+              <a href="#businessPartner" mdbPageScroll [pageScrollOffset]="scrollOffset" [pageScrollDuration]="scrollDuration" class="nav-link waves-light" mdbWavesEffect>{{'HUMAN_LAYOUT.OUR_BUSINESS_PARTNER' | translate}}</a>
+            </li>
+            <li class="nav-item">
+              <a href="#ourClients" mdbPageScroll [pageScrollOffset]="scrollOffset" [pageScrollDuration]="scrollDuration" class="nav-link waves-light" mdbWavesEffect>{{'HUMAN_LAYOUT.OUR_CLIENTS' | translate}}</a>
+            </li>
+            <li class="nav-item">
+              <a href="#directorsBoard" mdbPageScroll [pageScrollOffset]="scrollOffset" [pageScrollDuration]="scrollDuration" class="nav-link waves-light" mdbWavesEffect>{{'HUMAN_LAYOUT.BOARD_OF_DIRECTORS' | translate}}</a>
+            </li>
+
+<!--            <li class="nav-item">-->
+<!--              <a [ngx-scroll-to]="'main'" [ngx-scroll-to-offset]="scrollOffset" class="nav-link waves-light" mdbWavesEffect>{{'HUMAN_LAYOUT.MAIN' | translate}}</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--              &lt;!&ndash;                mdbScrollSpyLink="ourService"&ndash;&gt;-->
+<!--              <a [ngx-scroll-to]="'ourService'" [ngx-scroll-to-offset]="scrollOffset" class="nav-link waves-light" mdbWavesEffect>{{'HUMAN_LAYOUT.OUR_SERVICES' | translate}}</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--              <a [ngx-scroll-to]="'contactUs'" [ngx-scroll-to-offset]="scrollOffset" class="nav-link waves-light" mdbWavesEffect>{{'HUMAN_LAYOUT.CONTACT_US' | translate}}</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--              <a [ngx-scroll-to]="'businessPartner'" [ngx-scroll-to-offset]="scrollOffset" class="nav-link waves-light" mdbWavesEffect>{{'HUMAN_LAYOUT.OUR_BUSINESS_PARTNER' | translate}}</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--              <a [ngx-scroll-to]="'ourClients'" [ngx-scroll-to-offset]="scrollOffset" class="nav-link waves-light" mdbWavesEffect>{{'HUMAN_LAYOUT.OUR_CLIENTS' | translate}}</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--              <a [ngx-scroll-to]="'directorsBoard'" [ngx-scroll-to-offset]="scrollOffset" class="nav-link waves-light" mdbWavesEffect>{{'HUMAN_LAYOUT.BOARD_OF_DIRECTORS' | translate}}</a>-->
+<!--            </li>-->
+
+<!--            <ul mdbScrollSpy="scrollspy1" class="navbar-nav mr-auto">-->
+<!--              <li class="nav-item">-->
+<!--                <a mdbScrollSpyLink="home" class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a mdbScrollSpyLink="features" class="nav-link waves-light" mdbWavesEffect>Features</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a mdbScrollSpyLink="pricing" class="nav-link waves-light" mdbWavesEffect>Pricing</a>-->
+<!--              </li>-->
+<!--            </ul>-->
+
+<!--            &lt;!&ndash; Dropdown &ndash;&gt;-->
+<!--            <li class="nav-item dropdown" dropdown>-->
+<!--              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>-->
+<!--                Basic dropdown<span class="caret"></span></a>-->
+<!--              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">-->
+<!--                <a class="dropdown-item waves-light" mdbWavesEffect href="#">Action</a>-->
+<!--                <a class="dropdown-item waves-light" mdbWavesEffect href="#">Another action</a>-->
+<!--                <a class="dropdown-item waves-light" mdbWavesEffect href="#">Something else here</a>-->
+<!--                <div class="divider dropdown-divider"></div>-->
+<!--                <a class="dropdown-item waves-light" mdbWavesEffect href="#">Separated link</a>-->
+<!--              </div>-->
+<!--            </li>-->
+
+          </ul>
+          <!-- Links -->
+
+          <!-- Search form -->
+<!--          <form class="form-inline waves-light" mdbWavesEffect>-->
+<!--            <div class="md-form my-0">-->
+<!--              <input class="form-control mr-sm-2" type="text" placeholder="Search">-->
+<!--            </div>-->
+<!--          </form>-->
+        </links>
+        <!-- Collapsible content -->
+<!--      </div>-->
+    </mdb-navbar>
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
+    <app-layout-footer></app-layout-footer>
+  </div>
+</main>
