@@ -14,6 +14,7 @@ import {SharedBusinessPartnerComponent} from '@app/shared/views/_partials/busine
 import {SharedOurClientsComponent} from '@app/shared/views/_partials/our-clients/shared-our-clients.component';
 import {SharedOurServicesComponent} from '@app/shared/views/_partials/our-services/shared-our-services.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {RatingModule} from 'ng-starrating';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     StoreModule.forRoot(reducers, {metaReducers}),
     TranslateModule.forChild(),
     ReactiveFormsModule,
+    RatingModule,
   ],
   declarations: [
     AlertModalComponent,

@@ -80,3 +80,46 @@
 .background-color-white {
   background-color: $white;
 }
+
+.rtl-content .md-form label, .rtl-content .error-message {
+  left: unset;
+  right: 0;
+}
+
+.rtl-content h1, .rtl-content h2, .rtl-content h3, .rtl-content h4, .rtl-content h5, .rtl-content h6 {
+  //text-align: right;
+}
+
+.rtl-content .alert-dismissible {
+  padding-left: 4em;
+  padding-right: 1.25rem;
+  text-align: right;
+}
+
+.rtl-content .alert-dismissible .close {
+  left: 0;
+  right: unset;
+}
+
+.rtl-content .my-modal-close {
+  left: 0 !important;
+  right: unset !important;
+}
+
+.background-color-semi-white {
+  background-color: $semi-white;
+}
+
+.label {
+  color: $input-label-color;
+}
+
+.rtl-content .mdb-feed .news .excerpt {
+  margin: 0 1.2rem 1.2rem 0 !important;
+  text-align: right !important;
+}
+
+.rtl-content .mdb-feed .news .excerpt .brief .date {
+  padding-left: unset !important;
+  padding-right: 0.7rem !important;
+}

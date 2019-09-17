@@ -81,7 +81,7 @@
           </div>
           <!-- Grid row -->
 
-          <div class="text-center text-md-left">
+          <div class="text-center" [class.text-md-left]="('DIRECTION' | translate) === 'ltr'" [class.text-md-right]="('DIRECTION' | translate) === 'rtl'">
             <button type="submit" mdbBtn color="primary" mdbWavesEffect [disabled]="form.invalid || loading">
               <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
               {{'COMMON.SEND' | translate}}

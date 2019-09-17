@@ -16,6 +16,9 @@ const apis = {
     businessPartner: {
       list: 'business-partner/list',
     },
+    ourClients: {
+      list: 'our-clients/list',
+    },
     directorBoard: {
       list: 'director-board/list',
     },

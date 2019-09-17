@@ -1,10 +1,10 @@
 <section class="full-width pt-3">
   <div class="layout-footer z-depth-1">
-    <div class="screen-breakpoint margin-auto-x p-2 row" dir="ltr">
-      <div class="col-md-6 py-3" [translate]="'COMMON.COPYRIGHT'" [translateParams]="{year: year, company: company}">
+    <div class="screen-breakpoint margin-auto-x p-2 row">
+      <div class="col-md-6 py-3" [class.text-align-right]="('DIRECTION' | translate) === 'rtl'" [translate]="'COMMON.COPYRIGHT'" [translateParams]="{year: year, company: company}">
 <!--        {{'COMMON.COPYRIGHT' | translate:year}}-->
       </div>
-      <div class="col-md-6 text-align-right">
+      <div class="col-md-6" [class.text-align-right]="('DIRECTION' | translate) === 'ltr'">
 <!--        <a type="button" href="https://www.facebook.com/saudi.hrc/" target="_blank" mdbBtn floating="true" size="sm" color="fb" class="waves-light mx-1" mdbWavesEffect>-->
 <!--          <mdb-icon fab icon="facebook-f"></mdb-icon>-->
 <!--        </a>-->
