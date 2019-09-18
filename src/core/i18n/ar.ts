@@ -35,6 +35,7 @@ export const locale = {
       A_DAY_AGO: 'قبل يوم واحد',
       A_HOUR_AGO: 'منذ ساعة',
       A_MINUTE_AGO: 'منذ دقيقة',
+      WELCOME: 'أهلا بك',
     },
     SIGNIN: {
       SIGNIN: 'تسجيل الدخول',
@@ -48,6 +49,10 @@ export const locale = {
       EMAIL: 'بريدك الالكتروني',
       SUBJECT: 'موضوع',
       MESSAGE: 'رسالتك',
+    },
+    SHARED_EVENTS: {
+      LAST_EVENTS: 'الأحداث الأخيرة',
+      MOST_UPCOMING: 'معظم القادمة',
     },
     HOME_FRONT: {
       TITLE: 'الصفحة الرئيسية',

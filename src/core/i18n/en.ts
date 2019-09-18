@@ -35,6 +35,7 @@ export const locale = {
       A_DAY_AGO: 'a day ago',
       A_HOUR_AGO: 'an hour ago',
       A_MINUTE_AGO: 'a minute ago',
+      WELCOME: 'Welcome',
     },
     SIGNIN: {
       SIGNIN: 'Sign In',
@@ -48,6 +49,10 @@ export const locale = {
       EMAIL: 'Your email',
       SUBJECT: 'Subject',
       MESSAGE: 'Your message',
+    },
+    SHARED_EVENTS: {
+      LAST_EVENTS: 'Last Events',
+      MOST_UPCOMING: 'Most Upcoming',
     },
     HOME_FRONT: {
       TITLE: 'Home',

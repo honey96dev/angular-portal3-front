@@ -15,6 +15,8 @@ import {SharedOurClientsComponent} from '@app/shared/views/_partials/our-clients
 import {SharedOurServicesComponent} from '@app/shared/views/_partials/our-services/shared-our-services.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {RatingModule} from 'ng-starrating';
+import {SharedRecentEventsComponent} from '@app/shared/views/_partials/recent-events/shared-recent-events.component';
+import {SharedAllEventsComponent} from '@app/shared/views/_partials/all-events/shared-all-events.component';
 
 @NgModule({
   imports: [
@@ -31,12 +33,14 @@ import {RatingModule} from 'ng-starrating';
 
     LayoutFooterComponent,
 
-    SharedBusinessPartnerComponent,
-    SharedContactUsComponent,
-    SharedDirectorsBoardComponent,
     SharedMediaSliderComponent,
-    SharedOurClientsComponent,
     SharedOurServicesComponent,
+    SharedContactUsComponent,
+    SharedBusinessPartnerComponent,
+    SharedOurClientsComponent,
+    SharedDirectorsBoardComponent,
+    SharedRecentEventsComponent,
+    SharedAllEventsComponent,
   ],
   exports: [
     MDBBootstrapModulesPro,
@@ -48,12 +52,14 @@ import {RatingModule} from 'ng-starrating';
 
     LayoutFooterComponent,
 
-    SharedBusinessPartnerComponent,
-    SharedContactUsComponent,
-    SharedDirectorsBoardComponent,
     SharedMediaSliderComponent,
-    SharedOurClientsComponent,
     SharedOurServicesComponent,
+    SharedContactUsComponent,
+    SharedBusinessPartnerComponent,
+    SharedOurClientsComponent,
+    SharedDirectorsBoardComponent,
+    SharedRecentEventsComponent,
+    SharedAllEventsComponent,
   ]
 })
 export class SharedModule { }

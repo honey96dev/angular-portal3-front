@@ -1,6 +1,7 @@
 <div class="main-container">
-  <app-shared-media-slider category="conference"></app-shared-media-slider>
-  <app-conference-recent-events category="previous"></app-conference-recent-events>
-  <app-conference-recent-events category="upcoming"></app-conference-recent-events>
+  <app-shared-media-slider [category]="consts.conference"></app-shared-media-slider>
+  <app-shared-recent-events [scope]="consts.previous" [category]="consts.conference"></app-shared-recent-events>
+  <app-shared-recent-events [scope]="consts.upcoming" [category]="consts.conference"></app-shared-recent-events>
+<!--  <app-conference-recent-events category="upcoming"></app-conference-recent-events>-->
 </div>
 

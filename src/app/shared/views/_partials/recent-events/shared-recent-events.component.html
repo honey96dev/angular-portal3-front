@@ -1,0 +1,59 @@
+<section class="my-5 screen-breakpoint margin-auto-x my-5 col-md-12">
+
+  <!-- Section heading -->
+  <h2 class="h1-responsive font-weight-bold text-center my-5">{{title}}</h2>
+  <!-- Section description -->
+  <p class="text-center w-responsive mx-auto mb-5">Duis aute irure dolor in reprehenderit in voluptate velit
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+    qui officia deserunt mollit anim id est laborum.</p>
+
+  <div *ngFor="let item of items; let i = index;">
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-5" [class.big-post-image]="i % 2 == 1">
+        <!-- Featured image -->
+        <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4 waves-light" mdbWavesEffect>
+<!--          <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/img%20(27).jpg" alt="Sample image">-->
+          <img *ngIf="item.mime.startsWith('image')" class="img-fluid" [src]="item.media">
+          <video *ngIf="item.mime.startsWith('video')" class="img-fluid" [autoplay]="true" [loop]="true" [muted]="true">
+            <source [src]="item.media" [type]="item.mime" />
+          </video>
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-7">
+
+        <!-- Category -->
+        <a href="#!" [class]="item.typeClass">
+          <h6 class="font-weight-bold mb-3">
+<!--            <mdb-icon fas icon="utensils" class="pr-2"></mdb-icon>-->
+            {{item.type}}
+          </h6>
+        </a>
+        <!-- Post title -->
+        <h3 class="h4-responsive font-weight-bold mb-3"><strong>{{item.title}}</strong></h3>
+        <!-- Excerpt -->
+        <p>{{item.description}}</p>
+        <!-- Post data -->
+        <p><a><strong>{{item.name}}</strong></a>, {{item.timestamp}}</p>
+        <!-- Read more button -->
+<!--        <a mdbBtn color="success" mdbWavesEffect class="mb-lg-0 mb-4">Read more</a>-->
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+    <hr *ngIf="i + 1 < items.length" class="my-5">
+  </div>
+
+</section>

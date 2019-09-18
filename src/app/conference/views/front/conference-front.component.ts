@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 import {Title} from '@angular/platform-browser';
 import {GlobalVariableService} from '@app/_services';
+import consts from '@core/consts';
 
 @Component({
   selector: 'app-conference-front',
@@ -10,6 +11,7 @@ import {GlobalVariableService} from '@app/_services';
   styleUrls: ['./conference-front.component.scss']
 })
 export class ConferenceFrontComponent implements OnInit{
+  consts = consts;
 
   constructor(private router: Router,
               private title: Title,

@@ -22,6 +22,9 @@ const apis = {
     directorBoard: {
       list: 'director-board/list',
     },
+    events: {
+      list: 'events/list',
+    },
   },
 };
 
