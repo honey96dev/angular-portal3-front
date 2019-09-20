@@ -5,7 +5,7 @@
       <mdb-navbar-brand><a class="navbar-brand"><img routerLink="/" src="./assets/media/logos/logo-sm.png" (click)="clearSection()"></a>
       </mdb-navbar-brand>
       <links>
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'mr-auto' : 'ml-auto'">
           <li class="nav-item">
             <a class="nav-link waves-light" [routerLink]="routes.conference.main"
                mdbWavesEffect>{{'CONFERENCE_LAYOUT.MAIN' | translate}}</a>
@@ -18,10 +18,10 @@
             <a class="nav-link waves-light" [routerLink]="routes.conference.upcomingEvents"
                mdbWavesEffect>{{'CONFERENCE_LAYOUT.UPCOMING_EVENTS' | translate}}</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link waves-light" [routerLink]="routes.conference.register"
-               mdbWavesEffect>{{'CONFERENCE_LAYOUT.REGISTER' | translate}}</a>
-          </li>
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link waves-light" [routerLink]="routes.conference.register"-->
+<!--               mdbWavesEffect>{{'CONFERENCE_LAYOUT.REGISTER' | translate}}</a>-->
+<!--          </li>-->
           <li class="nav-item">
             <a  class="nav-link waves-light" [routerLink]="routes.conference.sponsorRequest"
                mdbWavesEffect>{{'CONFERENCE_LAYOUT.SPONSOR_REQUEST4COMPANIES' | translate}}</a>
@@ -52,6 +52,24 @@
 <!--            <a [ngx-scroll-to]="'ourClients'" [ngx-scroll-to-offset]="scrollOffset" class="nav-link waves-light"-->
 <!--               mdbWavesEffect>{{'CONFERENCE_LAYOUT.SPONSOR_REQUEST4COMPANIES' | translate}}</a>-->
 <!--          </li>-->
+        </ul>
+
+        <ul class="navbar-nav nav-flex-icons" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'ml-auto' : 'mr-auto'">
+          <li class="nav-item dropdown" dropdown>
+            <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light">
+              <mdb-icon fas icon="user"></mdb-icon><span class="caret"></span>
+            </a>
+            <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+              <div *ngIf="currentUser">
+                <a class="dropdown-item waves-light" mdbWavesEffect>{{'SIGNIN.MY_ACCOUNT' | translate}}</a>
+                <a (click)="signOut()" class="dropdown-item waves-light" mdbWavesEffect>{{'SIGNIN.SIGNOUT' | translate}}</a>
+              </div>
+              <div *ngIf="!currentUser">
+                <a [routerLink]="routes.auth.signIn" class="dropdown-item waves-light" mdbWavesEffect>{{'SIGNIN.SIGNIN' | translate}}</a>
+                <a [routerLink]="routes.auth.signUp" class="dropdown-item waves-light" mdbWavesEffect>{{'SIGNIN.SIGNUP' | translate}}</a>
+              </div>
+            </div>
+          </li>
         </ul>
       </links>
     </mdb-navbar>

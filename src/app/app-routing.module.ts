@@ -5,13 +5,16 @@ import {HomeLayoutComponent} from '@app/views/layouts/home-layout/home-layout.co
 import {AuthGuard} from '@app/_helpers';
 import {AuthedLayoutComponent} from '@app/views/layouts/authed-layout/authed-layout.component';
 import {HomeFrontComponent} from '@app/views/home/front/home-front.component';
+import {SharedAuthSigninComponent} from '@app/shared/views/auth/signin/shared-auth-signin.component';
+import {SharedAuthSignupComponent} from '@app/shared/views/auth/signup/shared-auth-signup.component';
 
 const routes: Routes = [
   {
     path: 'auth',
     component: AuthLayoutComponent,
     children: [
-      // {path: '', component: SigninComponent, pathMatch: 'full'},
+      {path: 'sign-in', component: SharedAuthSigninComponent},
+      {path: 'sign-up', component: SharedAuthSignupComponent},
     ],
   },
   {

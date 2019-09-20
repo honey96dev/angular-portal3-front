@@ -1,7 +1,11 @@
 export default {
   app: '/app',
-  auth: '/auth',
+  home: '/home',
   human: '/human',
+  auth: {
+    signIn: '/auth/sign-in',
+    signUp: '/auth/sign-up',
+  },
   conference: {
     main: '/conference',
     previousEvents: '/conference/previous-events',

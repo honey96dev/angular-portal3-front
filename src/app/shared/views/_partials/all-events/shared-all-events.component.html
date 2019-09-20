@@ -13,7 +13,7 @@
   <div class="col-md-12">
 
     <!-- Small news -->
-    <div class="single-news mb-4">
+    <div *ngFor="let item of items; let i = index" class="single-news mb-4">
 
       <!-- Grid row -->
       <div class="row">
@@ -23,7 +23,11 @@
 
           <!--Image-->
           <div class="view overlay rounded z-depth-1 mb-4">
-            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/photo8.jpg" alt="Sample image">
+<!--            <img class="img-fluid" [src]="item.media" alt="Sample image">-->
+            <img *ngIf="item.mime.startsWith('image')" class="img-fluid" [src]="item.media">
+            <video *ngIf="item.mime.startsWith('video')" class="img-fluid" [autoplay]="true" [loop]="true" [muted]="true">
+              <source [src]="item.media" [type]="item.mime" />
+            </video>
             <a>
               <div class="mask rgba-white-slight waves-light" mdbWavesEffect></div>
             </a>
@@ -36,183 +40,11 @@
         <div class="col-md-9">
 
           <!-- Excerpt -->
-          <p class="font-weight-bold dark-grey-text">19/08/2018</p>
+          <p class="dark-grey-text"><span class="font-weight-bold">{{item.type}}</span> - {{item.title}}</p>
+          <p class="dark-grey-text"><span class="font-weight-bold">{{item.name}}</span>, {{item.timestamp}}</p>
           <div class="d-flex justify-content-between">
-            <div class="col-11 text-truncate pl-0 mb-3">
-              <a class="dark-grey-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a>
-            </div>
-<!--            <a>-->
-<!--              <mdb-icon fas icon="angle-double-right"></mdb-icon>-->
-<!--            </a>-->
-          </div>
-
-        </div>
-        <!-- Grid column -->
-
-      </div>
-      <!-- Grid row -->
-
-    </div>
-    <!-- Small news -->
-
-    <!-- Small news -->
-    <div class="single-news mb-4">
-
-      <!-- Grid row -->
-      <div class="row">
-
-        <!-- Grid column -->
-        <div class="col-md-3">
-
-          <!--Image-->
-          <div class="view overlay rounded z-depth-1 mb-4">
-            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/54.jpg" alt="Sample image">
-            <a>
-              <div class="mask rgba-white-slight waves-light" mdbWavesEffect></div>
-            </a>
-          </div>
-
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-9">
-
-          <!-- Excerpt -->
-          <p class="font-weight-bold dark-grey-text">18/08/2018</p>
-          <div class="d-flex justify-content-between">
-            <div class="col-11 text-truncate pl-0 mb-3">
-              <a class="dark-grey-text">Soluta nobis est eligendi optio cumque nihil impedit quo
-                minus</a>
-            </div>
-<!--            <a>-->
-<!--              <mdb-icon fas icon="angle-double-right"></mdb-icon>-->
-<!--            </a>-->
-          </div>
-
-        </div>
-        <!-- Grid column -->
-
-      </div>
-      <!-- Grid row -->
-
-    </div>
-    <!-- Small news -->
-
-    <!-- Small news -->
-    <div class="single-news mb-4">
-
-      <!-- Grid row -->
-      <div class="row">
-
-        <!-- Grid column -->
-        <div class="col-md-3">
-
-          <!--Image-->
-          <div class="view overlay rounded z-depth-1 mb-lg-0 mb-4">
-            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg" alt="Sample image">
-            <a>
-              <div class="mask rgba-white-slight waves-light" mdbWavesEffect></div>
-            </a>
-          </div>
-
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-9">
-
-          <!-- Excerpt -->
-          <p class="font-weight-bold dark-grey-text">17/08/2018</p>
-          <div class="d-flex justify-content-between">
-            <div class="col-11 text-truncate pl-0 mb-lg-0 mb-3">
-              <a class="dark-grey-text">Voluptatem accusantium doloremque</a>
-            </div>
-<!--            <a>-->
-<!--              <mdb-icon fas icon="angle-double-right"></mdb-icon>-->
-<!--            </a>-->
-          </div>
-
-        </div>
-        <!-- Grid column -->
-
-      </div>
-      <!-- Grid row -->
-
-    </div>
-    <!-- Small news -->
-
-    <!-- Small news -->
-    <div class="single-news mb-4">
-
-      <!-- Grid row -->
-      <div class="row">
-
-        <!-- Grid column -->
-        <div class="col-md-3">
-
-          <!--Image-->
-          <div class="view overlay rounded z-depth-1 mb-lg-0 mb-4">
-            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg" alt="Sample image">
-            <a>
-              <div class="mask rgba-white-slight waves-light" mdbWavesEffect></div>
-            </a>
-          </div>
-
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-9">
-
-          <!-- Excerpt -->
-          <p class="font-weight-bold dark-grey-text">17/08/2018</p>
-          <div class="d-flex justify-content-between">
-            <div class="col-11 text-truncate pl-0 mb-lg-0 mb-3">
-              <a class="dark-grey-text">Voluptatem accusantium doloremque</a>
-            </div>
-<!--            <a>-->
-<!--              <mdb-icon fas icon="angle-double-right"></mdb-icon>-->
-<!--            </a>-->
-          </div>
-
-        </div>
-        <!-- Grid column -->
-
-      </div>
-      <!-- Grid row -->
-
-    </div>
-    <!-- Small news -->
-
-    <!-- Small news -->
-    <div class="single-news mb-4">
-
-      <!-- Grid row -->
-      <div class="row">
-
-        <!-- Grid column -->
-        <div class="col-md-3">
-
-          <!--Image-->
-          <div class="view overlay rounded z-depth-1 mb-lg-0 mb-4">
-            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg" alt="Sample image">
-            <a>
-              <div class="mask rgba-white-slight waves-light" mdbWavesEffect></div>
-            </a>
-          </div>
-
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-9">
-
-          <!-- Excerpt -->
-          <p class="font-weight-bold dark-grey-text">17/08/2018</p>
-          <div class="d-flex justify-content-between">
-            <div class="col-11 text-truncate pl-0 mb-lg-0 mb-3">
-              <a class="dark-grey-text">Voluptatem accusantium doloremque</a>
+            <div class="col-11 pl-0 mb-3">
+              <p class="dark-grey-text">{{item.description}}</p>
             </div>
 <!--            <a>-->
 <!--              <mdb-icon fas icon="angle-double-right"></mdb-icon>-->

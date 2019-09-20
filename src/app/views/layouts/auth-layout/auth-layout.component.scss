@@ -1,10 +1,53 @@
-.app {
-  margin: 200px auto;
-  //background: #3b5264;
-  //height: 100px;
+
+html,
+body,
+header,
+.view {
+  min-height: 100vh;
 }
 
-.title {
-  padding: 15px 0 10px 0;
-  text-align: center;
+@media (max-width: 740px) {
+  html,
+  body,
+  header,
+  .view {
+    height: 1100px;
+  }
+}
+@media (min-width: 800px) and (max-width: 850px) {
+  html,
+  body,
+  header,
+  .view {
+    height: 700px;
+  }
+}
+
+.top-nav-collapse {
+  background-color: #39448c !important;
+}
+
+.navbar:not(.top-nav-collapse) {
+  background: transparent !important;
+}
+
+@media (max-width: 991px) {
+  .navbar:not(.top-nav-collapse) {
+    background: #39448c !important;
+  }
+}
+
+h6 {
+  line-height: 1.7;
+}
+
+.mask {
+  overflow-y: auto;
+}
+
+.view {
+  background-image: url('https://mdbootstrap.com/img/Photos/Others/images/89.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }

@@ -8,3 +8,18 @@
   //width: auto;
   height: 200px;
 }
+
+.my-card-body {
+  height: 150px;
+}
+
+@media (min-width: $screen-breakpoint2) {
+  .my-card-image {
+    //width: auto;
+    height: 350px;
+  }
+
+  .my-card-body {
+    height: 200px;
+  }
+}

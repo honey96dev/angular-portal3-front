@@ -27,6 +27,8 @@ export class SharedOurServicesComponent implements OnInit{
   cards: ServiceCard[] = [
   ];
   slides: any = [[]];
+  chunkSize:number = 1;
+
   chunk(arr, chunkSize) {
     let R = [];
     for (let i = 0, len = arr.length; i < len; i += chunkSize) {
@@ -57,14 +59,14 @@ export class SharedOurServicesComponent implements OnInit{
               img: `${environment.assetsBaseUrl}${slide.media}`,
             });
           }
-          this.slides = this.chunk(this.cards, 3);
+          this.slides = this.chunk(this.cards, this.chunkSize);
         } else {
           this.cards = this.defaultSlides;
-          this.slides = this.chunk(this.cards, 3);
+          this.slides = this.chunk(this.cards, this.chunkSize);
         }
       }, error => {
         this.cards = this.defaultSlides;
-        this.slides = this.chunk(this.cards, 3);
+        this.slides = this.chunk(this.cards, this.chunkSize);
       });
   }
 }

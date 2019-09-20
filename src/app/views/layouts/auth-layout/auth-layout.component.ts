@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {GlobalVariableService, TranslationService} from '@app/_services';
+import {Router} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
+import routes from '@core/routes';
 // import {environment} from "@environments/environment";
 // import SocketIOClient from 'socket.io-client';
 
@@ -10,8 +14,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./auth-layout.component.scss']
 })
 export class AuthLayoutComponent implements OnInit {
+  routes = routes;
 
-  constructor() {
+  constructor(private globalVariableService: GlobalVariableService,
+              private router: Router,
+              private translationService: TranslationService,
+              private translate: TranslateService) {
     // authLayout = this;
   }
 
@@ -26,4 +34,11 @@ export class AuthLayoutComponent implements OnInit {
   //   authLayout.ioClient.emit('user-signout');
   // }
 
+
+  onLanguageButtonClicked() {
+    let lang = this.translationService.getSelectedLanguage();
+    lang = lang === 'en' ? 'ar' : 'en';
+    this.translationService.setLanguage(lang);
+    this.globalVariableService.setLanguage(lang);
+  }
 }

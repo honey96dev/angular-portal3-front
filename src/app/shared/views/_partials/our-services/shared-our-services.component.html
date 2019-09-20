@@ -4,22 +4,67 @@
   <mdb-carousel [isControls]="true" class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'"
                 [animation]="'slide'" dir="ltr">
     <mdb-carousel-item *ngFor="let item of slides; let i = index">
-      <div class="col-md-4" [ngClass]="{'d-none d-md-block': cardIndex !== 0}" *ngFor="let card of item; let cardIndex = index">
-        <mdb-card class="my-1 my-card">
-          <div class="view view-cascade overlay waves-light" mdbWavesEffect>
-            <!--            <mdb-card-img src="https://mdbootstrap.com/img/Photos/Others/men.jpg"></mdb-card-img>-->
-            <img [src]="card.img" alt="Card image cap" class="my-card-image round-border-top mx-auto">
+<!--    <mdb-carousel-item *ngFor="let item of slides; let i = index">-->
+<!--      <div class="col-md-4 mx-auto" [ngClass]="{'d-none d-md-block': cardIndex !== 0}" *ngFor="let card of item; let cardIndex = index">-->
+<!--        <mdb-card class="my-1 my-card">-->
+<!--          <div class="view view-cascade overlay waves-light" mdbWavesEffect>-->
+<!--            &lt;!&ndash;            <mdb-card-img src="https://mdbootstrap.com/img/Photos/Others/men.jpg"></mdb-card-img>&ndash;&gt;-->
+<!--            <img [src]="card.img" alt="Card image cap" class="my-card-image round-border-top mx-auto">-->
+<!--            <a>-->
+<!--              <div class="mask rgba-white-slight"></div>-->
+<!--            </a>-->
+<!--          </div>-->
+<!--          <mdb-card-body>-->
+<!--            <mdb-card-title>-->
+<!--              <h4>{{card.title}}</h4>-->
+<!--            </mdb-card-title>-->
+<!--            <mdb-card-text>{{card.description}}</mdb-card-text>-->
+<!--&lt;!&ndash;            <a href="#" mdbBtn color="primary" class="waves-light" mdbWavesEffect>{{card.buttonText}}</a>&ndash;&gt;-->
+<!--          </mdb-card-body>-->
+<!--        </mdb-card>-->
+<!--      </div>-->
+
+      <div class="col-md-12" [ngClass]="{'d-none d-md-block': cardIndex !== 0}" *ngFor="let card of item; let cardIndex = index">
+        <mdb-card cascade="true" wider="true" reverse="true" class="my-4">
+          <!--Card image-->
+          <div class="view view-cascade overlay waves-light my-card-image" mdbWavesEffect>
+            <mdb-card-img [src]="card.img"></mdb-card-img>
             <a>
               <div class="mask rgba-white-slight"></div>
             </a>
           </div>
-          <mdb-card-body>
+          <!--/Card image-->
+
+          <!-- Card content -->
+          <mdb-card-body cascade="true" class="text-center my-card-body">
+
+            <!--Title-->
             <mdb-card-title>
-              <h4>{{card.title}}</h4>
+              <h4>
+                <strong>{{card.title}}</strong>
+              </h4>
             </mdb-card-title>
+
+  <!--          <h5 class="indigo-text">-->
+  <!--            <strong>Photography</strong>-->
+  <!--          </h5>-->
+
             <mdb-card-text>{{card.description}}</mdb-card-text>
-<!--            <a href="#" mdbBtn color="primary" class="waves-light" mdbWavesEffect>{{card.buttonText}}</a>-->
+
+  <!--          &lt;!&ndash;Linkedin&ndash;&gt;-->
+  <!--          <a class="px-2 icons-sm li-ic">-->
+  <!--            <mdb-icon fab icon="linkedin-in"> </mdb-icon>-->
+  <!--          </a>-->
+  <!--          &lt;!&ndash;Twitter&ndash;&gt;-->
+  <!--          <a class="px-2 icons-sm tw-ic">-->
+  <!--            <mdb-icon fab icon="twitter"> </mdb-icon>-->
+  <!--          </a>-->
+  <!--          &lt;!&ndash;Dribbble&ndash;&gt;-->
+  <!--          <a class="px-2 icons-sm fb-ic">-->
+  <!--            <mdb-icon fab icon="facebook-f"> </mdb-icon>-->
+  <!--          </a>-->
           </mdb-card-body>
+
         </mdb-card>
       </div>
     </mdb-carousel-item>

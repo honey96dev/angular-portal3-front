@@ -9,7 +9,7 @@
         <links>
 
           <!-- Links -->
-          <ul mdbScrollSpy="navbarScrollspy" class="navbar-nav mr-auto">
+          <ul mdbScrollSpy="navbarScrollspy" class="navbar-nav" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'mr-auto' : 'ml-auto'">
             <li class="nav-item">
               <a href="#main" mdbPageScroll [pageScrollOffset]="scrollOffset" [pageScrollDuration]="scrollDuration" class="nav-link waves-light" mdbWavesEffect>{{'HUMAN_LAYOUT.MAIN' | translate}}</a>
             </li>

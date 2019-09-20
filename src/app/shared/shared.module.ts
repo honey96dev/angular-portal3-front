@@ -4,19 +4,22 @@ import {MDBBootstrapModulesPro} from 'ng-uikit-pro-standard';
 import {TranslateModule} from '@ngx-translate/core';
 import {StoreModule} from '@ngrx/store';
 import {metaReducers, reducers} from '@core/reducers';
-import {SharedDirectorsBoardComponent} from '@app/shared/views/_partials/directors-board/shared-directors-board.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {RatingModule} from 'ng-starrating';
 import {AlertModalComponent} from '@app/shared/views/_partials/common-dialogs/alert/alert-modal.component';
 import {LayoutFooterComponent} from '@app/views/layouts/_partials/footer/layout-footer.component';
 import {QuestionModalComponent} from '@app/shared/views/_partials/common-dialogs/question/question-modal.component';
+import {SharedAuthSigninComponent} from '@app/shared/views/auth/signin/shared-auth-signin.component';
+import {SharedAuthSignupComponent} from '@app/shared/views/auth/signup/shared-auth-signup.component';
 import {SharedMediaSliderComponent} from '@app/shared/views/_partials/media-slider/shared-media-slider.component';
 import {SharedContactUsComponent} from '@app/shared/views/_partials/contact-us/shared-contact-us.component';
 import {SharedBusinessPartnerComponent} from '@app/shared/views/_partials/business-partner/shared-business-partner.component';
 import {SharedOurClientsComponent} from '@app/shared/views/_partials/our-clients/shared-our-clients.component';
 import {SharedOurServicesComponent} from '@app/shared/views/_partials/our-services/shared-our-services.component';
-import {ReactiveFormsModule} from '@angular/forms';
-import {RatingModule} from 'ng-starrating';
+import {SharedDirectorsBoardComponent} from '@app/shared/views/_partials/directors-board/shared-directors-board.component';
 import {SharedRecentEventsComponent} from '@app/shared/views/_partials/recent-events/shared-recent-events.component';
 import {SharedAllEventsComponent} from '@app/shared/views/_partials/all-events/shared-all-events.component';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   imports: [
@@ -26,12 +29,16 @@ import {SharedAllEventsComponent} from '@app/shared/views/_partials/all-events/s
     TranslateModule.forChild(),
     ReactiveFormsModule,
     RatingModule,
+    RouterModule,
   ],
   declarations: [
     AlertModalComponent,
     QuestionModalComponent,
 
     LayoutFooterComponent,
+
+    SharedAuthSigninComponent,
+    SharedAuthSignupComponent,
 
     SharedMediaSliderComponent,
     SharedOurServicesComponent,
@@ -51,6 +58,9 @@ import {SharedAllEventsComponent} from '@app/shared/views/_partials/all-events/s
     QuestionModalComponent,
 
     LayoutFooterComponent,
+
+    SharedAuthSigninComponent,
+    SharedAuthSignupComponent,
 
     SharedMediaSliderComponent,
     SharedOurServicesComponent,

@@ -5,7 +5,7 @@
       <mdb-navbar-brand><a class="navbar-brand"><img routerLink="/" src="./assets/media/logos/logo-sm.png" (click)="clearSection()"></a>
       </mdb-navbar-brand>
       <links>
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'mr-auto' : 'ml-auto'">
           <li class="nav-item">
             <a class="nav-link waves-light" [routerLink]="routes.business.main"
                mdbWavesEffect>{{'BUSINESS_LAYOUT.MAIN' | translate}}</a>
@@ -27,7 +27,7 @@
                mdbWavesEffect>{{'BUSINESS_LAYOUT.CONTACT_US' | translate}}</a>
           </li>
         </ul>
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'ml-auto' : 'mr-auto'">
           <li class="nav-item">
             <a  class="nav-link waves-light" [routerLink]="routes.business.registrationRequest"
                 mdbWavesEffect>{{'BUSINESS_LAYOUT.REGISTRATION' | translate}}</a>
