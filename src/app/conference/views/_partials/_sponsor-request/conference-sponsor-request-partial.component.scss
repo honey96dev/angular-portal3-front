@@ -5,3 +5,27 @@
     order: -1 !important;
   }
 }
+
+.pricing-card .price .number {
+  font-size: 4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.pricing-card .price .number span {
+  font-size: 1.88rem;
+  margin-top: 3rem;
+}
+
+.pricing-card .price .number:before {
+  content: none;
+}
+
+.pricing-card .price .number:after {
+  content: none;
+}
+
+mdb-card-body p {
+  margin-top: 0;
+  margin-bottom: 0;
+}

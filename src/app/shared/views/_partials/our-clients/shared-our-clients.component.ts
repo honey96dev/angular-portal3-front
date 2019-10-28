@@ -15,6 +15,7 @@ import {environment} from '@environments/environment';
 })
 export class SharedOurClientsComponent implements OnInit{
   @Input() category: string;
+  lang: string = '';
 
   items: Client[] = [];
   defaultItems: Client[] = [
@@ -32,6 +33,7 @@ export class SharedOurClientsComponent implements OnInit{
   }
 
   loadData() {
+    this.lang = this.translate.instant('LANG');
     const {category} = this;
     this.service.list({category}).pipe(first())
       .subscribe(res => {

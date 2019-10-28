@@ -14,7 +14,7 @@ export class AuthenticationService {
   public currentUser: Observable<User>;
 
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem(consts.currentUser)));
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(sessionStorage.getItem(consts.currentUser)));
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
@@ -26,7 +26,7 @@ export class AuthenticationService {
     return this.http.post<any>(`${environment.apiUrl}${apis.auth.signIn}`, params)
       .pipe(map(res => {
         if (res.result == consts.success) {
-          localStorage.setItem(consts.currentUser, JSON.stringify(res.data));
+          sessionStorage.setItem(consts.currentUser, JSON.stringify(res.data));
           this.currentUserSubject.next(res.data);
         }
 
@@ -43,7 +43,7 @@ export class AuthenticationService {
 
   signOut() {
     // remove user from local storage to log user out
-    localStorage.removeItem(consts.currentUser);
+    sessionStorage.removeItem(consts.currentUser);
     this.currentUserSubject.next(null);
   }
 }

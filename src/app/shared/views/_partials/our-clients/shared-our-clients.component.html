@@ -16,20 +16,20 @@
           <!-- Label -->
           <div class="label">
             <img [src]="item.photo"
-                 class="rounded-circle z-depth-1-half">
+                 class="rounded-circle z-depth-1-half my-client-photo">
           </div>
 
           <!-- Excerpt -->
           <div class="excerpt">
             <!-- Brief -->
             <div class="brief">
-              <a class="name">{{item.name}}</a>
+              <a class="name">{{lang === 'en' ? item.nameEn : item.nameAr}}</a>
 <!--              posted on his page-->
               <div class="date">{{item.ago}}</div>
             </div>
             <star-rating [value]="item.stars" checkedcolor="gold" uncheckedcolor="gray" size="24px" readonly="true"></star-rating>
             <!-- Added text -->
-            <div class="added-text">{{item.feedback}}</div>
+            <div class="added-text">{{lang === 'en' ? item.feedbackEn : item.feedbackAr}}</div>
             <!-- Feed footer -->
             <div class="feed-footer">
             </div>

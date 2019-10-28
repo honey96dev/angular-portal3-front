@@ -17,6 +17,7 @@ import consts from '@core/consts';
 export class SharedAllEventsComponent implements OnInit{
   @Input() scope: string;
   @Input() category: string;
+  lang: string = '';
   title: string;
 
   consts = consts;
@@ -25,12 +26,18 @@ export class SharedAllEventsComponent implements OnInit{
   typeClasses = ['green-text', 'pink-text', 'indigo-text'];
   defaultItems: Event[] = [
     {
-      type: '',
+      fake: true,
+      id: 0,
+      typeEn: '',
+      typeAr: '',
       typeClass: this.typeClasses[0],
-      name: this.translate.instant('COMPANY'),
-      title: this.translate.instant('COMMON.NO_DATA'),
-      timestamp: '',
-      description: '',
+      nameEn: this.translate.instant('COMPANY'),
+      nameAr: this.translate.instant('COMPANY'),
+      titleEn: this.translate.instant('COMMON.NO_DATA'),
+      titleAr: this.translate.instant('COMMON.NO_DATA'),
+      timestamp: new Date().toISOString().substr(0, 10),
+      descriptionEn: '',
+      descriptionAr: '',
       media: `${environment.assetsBaseUrl}/images/welcome.jpg`,
       mime: 'image/jpeg',
     }
@@ -43,6 +50,7 @@ export class SharedAllEventsComponent implements OnInit{
   }
 
   ngOnInit() {
+    this.lang = this.translate.instant('LANG');
     const {scope} = this;
     if (scope === consts.previous) {
       this.title = this.translate.instant('SHARED_EVENTS.PREVIOUS_EVENTS');
@@ -59,22 +67,26 @@ export class SharedAllEventsComponent implements OnInit{
     this.service.list({scope, category, limit}).pipe(first())
       .subscribe(res => {
         if (res.result === consts.success && res.data.length > 0) {
-          this.items = [];
+          // this.items = [];
           let extension;
           let i = 0, cnt = this.typeClasses.length;
           for (let slide of res.data) {
             extension = '.' + slide.media.split('.').pop();
-            this.items.push({
-              type: slide.type,
-              typeClass: this.typeClasses[i++ % cnt],
-              name: slide.name,
-              timestamp: slide.timestamp,
-              title: slide.name,
-              description: slide.description,
-              media: `${environment.assetsBaseUrl}${slide.media}`,
-              mime: ext2mime[extension],
-            });
+            // this.items.push({
+            //   type: slide.type,
+            //   typeClass: this.typeClasses[i++ % cnt],
+            //   name: slide.name,
+            //   timestamp: slide.timestamp,
+            //   title: slide.name,
+            //   description: slide.description,
+            //   media: `${environment.assetsBaseUrl}${slide.media}`,
+            //   mime: ext2mime[extension],
+            // });
+            slide['typeClass'] = this.typeClasses[i++ % cnt];
+            slide['media'] = `${environment.assetsBaseUrl}${slide.media}`;
+            slide['mime'] = ext2mime[extension];
           }
+          this.items = res.data;
           this.items.splice(0, consts.eventsCount.recent);
         } else {
           this.items = this.defaultItems;

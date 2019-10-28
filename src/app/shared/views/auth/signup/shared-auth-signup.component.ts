@@ -71,6 +71,7 @@ export class SharedAuthSignupComponent implements OnInit {
       lastName: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       password2: ['', [Validators.required, Validators.minLength(6)]],
+      company: ['', [Validators.required]],
       position: ['', [Validators.required]],
       country: ['', [Validators.required]],
       city: ['', [Validators.required]],
@@ -90,6 +91,7 @@ export class SharedAuthSignupComponent implements OnInit {
       this.f.lastName.patchValue('Jin');
       this.f.password.patchValue('123456');
       this.f.password2.patchValue('123456');
+      this.f.company.patchValue('Wangzi');
       this.f.position.patchValue('Xin\'an');
       // this.f.country.patchValue('China');
       this.f.city.patchValue('Hunchun');
@@ -105,7 +107,6 @@ export class SharedAuthSignupComponent implements OnInit {
       });
     });
     this.countries = temp;
-    console.log(this.countries);
   }
 
   get f() {
@@ -169,15 +170,13 @@ export class SharedAuthSignupComponent implements OnInit {
             message: message,
           };
         }
-      }
-      , error => {
+      }, error => {
         this.loading = false;
         this.alert = {
           show: true,
           type: 'alert-danger',
           message: this.translate.instant('COMMON.UNKNOWN_SERVER_ERROR'),
         };
-      }
-      );
+      });
   }
 }

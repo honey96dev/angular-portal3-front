@@ -3,141 +3,189 @@
   <!-- Section heading -->
   <h2 class="h1-responsive font-weight-bold text-center my-5">{{'CONFERENCE_SPONSOR_REQUEST.PRICING_PLAN' | translate}}</h2>
   <!--Section description-->
-  <p class="grey-text mb-5 mt-5 px-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error
-    amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a
-    pariatur accusamus veniam.</p>
+  <p class="grey-text mb-5 mt-5 px-3">{{'CONFERENCE_SPONSOR_REQUEST.DESCRIPTION_MSG' | translate}}</p>
 
   <!--Grid row-->
   <div class="row">
+
     <!--Grid column-->
-    <div class="col-lg-4 col-md-12 mb-4">
-
-      <!-- Card -->
-      <div class="card card-image"
-           style="background-image: url('https://mdbootstrap.com/img/Photos/Others/pricing-table%20(6).jpg');">
-
-        <!--Pricing card-->
-        <div class="text-white text-center pricing-card d-flex align-items-center rgba-stylish-strong py-3 px-3">
-
-          <!--Content-->
-          <div class="card-body">
-            <h5>Basic</h5>
-            <!--Price-->
-            <div class="price pt-0">
-              <h1>10</h1>
-            </div>
-            <!--Price-->
-            <ul class="striped">
-              <li>
-                <p><strong>1</strong> project</p>
-              </li>
-              <li>
-                <p><strong>100</strong> components</p>
-              </li>
-              <li>
-                <p><strong>150</strong> features</p>
-              </li>
-              <li>
-                <p><strong>200</strong> members</p>
-              </li>
-              <li>
-                <p><strong>250</strong> messages</p>
-              </li>
-            </ul>
-            <a mdbBtn mdbWavesEffect color="white" outline="true">{{'CONFERENCE_SPONSOR_REQUEST.BUY_NOW' | translate}}</a>
+    <div class="col-lg-4 col-md-6 mb-4">
+      <!--Pricing card-->
+      <mdb-card class="pricing-card">
+        <!--Price-->
+        <div class="price header deep-purple  text-white">
+          <h2 class="number">{{'CONFERENCE_SPONSOR_REQUEST.PARTNER_SPONSOR.PRICE' | translate}}<span>{{'CONFERENCE_SPONSOR_REQUEST.PARTNER_SPONSOR.UNIT' | translate}}</span></h2>
+          <div class="version">
+            <h5>{{'CONFERENCE_SPONSOR_REQUEST.PARTNER_SPONSOR.TITLE' | translate}}</h5>
           </div>
-
         </div>
-        <!--Pricing card-->
-      </div>
+        <!--Price-->
+
+        <!--Features-->
+        <mdb-card-body class="striped">
+          <button mdbBtn color="deep-purple" class="waves-light" mdbWavesEffect>{{'COMMON.SUBSCRIBE' | translate}}</button>
+          <ul class="mt-3" [class.text-align-left]="('DIRECTION' | translate) === 'ltr'" [class.text-align-right]="('DIRECTION' | translate) === 'rtl'">
+            <li>
+              <p class="mt-1">
+                <mdb-icon fas [icon]="('DIRECTION' | translate) === 'ltr' ? 'angle-right' : 'angle-left'" class="green-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.PARTNER_SPONSOR.P1' | translate}}</p>
+            </li>
+            <li>
+              <p>
+                <mdb-icon fas [icon]="('DIRECTION' | translate) === 'ltr' ? 'angle-right' : 'angle-left'" class="green-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.PARTNER_SPONSOR.P2' | translate}}</p>
+            </li>
+            <li>
+              <p>
+                <mdb-icon fas [icon]="('DIRECTION' | translate) === 'ltr' ? 'angle-right' : 'angle-left'" class="green-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.PARTNER_SPONSOR.P3' | translate}}</p>
+            </li>
+            <li>
+              <p>
+                <mdb-icon fas [icon]="('DIRECTION' | translate) === 'ltr' ? 'angle-right' : 'angle-left'" class="green-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.PARTNER_SPONSOR.P4' | translate}}</p>
+            </li>
+            <li>
+              <p>
+                <mdb-icon fas [icon]="('DIRECTION' | translate) === 'ltr' ? 'angle-right' : 'angle-left'" class="green-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.PARTNER_SPONSOR.P5' | translate}}</p>
+            </li>
+            <li>
+              <p>
+                <mdb-icon fas icon="magic" class="orange-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.PARTNER_SPONSOR.S1' | translate}}</p>
+            </li>
+            <li>
+              <p>
+                <mdb-icon fas icon="magic" class="orange-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.PARTNER_SPONSOR.S2' | translate}}</p>
+            </li>
+            <li>
+              <p>
+                <mdb-icon fas icon="magic" class="orange-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.PARTNER_SPONSOR.S3' | translate}}</p>
+            </li>
+            <li>
+              <p>
+                <mdb-icon fas icon="magic" class="orange-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.PARTNER_SPONSOR.S4' | translate}}</p>
+            </li>
+            <li>
+              <p>
+                <mdb-icon fas icon="magic" class="orange-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.PARTNER_SPONSOR.S5' | translate}}</p>
+            </li>
+            <li>
+              <p>
+                <mdb-icon fas icon="magic" class="orange-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.PARTNER_SPONSOR.S6' | translate}}</p>
+            </li>
+            <li>
+              <p>
+                <mdb-icon fas icon="magic" class="orange-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.PARTNER_SPONSOR.S7' | translate}}</p>
+            </li>
+            <li>
+              <p>
+                <mdb-icon fas icon="magic" class="orange-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.PARTNER_SPONSOR.S8' | translate}}</p>
+            </li>
+          </ul>
+
+        </mdb-card-body>
+        <!--Features-->
+
+      </mdb-card>
+      <!--Pricing card-->
+    </div>
+    <!--Grid column-->
+
+    <!--Grid column-->
+    <div class="col-lg-4 col-md-6 mb-4">
+
+      <!--Pricing card-->
+      <mdb-card class="pricing-card">
+        <!--Price-->
+        <div class="price header indigo  text-white">
+          <h2 class="number">{{'CONFERENCE_SPONSOR_REQUEST.GOLDEN_SPONSOR.PRICE' | translate}}<span>{{'CONFERENCE_SPONSOR_REQUEST.GOLDEN_SPONSOR.UNIT' | translate}}</span></h2>
+          <div class="version">
+            <h5>{{'CONFERENCE_SPONSOR_REQUEST.GOLDEN_SPONSOR.TITLE' | translate}}</h5>
+          </div>
+        </div>
+        <!--Price-->
+
+        <!--Features-->
+        <mdb-card-body class="striped">
+          <button mdbBtn color="indigo" class="waves-light" mdbWavesEffect>{{'COMMON.SUBSCRIBE' | translate}}</button>
+
+          <ul class="mt-3" [class.text-align-left]="('DIRECTION' | translate) === 'ltr'" [class.text-align-right]="('DIRECTION' | translate) === 'rtl'">
+            <li>
+              <p class="mt-1">
+                <mdb-icon fas [icon]="('DIRECTION' | translate) === 'ltr' ? 'angle-right' : 'angle-left'" class="green-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.GOLDEN_SPONSOR.P1' | translate}}</p>
+            </li>
+            <li>
+              <p>
+                <mdb-icon fas [icon]="('DIRECTION' | translate) === 'ltr' ? 'angle-right' : 'angle-left'" class="green-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.GOLDEN_SPONSOR.P2' | translate}}</p>
+            </li>
+            <li>
+              <p>
+                <mdb-icon fas [icon]="('DIRECTION' | translate) === 'ltr' ? 'angle-right' : 'angle-left'" class="green-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.GOLDEN_SPONSOR.P3' | translate}}</p>
+            </li>
+            <li>
+              <p>
+                <mdb-icon fas [icon]="('DIRECTION' | translate) === 'ltr' ? 'angle-right' : 'angle-left'" class="green-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.GOLDEN_SPONSOR.P4' | translate}}</p>
+            </li>
+            <li>
+              <p>
+                <mdb-icon fas icon="magic" class="orange-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.GOLDEN_SPONSOR.S1' | translate}}</p>
+            </li>
+            <li>
+              <p>
+                <mdb-icon fas icon="magic" class="orange-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.GOLDEN_SPONSOR.S2' | translate}}</p>
+            </li>
+            <li>
+              <p>
+                <mdb-icon fas icon="magic" class="orange-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.GOLDEN_SPONSOR.S3' | translate}}</p>
+            </li>
+          </ul>
+        </mdb-card-body>
+        <!--Features-->
+
+      </mdb-card>
+      <!--Pricing card-->
+
     </div>
     <!--Grid column-->
 
     <!--Grid column-->
     <div class="col-lg-4 col-md-12 mb-4">
 
-      <!-- Card -->
-      <div class="card card-image"
-           style="background-image: url('https://mdbootstrap.com/img/Photos/Others/pricing-table%20(4).jpg');">
-
-        <!--Pricing card-->
-        <div class="text-white text-center pricing-card d-flex align-items-center rgba-indigo-strong py-3 px-3">
-
-          <!--Content-->
-          <div class="card-body">
-            <h5>Pro</h5>
-            <!--Price-->
-            <div class="price pt-0">
-              <h1>20</h1>
-            </div>
-            <!--Price-->
-            <ul class="striped">
-              <li>
-                <p><strong>3</strong> project</p>
-              </li>
-              <li>
-                <p><strong>200</strong> components</p>
-              </li>
-              <li>
-                <p><strong>250</strong> features</p>
-              </li>
-              <li>
-                <p><strong>300</strong> members</p>
-              </li>
-              <li>
-                <p><strong>350</strong> messages</p>
-              </li>
-            </ul>
-            <a mdbBtn mdbWavesEffect color="white" outline="true">{{'CONFERENCE_SPONSOR_REQUEST.BUY_NOW' | translate}}</a>
+      <!--Pricing card-->
+      <mdb-card class="pricing-card">
+        <!--Price-->
+        <div class="price header blue text-white">
+          <h2 class="number">{{'CONFERENCE_SPONSOR_REQUEST.SILVER_SPONSOR.PRICE' | translate}}<span>{{'CONFERENCE_SPONSOR_REQUEST.SILVER_SPONSOR.UNIT' | translate}}</span></h2>
+          <div class="version">
+            <h5>{{'CONFERENCE_SPONSOR_REQUEST.SILVER_SPONSOR.TITLE' | translate}}</h5>
           </div>
-
         </div>
-        <!--Pricing card-->
-      </div>
-    </div>
-    <!--Grid column-->
+        <!--Price-->
 
-    <!--Grid column-->
-    <div class="col-lg-4 col-md-12 mb-4">
+        <!--Features-->
+        <mdb-card-body class="striped">
+          <button mdbBtn color="blue" class="waves-light" mdbWavesEffect>{{'COMMON.SUBSCRIBE' | translate}}</button>
 
-      <!-- Card -->
-      <div class="card card-image"
-           style="background-image: url('https://mdbootstrap.com/img/Photos/Others/pricing-table%20(6).jpg');">
+          <ul class="mt-3" [class.text-align-left]="('DIRECTION' | translate) === 'ltr'" [class.text-align-right]="('DIRECTION' | translate) === 'rtl'">
+            <li>
+              <p class="mt-1">
+                <mdb-icon fas [icon]="('DIRECTION' | translate) === 'ltr' ? 'angle-right' : 'angle-left'" class="green-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.SILVER_SPONSOR.P1' | translate}}</p>
+            </li>
+            <li>
+              <p>
+                <mdb-icon fas [icon]="('DIRECTION' | translate) === 'ltr' ? 'angle-right' : 'angle-left'" class="green-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.SILVER_SPONSOR.P2' | translate}}</p>
+            </li>
+            <li>
+              <p>
+                <mdb-icon fas [icon]="('DIRECTION' | translate) === 'ltr' ? 'angle-right' : 'angle-left'" class="green-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.SILVER_SPONSOR.P3' | translate}}</p>
+            </li>
+            <li>
+              <p>
+                <mdb-icon fas icon="magic" class="orange-text" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'pr-2' : 'pl-2'"></mdb-icon>{{'CONFERENCE_SPONSOR_REQUEST.SILVER_SPONSOR.S1' | translate}}</p>
+            </li>
+          </ul>
+        </mdb-card-body>
+        <!--Features-->
 
-        <!--Pricing card-->
-        <div class="text-white text-center pricing-card d-flex align-items-center rgba-stylish-strong py-3 px-3">
+      </mdb-card>
+      <!--Pricing card-->
 
-          <!--Content-->
-          <div class="card-body">
-            <h5>Enterprise</h5>
-            <!--Price-->
-            <div class="price pt-0">
-              <h1>30</h1>
-            </div>
-            <!--Price-->
-            <ul class="striped">
-              <li>
-                <p><strong>5</strong> project</p>
-              </li>
-              <li>
-                <p><strong>300</strong> components</p>
-              </li>
-              <li>
-                <p><strong>350</strong> features</p>
-              </li>
-              <li>
-                <p><strong>400</strong> members</p>
-              </li>
-              <li>
-                <p><strong>450</strong> messages</p>
-              </li>
-            </ul>
-            <a mdbBtn mdbWavesEffect color="white" outline="true">{{'CONFERENCE_SPONSOR_REQUEST.BUY_NOW' | translate}}</a>
-          </div>
-
-        </div>
-        <!--Pricing card-->
-      </div>
     </div>
     <!--Grid column-->
 

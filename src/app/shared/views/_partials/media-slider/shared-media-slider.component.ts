@@ -16,13 +16,17 @@ import ext2mime from '@core/ext2mime.json';
 })
 export class SharedMediaSliderComponent implements OnInit{
   @Input() category: string;
+  lang: string = '';
 
   slides: Slide[] = [];
   defaultSlides: Slide[] = [
     {
-      name: 'Welcome',
-      title: 'Welcome',
-      description: 'Welcome to Elite Resource Center',
+      nameEn: 'Welcome',
+      nameAr: 'أهلا بك',
+      titleEn: 'Welcome',
+      titleAr: 'أهلا بك',
+      descriptionEn: 'Welcome to Elite Resource Center',
+      descriptionAr: 'مرحبًا بكم في مركز موارد النخبة',
       media: `${environment.assetsBaseUrl}/images/welcome.jpg`,
       mime: 'image/jpeg',
     }
@@ -35,6 +39,7 @@ export class SharedMediaSliderComponent implements OnInit{
   }
 
   ngOnInit() {
+    this.lang = this.translate.instant('LANG');
     this.loadData();
   }
 
@@ -44,18 +49,20 @@ export class SharedMediaSliderComponent implements OnInit{
     this.service.list({category}).pipe(first())
       .subscribe(res => {
         if (res.result === consts.success && res.data.length > 0) {
-          this.slides = [];
           let extension;
           for (let slide of res.data) {
-            extension = '.' + slide.media.split('.').pop();
-            this.slides.push({
-              name: slide['name'],
-              title: slide.name,
-              description: slide.description,
-              media: `${environment.assetsBaseUrl}${slide.media}`,
-              mime: ext2mime[extension],
-            });
+            extension = '.' + slide['media'].split('.').pop();
+            // this.slides.push({
+            //   name: slide['name'],
+            //   title: slide.name,
+            //   description: slide.description,
+            //   media: `${environment.assetsBaseUrl}${slide.media}`,
+            //   mime: ext2mime[extension],
+            // });
+            slide['media'] = `${environment.assetsBaseUrl}${slide.media}`;
+            slide['mime'] = ext2mime[extension];
           }
+          this.slides = res.data;
         } else {
           this.slides = this.defaultSlides;
         }

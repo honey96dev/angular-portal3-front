@@ -13,11 +13,12 @@
               <div class="mask rgba-white-slight"></div>
             </a>
           </div>
-          <mdb-card-body>
-            <mdb-card-title>
-              <h4>{{card.title}}</h4>
+          <mdb-card-body [class.text-align-right]="('DIRECTION' | translate) === 'rtl'">
+            <mdb-card-title class="text-align-center">
+              <h4>{{lang === 'en' ? card.nameEn : card.nameAr}}</h4>
             </mdb-card-title>
-            <mdb-card-text>{{card.description}}</mdb-card-text>
+            <h5>{{lang === 'en' ? card.titleEn : card.titleAr}}</h5>
+            <p class="my-card-text">{{lang === 'en' ? card.descriptionEn : card.descriptionAr}}</p>
             <!--            <a href="#" mdbBtn color="primary" class="waves-light" mdbWavesEffect>{{card.buttonText}}</a>-->
           </mdb-card-body>
         </mdb-card>

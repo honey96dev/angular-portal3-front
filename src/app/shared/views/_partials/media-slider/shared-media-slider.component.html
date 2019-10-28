@@ -1,4 +1,5 @@
 <section class="full-width">
+  <p class="text-center w-responsive mx-auto my-5">{{'SHARED_MEDIA_SLIDER.DESCRIPTION_MSG' | translate}}</p>
   <mdb-carousel class="carousel slide carousel-slide" [animation]="'slide'">
     <mdb-carousel-item *ngFor="let item of slides; let i=index" class="media-slider-item">
       <div class="view w-100">
@@ -9,8 +10,8 @@
         <div class="rgba-black-light waves-light" mdbWavesEffect></div>
       </div>
       <div class="carousel-caption">
-        <h3 class="h3-responsive">{{item.title}}</h3>
-        <p>{{item.description}}</p>
+<!--        <h3 class="h3-responsive">{{lang === 'en' ? item.titleEn: item.titleAr}}</h3>-->
+<!--        <p>{{lang === 'en' ? item.descriptionEn: item.descriptionAr}}</p>-->
       </div>
     </mdb-carousel-item>
 <!--    <mdb-carousel-item>-->

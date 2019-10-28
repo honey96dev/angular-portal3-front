@@ -24,6 +24,8 @@ const apis = {
     },
     events: {
       list: 'events/list',
+      get: 'events/get',
+      join: 'events/join',
     },
   },
 };

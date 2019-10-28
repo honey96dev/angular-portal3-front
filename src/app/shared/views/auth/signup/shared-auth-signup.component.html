@@ -47,6 +47,11 @@
         <mdb-error *ngIf="f.password2.errors && !f.password2.errors.required && !f.password2.errors.minlength && !f.password2.errors.validateEqual && (f.password2.dirty || f.password2.touched)" [translate]="'COMMON.MAKE_SURE_SAME_TO'" [translateParams]="{field: 'SIGNIN.PASSWORD' | translate}"></mdb-error>
       </div>
       <div class="md-form">
+        <input type="text" id="company" class="form-control" mdbInput mdbValidate formControlName="company" [readOnly]="loading">
+        <label for="company">{{'SIGNIN.COMPANY' | translate}}</label>
+        <mdb-error *ngIf="f.company.errors && f.company.errors.required && (f.company.dirty || f.company.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.COMPANY' | translate}"></mdb-error>
+      </div>
+      <div class="md-form">
         <input type="text" id="position" class="form-control" mdbInput mdbValidate formControlName="position" [readOnly]="loading">
         <label for="position">{{'SIGNIN.POSITION' | translate}}</label>
         <mdb-error *ngIf="f.position.errors && f.position.errors.required && (f.position.dirty || f.position.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.POSITION' | translate}"></mdb-error>
@@ -54,8 +59,8 @@
       <div class="md-form">
         <input type="text" id="country" class="form-control" mdbInput mdbValidate formControlName="country" [readOnly]="loading" [mdbAutoCompleter]="country" autocomplete="na">
         <label for="country">{{'SIGNIN.COUNTRY' | translate}}</label>
-        <mdb-auto-completer [displayValue]="onDisplayValue" #country="mdbAutoCompleter" [textNoResults]="'COMMON.NO_DATA' | translate">
-          <mdb-option *ngFor="let country of countriesData | async" [value]="country">
+        <mdb-auto-completer #country="mdbAutoCompleter" [textNoResults]="'COMMON.NO_DATA' | translate">
+          <mdb-option *ngFor="let country of countriesData | async" [value]="country.name">
             {{ country.name }}
           </mdb-option>
         </mdb-auto-completer>
@@ -68,7 +73,7 @@
       </div>
       <div class="md-form">
         <input type="text" id="phone" class="form-control" mdbInput mdbValidate formControlName="phone" [readOnly]="loading">
-        <label for="phone">{{'SIGNIN.LAST_NAME' | translate}}</label>
+        <label for="phone">{{'SIGNIN.PHONE' | translate}}</label>
         <mdb-error *ngIf="f.phone.errors && f.phone.errors.required && (f.phone.dirty || f.phone.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.PHONE' | translate}"></mdb-error>
       </div>
       <div class="text-center mt-3">

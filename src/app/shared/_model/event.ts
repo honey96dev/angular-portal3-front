@@ -1,10 +1,16 @@
 export class Event {
-  type: string;
+  fake: boolean = false;
+  id: number;
+  typeEn: string;
+  typeAr: string;
   typeClass: string;
-  name: string;
+  nameEn: string;
+  nameAr: string;
   timestamp: string;
-  title: string;
-  description: string;
+  titleEn: string;
+  titleAr: string;
+  descriptionEn: string;
+  descriptionAr: string;
   media: string;
   mime: string;
 }

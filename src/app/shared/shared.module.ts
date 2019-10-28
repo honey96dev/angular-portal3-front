@@ -6,6 +6,7 @@ import {StoreModule} from '@ngrx/store';
 import {metaReducers, reducers} from '@core/reducers';
 import {ReactiveFormsModule} from '@angular/forms';
 import {RatingModule} from 'ng-starrating';
+import {RouterModule} from '@angular/router';
 import {AlertModalComponent} from '@app/shared/views/_partials/common-dialogs/alert/alert-modal.component';
 import {LayoutFooterComponent} from '@app/views/layouts/_partials/footer/layout-footer.component';
 import {QuestionModalComponent} from '@app/shared/views/_partials/common-dialogs/question/question-modal.component';
@@ -18,8 +19,10 @@ import {SharedOurClientsComponent} from '@app/shared/views/_partials/our-clients
 import {SharedOurServicesComponent} from '@app/shared/views/_partials/our-services/shared-our-services.component';
 import {SharedDirectorsBoardComponent} from '@app/shared/views/_partials/directors-board/shared-directors-board.component';
 import {SharedRecentEventsComponent} from '@app/shared/views/_partials/recent-events/shared-recent-events.component';
+import {SharedRecentEventsItemComponent} from '@app/shared/views/_partials/recent-events/shared-recent-events-item.component';
 import {SharedAllEventsComponent} from '@app/shared/views/_partials/all-events/shared-all-events.component';
-import {RouterModule} from '@angular/router';
+import {SharedAllEventsItemComponent} from '@app/shared/views/_partials/all-events/shared-all-events-item.component';
+import {SharedEventJoinComponent} from '@app/shared/views/_partials/event-join/shared-event-join.component';
 
 @NgModule({
   imports: [
@@ -47,7 +50,10 @@ import {RouterModule} from '@angular/router';
     SharedOurClientsComponent,
     SharedDirectorsBoardComponent,
     SharedRecentEventsComponent,
+    SharedRecentEventsItemComponent,
     SharedAllEventsComponent,
+    SharedAllEventsItemComponent,
+    SharedEventJoinComponent,
   ],
   exports: [
     MDBBootstrapModulesPro,
@@ -70,6 +76,7 @@ import {RouterModule} from '@angular/router';
     SharedDirectorsBoardComponent,
     SharedRecentEventsComponent,
     SharedAllEventsComponent,
+    SharedEventJoinComponent,
   ]
 })
 export class SharedModule { }

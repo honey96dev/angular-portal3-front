@@ -1,6 +1,7 @@
 <section class="screen-breakpoint margin-auto-x my-5">
 
   <h2 class="h1-responsive font-weight-bold text-center my-5">{{'HUMAN_LAYOUT.OUR_SERVICES' | translate}}</h2>
+  <p class="text-center w-responsive mx-auto mb-5">{{'SHARED_OUR_SERVICES.DESCRIPTION_MSG' | translate}}</p>
   <mdb-carousel [isControls]="true" class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'"
                 [animation]="'slide'" dir="ltr">
     <mdb-carousel-item *ngFor="let item of slides; let i = index">
@@ -41,7 +42,7 @@
             <!--Title-->
             <mdb-card-title>
               <h4>
-                <strong>{{card.title}}</strong>
+                <strong>{{lang === 'en' ? card.titleEn : card.titleAr}}</strong>
               </h4>
             </mdb-card-title>
 
@@ -49,7 +50,7 @@
   <!--            <strong>Photography</strong>-->
   <!--          </h5>-->
 
-            <mdb-card-text>{{card.description}}</mdb-card-text>
+            <mdb-card-text>{{lang === 'en' ? card.descriptionEn : card.descriptionAr}}</mdb-card-text>
 
   <!--          &lt;!&ndash;Linkedin&ndash;&gt;-->
   <!--          <a class="px-2 icons-sm li-ic">-->

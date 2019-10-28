@@ -1,0 +1,45 @@
+<div class="row">
+
+  <!-- Grid column -->
+  <div class="col-md-5" [class.big-post-image]="bigPostImage">
+    <!-- Featured image -->
+    <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4 waves-light" mdbWavesEffect>
+      <!--          <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/img%20(27).jpg" alt="Sample image">-->
+      <img *ngIf="data.mime.startsWith('image')" class="img-fluid full-width" [src]="data.media">
+      <video *ngIf="data.mime.startsWith('video')" class="video-fluid full-width" [autoplay]="true" [loop]="true" [muted]="true">
+        <source [src]="data.media" [type]="data.mime" />
+      </video>
+      <a>
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+
+  </div>
+  <!-- Grid column -->
+
+  <!-- Grid column -->
+  <div class="col-md-7" [class.text-align-right]="('DIRECTION' | translate) === 'rtl'">
+
+    <!-- Category -->
+    <a href="#!" [class]="data.typeClass">
+      <h6 class="font-weight-bold mb-3">
+        <!--            <mdb-icon fas icon="utensils" class="pr-2"></mdb-icon>-->
+        {{lang === 'en' ? data.typeEn : data.typeAr}}
+      </h6>
+    </a>
+    <!-- Post title -->
+    <h3 class="h4-responsive font-weight-bold mb-3"><strong>{{lang === 'en' ? data.titleEn : data.titleAr}}</strong></h3>
+    <!-- Excerpt -->
+    <p *ngIf="!showMore" class="mb-0">{{lang === 'en' ? shortDescriptionEn : shortDescriptionAr}}</p>
+    <p *ngIf="showMore" class="mb-0">{{lang === 'en' ? data.descriptionEn : data.descriptionAr}}</p>
+    <a *ngIf="minified" (click)="toggleShowMore()">{{(showMore ? 'COMMON.SHOW_LESS' : 'COMMON.SHOW_MORE') | translate}}</a>
+    <!-- Post data -->
+    <p class="mt-2"><a><strong>{{lang === 'en' ? data.nameEn : data.nameAr}}</strong></a>, {{data.timestamp}}</p>
+    <!-- Read more button -->
+    <!--        <a mdbBtn color="success" mdbWavesEffect class="mb-lg-0 mb-4">Read more</a>-->
+
+    <a *ngIf="scope == 'upcoming' && !data.fake" [routerLink]="[routes.conference.eventJoin, data.id]" mdbBtn mdbWavesEffect color="success" (click)="setEditableRow()">{{'COMMON.JOIN' | translate}}</a>
+  </div>
+  <!-- Grid column -->
+
+</div>

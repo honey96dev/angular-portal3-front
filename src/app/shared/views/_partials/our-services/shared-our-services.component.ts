@@ -16,11 +16,15 @@ import ext2mime from '@core/ext2mime.json';
 })
 export class SharedOurServicesComponent implements OnInit{
   @Input() category: string;
+  lang: string = '';
   defaultSlides: ServiceCard[] = [
     {
-      name: 'Welcome',
-      title: 'Welcome',
-      description: 'Welcome to Elite Resource Center',
+      nameEn: 'Welcome',
+      nameAr: 'أهلا بك',
+      titleEn: 'Welcome',
+      titleAr: 'أهلا بك',
+      descriptionEn: 'Welcome to Elite Resource Center',
+      descriptionAr: 'مرحبًا بكم في مركز موارد النخبة',
       img: `${environment.assetsBaseUrl}/images/welcome.jpg`,
     }
   ];
@@ -44,21 +48,24 @@ export class SharedOurServicesComponent implements OnInit{
   }
 
   ngOnInit() {
+    this.lang = this.translate.instant('LANG');
     const {category} = this;
     this.service.list({category}).pipe(first())
       .subscribe(res => {
         if (res.result === consts.success && res.data.length > 0) {
-          this.cards = [];
           let extension;
           for (let slide of res.data) {
             extension = '.' + slide.media.split('.').pop();
-            this.cards.push({
-              name: slide['name'],
-              title: slide.name,
-              description: slide.description,
-              img: `${environment.assetsBaseUrl}${slide.media}`,
-            });
+            // this.cards.push({
+            //   name: slide['name'],
+            //   title: slide.name,
+            //   description: slide.description,
+            //   img: `${environment.assetsBaseUrl}${slide.media}`,
+            // });
+            slide['img'] = `${environment.assetsBaseUrl}${slide.media}`;
+            slide['mime'] = ext2mime[extension];
           }
+          this.cards = res.data;
           this.slides = this.chunk(this.cards, this.chunkSize);
         } else {
           this.cards = this.defaultSlides;

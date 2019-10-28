@@ -15,24 +15,24 @@
           </div>
           <mdb-card-body>
             <h4 class="card-title text-align-center">
-              <strong>{{card.name}}</strong>
+              <strong>{{lang === 'en' ? card.nameEn : card.nameAr}}</strong>
             </h4>
-            <h5 class="text-align-center">{{card.title}}</h5>
-            <p class="card-text">{{card.description}}</p>
+            <h5 class="text-align-center">{{lang === 'en' ? card.titleEn : card.titleAr}}</h5>
+            <p class="card-text" [class.text-align-right]="('DIRECTION' | translate) === 'rtl'">{{lang === 'en' ? card.descriptionEn : card.descriptionAr}}</p>
             <!--            <a href="#" mdbBtn color="primary" class="waves-light" mdbWavesEffect>{{card.buttonText}}</a>-->
 
-            <div class="text-align-center">
+            <div class="text-align-center social-sec">
               <!--Facebook-->
               <a *ngIf="!!card.social1 && card.social1.length > 0" [href]="card.social1" target="_blank" type="button" mdbBtn floating="true" size="sm" color="fb" class="waves-light" mdbWavesEffect>
-                <mdb-icon fab icon="facebook-f"></mdb-icon>
+                <mdb-icon fas icon="link"></mdb-icon>
               </a>
               <!--Twitter-->
               <a *ngIf="!!card.social2 && card.social2.length > 0" [href]="card.social2" target="_blank" type="button" mdbBtn floating="true" size="sm" color="tw" class="waves-light" mdbWavesEffect>
-                <mdb-icon fab icon="twitter"></mdb-icon>
+                <mdb-icon fas icon="link"></mdb-icon>
               </a>
               <!--Google +-->
               <a *ngIf="!!card.social3 && card.social3.length > 0" [href]="card.social3" target="_blank" type="button" mdbBtn floating="true" size="sm" color="dribbble" class="waves-light" mdbWavesEffect>
-                <mdb-icon fab icon="dribbble"></mdb-icon>
+                <mdb-icon fas icon="link"></mdb-icon>
               </a>
             </div>
           </mdb-card-body>

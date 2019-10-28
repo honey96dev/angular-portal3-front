@@ -1,17 +1,12 @@
 export class User {
   id: number;
-  number: number;
-  username: string;
-  password: string;
+  email: string;
   firstName: string;
   lastName: string;
-  email: string;
-  type: string;
-  role: string;
-  status?: string;
-  token?: string;
-  apiKey?: {
-    apiKey: string;
-    apiKeySecret: string;
-  };
+  company: string;
+  position: string;
+  country: string;
+  city: string;
+  phone: string;
+  token: string;
 }

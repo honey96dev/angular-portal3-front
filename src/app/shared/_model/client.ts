@@ -1,10 +1,13 @@
 export class Client {
   timestamp: string;
   ago: string;
-  name: string;
+  nameEn: string;
+  nameAr: string;
   photo: string;
   stars: number;
-  title: string;
-  feedback: string;
+  titleEn: string;
+  titleAr: string;
+  feedbackEn: string;
+  feedbackAr: string;
   files: string;
 }

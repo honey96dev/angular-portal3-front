@@ -1,7 +1,10 @@
 export class PartnerCard {
-  name: string;
-  title: string;
-  description: string;
+  nameEn: string;
+  nameAr: string;
+  titleEn: string;
+  titleAr: string;
+  descriptionEn: string;
+  descriptionAr: string;
   img: string;
   social1?: string;
   social2?: string;

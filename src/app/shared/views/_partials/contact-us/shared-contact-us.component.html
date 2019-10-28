@@ -3,9 +3,7 @@
     <!-- Section heading -->
     <h2 class="h1-responsive font-weight-bold text-center my-5">{{'HUMAN_LAYOUT.CONTACT_US' | translate}}</h2>
     <!-- Section description -->
-    <p class="text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam
-      eum porro a pariatur veniam.</p>
+    <p class="text-center w-responsive mx-auto mb-5">{{'SHARED_CONTACT_US.DESCRIPTION_MSG' | translate}}</p>
 
     <!-- Grid row -->
 <!--  <div class="col-md-7">-->
@@ -97,17 +95,31 @@
       <div class="col-md-4 text-center">
         <ul class="list-unstyled mb-0">
           <li>
-            <mdb-icon fas icon="map-marked" size="2x" class="blue-text"></mdb-icon>
-            <p>San Francisco, CA 94126, USA</p>
+            <a href="https://goo.gl/maps/YjPvDCapoVavyHpY6" target="_blank">
+              <mdb-icon fas icon="map-marked-alt" size="2x" class="mt-2 blue-text"></mdb-icon>
+              <p class="foreground-text">{{'SHARED_CONTACT_US.ADDRESS_VALUE' | translate}}</p>
+            </a>
           </li>
           <li>
-            <mdb-icon fas icon="phone" size="2x" class="mt-4 blue-text"></mdb-icon>
-            <p>+ 01 234 567 89</p>
+            <mdb-icon fas icon="mobile-alt" size="2x" class="mt-3 blue-text"></mdb-icon>
+            <p dir="ltr">+966566655007</p>
           </li>
           <li>
-            <mdb-icon fas icon="envelope" size="2x" class="mt-4 blue-text"></mdb-icon>
-            <p class="mb-0">contact@example.com</p>
+            <mdb-icon fas icon="phone" size="2x" class="mt-3 blue-text"></mdb-icon>
+            <p>0112304705</p>
           </li>
+          <li>
+            <a [href]="'mailto:' + ('SHARED_CONTACT_US.MAIL_VALUE' | translate)">
+              <mdb-icon fas icon="envelope" size="2x" class="mt-3 blue-text"></mdb-icon>
+              <p class="mb-0 foreground-text">{{'SHARED_CONTACT_US.MAIL_VALUE' | translate}}</p>
+            </a>
+          </li>
+<!--          <li>-->
+<!--            <a href="https://goo.gl/maps/YjPvDCapoVavyHpY6" target="_blank">-->
+<!--              <mdb-icon fas icon="map-marked-alt" size="2x" class="mt-2 blue-text"></mdb-icon>-->
+<!--              <p class="mb-0 foreground-text">bd@eliteresources.co</p>-->
+<!--            </a>-->
+<!--          </li>-->
         </ul>
         <div class="text-align-center mt-4">
           <!--        <a type="button" href="https://www.facebook.com/saudi.hrc/" target="_blank" mdbBtn floating="true" size="sm" color="fb" class="waves-light mx-1" mdbWavesEffect>-->

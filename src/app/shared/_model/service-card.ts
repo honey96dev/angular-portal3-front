@@ -1,6 +1,9 @@
 export class ServiceCard {
-  name: string;
-  title: string;
-  description: string;
+  nameEn: string;
+  nameAr: string;
+  titleEn: string;
+  titleAr: string;
+  descriptionEn: string;
+  descriptionAr: string;
   img: string;
 }
