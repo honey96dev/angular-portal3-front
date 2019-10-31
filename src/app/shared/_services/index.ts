@@ -7,3 +7,4 @@ export * from './mail-chimp.service';
 export * from './media-slider-data.service';
 export * from './our-clients-data.service';
 export * from './our-services-data.service';
+export * from './training-data.service';

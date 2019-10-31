@@ -138,16 +138,19 @@ export class SharedAuthSignupComponent implements OnInit {
     const firstName = this.f.firstName.value;
     const lastName = this.f.lastName.value;
     const password = this.f.password.value;
+    const company = this.f.company.value;
     const position = this.f.position.value;
     const country = this.f.country.value;
     const city = this.f.city.value;
     const phone = this.f.phone.value;
+    window.scrollTo(window.scrollX, 0);
 
     this.authService.signUp({
       email,
       firstName,
       lastName,
       password,
+      company,
       position,
       country,
       city,

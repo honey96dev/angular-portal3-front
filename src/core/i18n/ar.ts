@@ -240,12 +240,11 @@ export const locale = {
     },
     BUSINESS_LAYOUT: {
       MAIN: 'الأساسية',
-      OUR_SERVICES: 'خدماتنا',
-      SIGN_IN: 'تسجيل الدخول',
-      OUR_BUSINESS_PARTNER: 'شريك أعمالنا',
-      OUR_CLIENTS: 'عملائنا',
+      ANNUAL_UPCOMING: 'الدورات التدريبية السنوية المقررة لعام %d',
+      MOST_UPCOMING: 'معظم الدورات القادمة',
+      PREVIOUS: 'الدورات السابقة',
       CONTACT_US: 'اتصل بنا',
-      REGISTRATION: 'التسجيل',
+      BOARD_OF_DIRECTORS: 'المجلس الاستشاري',
     },
   },
 };

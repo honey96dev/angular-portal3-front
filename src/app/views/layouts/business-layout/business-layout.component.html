@@ -10,23 +10,27 @@
             <a class="nav-link waves-light" [routerLink]="routes.business.main"
                mdbWavesEffect>{{'BUSINESS_LAYOUT.MAIN' | translate}}</a>
           </li>
-<!--          <li class="nav-item">-->
-<!--            <a class="nav-link waves-light" [routerLink]="routes.business.ourServices"-->
-<!--               mdbWavesEffect>{{'BUSINESS_LAYOUT.OUR_SERVICES' | translate}}</a>-->
-<!--          </li>-->
-<!--          <li class="nav-item">-->
-<!--            <a class="nav-link waves-light" [routerLink]="routes.business.businessPartner"-->
-<!--               mdbWavesEffect>{{'BUSINESS_LAYOUT.OUR_BUSINESS_PARTNER' | translate}}</a>-->
-<!--          </li>-->
-<!--          <li class="nav-item">-->
-<!--            <a  class="nav-link waves-light" [routerLink]="routes.business.ourClients"-->
-<!--               mdbWavesEffect>{{'BUSINESS_LAYOUT.OUR_CLIENTS' | translate}}</a>-->
-<!--          </li>-->
-<!--          <li class="nav-item">-->
-<!--            <a  class="nav-link waves-light" [routerLink]="routes.business.contactUs"-->
-<!--               mdbWavesEffect>{{'BUSINESS_LAYOUT.CONTACT_US' | translate}}</a>-->
-<!--          </li>-->
-<!--        </ul>-->
+          <li class="nav-item">
+            <a class="nav-link waves-light" [routerLink]="routes.business.annualUpcoming"
+               mdbWavesEffect>{{annualUpcoming}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" [routerLink]="routes.business.mostUpcoming"
+               mdbWavesEffect>{{'BUSINESS_LAYOUT.MOST_UPCOMING' | translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link waves-light" [routerLink]="routes.business.previous"
+               mdbWavesEffect>{{'BUSINESS_LAYOUT.PREVIOUS' | translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link waves-light" [routerLink]="routes.business.contactUs"
+               mdbWavesEffect>{{'BUSINESS_LAYOUT.CONTACT_US' | translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link waves-light" [routerLink]="routes.business.directorBoard"
+               mdbWavesEffect>{{'BUSINESS_LAYOUT.BOARD_OF_DIRECTORS' | translate}}</a>
+          </li>
+        </ul>
 <!--        <ul class="navbar-nav" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'ml-auto' : 'mr-auto'">-->
 <!--          <li class="nav-item">-->
 <!--            <a  class="nav-link waves-light" [routerLink]="routes.business.registrationRequest"-->
@@ -37,28 +41,7 @@
 <!--               mdbWavesEffect>{{'BUSINESS_LAYOUT.SIGN_IN' | translate}}</a>-->
 <!--          </li>-->
 
-<!--&lt;!&ndash;        <ul mdbScrollSpy="navbarScrollspy" class="navbar-nav mr-auto">&ndash;&gt;-->
-<!--&lt;!&ndash;          <li class="nav-item">&ndash;&gt;-->
-<!--&lt;!&ndash;            <a [ngx-scroll-to]="'main'" [ngx-scroll-to-offset]="scrollOffset" class="nav-link waves-light"&ndash;&gt;-->
-<!--&lt;!&ndash;               mdbWavesEffect>{{'CONFERENCE_LAYOUT.MAIN' | translate}}</a>&ndash;&gt;-->
-<!--&lt;!&ndash;          </li>&ndash;&gt;-->
-<!--&lt;!&ndash;          <li class="nav-item">&ndash;&gt;-->
-<!--&lt;!&ndash;            <a [ngx-scroll-to]="'ourService'" [ngx-scroll-to-offset]="scrollOffset" class="nav-link waves-light"&ndash;&gt;-->
-<!--&lt;!&ndash;               mdbWavesEffect>{{'CONFERENCE_LAYOUT.PREVIOUS_EVENTS' | translate}}</a>&ndash;&gt;-->
-<!--&lt;!&ndash;          </li>&ndash;&gt;-->
-<!--&lt;!&ndash;          <li class="nav-item">&ndash;&gt;-->
-<!--&lt;!&ndash;            <a [ngx-scroll-to]="'contactUs'" [ngx-scroll-to-offset]="scrollOffset" class="nav-link waves-light"&ndash;&gt;-->
-<!--&lt;!&ndash;               mdbWavesEffect>{{'CONFERENCE_LAYOUT.UPCOMING_EVENTS' | translate}}</a>&ndash;&gt;-->
-<!--&lt;!&ndash;          </li>&ndash;&gt;-->
-<!--&lt;!&ndash;          <li class="nav-item">&ndash;&gt;-->
-<!--&lt;!&ndash;            <a [ngx-scroll-to]="'businessPartner'" [ngx-scroll-to-offset]="scrollOffset" class="nav-link waves-light"&ndash;&gt;-->
-<!--&lt;!&ndash;               mdbWavesEffect>{{'CONFERENCE_LAYOUT.REGISTER' | translate}}</a>&ndash;&gt;-->
-<!--&lt;!&ndash;          </li>&ndash;&gt;-->
-<!--&lt;!&ndash;          <li class="nav-item">&ndash;&gt;-->
-<!--&lt;!&ndash;            <a [ngx-scroll-to]="'ourClients'" [ngx-scroll-to-offset]="scrollOffset" class="nav-link waves-light"&ndash;&gt;-->
-<!--&lt;!&ndash;               mdbWavesEffect>{{'CONFERENCE_LAYOUT.SPONSOR_REQUEST4COMPANIES' | translate}}</a>&ndash;&gt;-->
-<!--&lt;!&ndash;          </li>&ndash;&gt;-->
-        </ul>
+<!--        </ul>-->
       </links>
     </mdb-navbar>
     <router-outlet></router-outlet>

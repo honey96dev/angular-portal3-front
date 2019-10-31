@@ -3,6 +3,12 @@ const apis = {
     signIn: 'auth/sign-in',
     signUp: 'auth/sign-up',
   },
+  date: {
+    today: 'date/today',
+    year: 'date/year',
+    month: 'date/month',
+    date: 'date/date',
+  },
   common: {
     mediaSlider: {
       list: 'media-slider/list',
@@ -26,6 +32,9 @@ const apis = {
       list: 'events/list',
       get: 'events/get',
       join: 'events/join',
+    },
+    training: {
+      annualUpcomingYear: 'training/annual-upcoming-year',
     },
   },
 };

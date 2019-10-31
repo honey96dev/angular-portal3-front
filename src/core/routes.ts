@@ -18,11 +18,10 @@ export default {
   },
   business: {
     main: '/business',
-    ourServices: '/business/our-services',
-    signIn: '/business/sign-in',
-    businessPartner: '/business/business-partner',
-    ourClients: '/business/our-clients',
+    annualUpcoming: '/business/annual-upcoming',
+    mostUpcoming: '/business/most-upcoming',
+    previous: '/business/previous',
     contactUs: '/business/contact-us',
-    registrationRequest: '/business/registration',
+    directorBoard: '/business/director-board',
   },
 };

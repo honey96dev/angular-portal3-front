@@ -240,12 +240,11 @@ export const locale = {
     },
     BUSINESS_LAYOUT: {
       MAIN: 'Main',
-      OUR_SERVICES: 'Our Services',
-      SIGN_IN: 'Sign In',
-      OUR_BUSINESS_PARTNER: 'Our Business Partner',
-      OUR_CLIENTS: 'Our Clients',
+      ANNUAL_UPCOMING: 'Annual Courses scheduled for %d',
+      MOST_UPCOMING: 'Most Upcoming Courses',
+      PREVIOUS: 'Previous Courses',
       CONTACT_US: 'Contact Us',
-      REGISTRATION: 'Registration',
+      BOARD_OF_DIRECTORS: 'Board of Consultancy',
     },
   },
 };

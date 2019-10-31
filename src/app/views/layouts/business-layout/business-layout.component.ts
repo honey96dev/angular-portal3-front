@@ -1,9 +1,12 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {AuthenticationService, GlobalVariableService, TranslationService} from '@app/_services';
+import {Component, OnInit} from '@angular/core';
+import {GlobalVariableService, TranslationService} from '@app/_services';
 import {Router} from '@angular/router';
-import {MDBModalService} from 'ng-uikit-pro-standard';
 import {TranslateService} from '@ngx-translate/core';
 import routes from '@core/routes';
+import {sprintf} from 'sprintf-js';
+import {first} from 'rxjs/operators';
+import consts from '@core/consts';
+import {TrainingDataService} from '@app/shared/_services';
 
 // let authLayout;
 
@@ -15,21 +18,27 @@ import routes from '@core/routes';
 export class BusinessLayoutComponent implements OnInit {
   routes = routes;
   language: string;
-  scrollDuration: number = 650;
-  scrollEasing: string = 'easeInQuad';
-  scrollOffset: number = -66;
-
-  @ViewChild('sidenav', {static: true}) public sidenav: any;
+  annualUpcoming: string = '';
 
   constructor(private globalVariableService: GlobalVariableService,
               private router: Router,
               private translationService: TranslationService,
-              private translate: TranslateService) {
+              private translate: TranslateService,
+              private trainingService: TrainingDataService) {
     // authLayout = this;
   }
 
   ngOnInit() {
-
+    this.trainingService.annualUpcomingYear({}).pipe(first())
+      .subscribe(res => {
+        if (res.result === consts.success) {
+          this.annualUpcoming = sprintf(this.translate.instant('BUSINESS_LAYOUT.ANNUAL_UPCOMING'), res.data);
+        } else {
+          this.annualUpcoming = '';
+        }
+      }, error => {
+        this.annualUpcoming = '';
+      });
   }
 
   onLanguageButtonClicked() {

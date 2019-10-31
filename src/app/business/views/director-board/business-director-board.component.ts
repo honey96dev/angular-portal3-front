@@ -6,11 +6,11 @@ import {GlobalVariableService} from '@app/_services';
 import consts from '@core/consts';
 
 @Component({
-  selector: 'app-business-front',
-  templateUrl: './business-front.component.html',
-  styleUrls: ['./business-front.component.scss']
+  selector: 'app-business-director-board',
+  templateUrl: './business-director-board.component.html',
+  styleUrls: ['./business-director-board.component.scss']
 })
-export class BusinessFrontComponent implements OnInit{
+export class BusinessDirectorBoardComponent implements OnInit{
   consts = consts;
 
   constructor(private router: Router,
@@ -20,10 +20,10 @@ export class BusinessFrontComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.title.setTitle(this.translate.instant('HOME_FRONT.TITLE') + ' - ' + this.translate.instant('SITE_NAME'));
+    this.title.setTitle(this.translate.instant('HOME_FRONT.CONFERENCE') + ' - ' + this.translate.instant('SITE_NAME'));
     this.globalVariableService.getLanguage()
       .subscribe(data => {
-        this.title.setTitle(this.translate.instant('HOME_FRONT.TITLE') + ' - ' + this.translate.instant('SITE_NAME'));
+        this.title.setTitle(this.translate.instant('HOME_FRONT.CONFERENCE') + ' - ' + this.translate.instant('SITE_NAME'));
       });
   }
 }
