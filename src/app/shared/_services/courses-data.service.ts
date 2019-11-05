@@ -6,7 +6,7 @@ import {environment} from '@environments/environment';
 import {apis} from '@core/apis';
 
 @Injectable({providedIn: 'root'})
-export class EventsDataService {
+export class CoursesDataService {
   defaultRow: any;
 
   editableRow: any;
@@ -15,21 +15,14 @@ export class EventsDataService {
   }
 
   list(params) {
-    return this.http.post<any>(`${environment.apiUrl}${apis.common.events.list}`, params)
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.courses.list}`, params)
       .pipe(map(res => {
         return res;
       }));
   }
 
   get(params) {
-    return this.http.post<any>(`${environment.apiUrl}${apis.common.events.get}`, params)
-      .pipe(map(res => {
-        return res;
-      }));
-  }
-
-  join(params) {
-    return this.http.post<any>(`${environment.apiUrl}${apis.common.events.join}`, params)
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.courses.get}`, params)
       .pipe(map(res => {
         return res;
       }));

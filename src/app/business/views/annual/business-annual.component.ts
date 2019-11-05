@@ -6,11 +6,11 @@ import {GlobalVariableService} from '@app/_services';
 import consts from '@core/consts';
 
 @Component({
-  selector: 'app-business-front',
-  templateUrl: './business-front.component.html',
-  styleUrls: ['./business-front.component.scss']
+  selector: 'app-business-annual',
+  templateUrl: './business-annual.component.html',
+  styleUrls: ['./business-annual.component.scss']
 })
-export class BusinessFrontComponent implements OnInit{
+export class BusinessAnnualComponent implements OnInit{
   consts = consts;
 
   constructor(private router: Router,

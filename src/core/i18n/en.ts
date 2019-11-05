@@ -51,6 +51,7 @@ export const locale = {
       SHOW_MORE: '(Show more)',
       SHOW_LESS: '(Show less)',
       JOIN: 'Join',
+      DETAILS: 'Details',
     },
     SIGNIN: {
       SIGNIN: 'Sign in',
@@ -238,9 +239,15 @@ export const locale = {
         S1: 'Allocate 10 VIP invitations to visit the Forum',
       },
     },
+    SHARED_COURSE_DETAILS: {
+      COURSE_DETAILS: 'Course Details',
+      DATE: 'Date',
+      ABOUT_COURSE: 'About Course',
+      INSTRUCTORS: 'Instructors',
+    },
     BUSINESS_LAYOUT: {
       MAIN: 'Main',
-      ANNUAL_UPCOMING: 'Annual Courses scheduled for %d',
+      ANNUAL_UPCOMING: 'Annual Courses scheduled for {{year}}',
       MOST_UPCOMING: 'Most Upcoming Courses',
       PREVIOUS: 'Previous Courses',
       CONTACT_US: 'Contact Us',

@@ -11,7 +11,7 @@ export class DirectorBoardDataService {
   }
 
   list(params) {
-    return this.http.post<any>(`${environment.assetsApiBaseUrl}${apis.common.directorBoard.list}`, params)
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.directorBoard.list}`, params)
       .pipe(map(res => {
         return res;
       }));

@@ -9,6 +9,7 @@ export default {
   business: 'business',
   upcoming: 'upcoming',
   previous: 'previous',
+  annual: 'annual',
   socialLinks: {
     twitter: 'https://twitter.com/elite_resources',
     youtube: 'https://www.youtube.com/channel/UCQdmdXSNkSJoZOwimDxz61g',
@@ -19,5 +20,14 @@ export default {
   eventsCount: {
     recent: 3,
     normal: 50,
+  },
+  coursesCount: {
+    recent: 3,
+    normal: 50,
+  },
+  offset: {
+    p1: 10,
+    n1: -10,
+    n2: -100,
   },
 }

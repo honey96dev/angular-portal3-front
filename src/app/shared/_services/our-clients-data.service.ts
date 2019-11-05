@@ -11,7 +11,7 @@ export class OurClientsDataService {
   }
 
   list(params) {
-    return this.http.post<any>(`${environment.assetsApiBaseUrl}${apis.common.ourClients.list}`, params)
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.ourClients.list}`, params)
       .pipe(map(res => {
         return res;
       }));

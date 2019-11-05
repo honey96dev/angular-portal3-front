@@ -11,7 +11,7 @@ export class MediaSliderDataService {
   }
 
   list(params) {
-    return this.http.post<any>(`${environment.assetsApiBaseUrl}${apis.common.mediaSlider.list}`, params)
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.mediaSlider.list}`, params)
       .pipe(map(res => {
         return res;
       }));

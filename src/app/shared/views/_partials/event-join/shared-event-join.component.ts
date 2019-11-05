@@ -12,6 +12,7 @@ import {MDBModalRef, MDBModalService} from 'ng-uikit-pro-standard';
 import {environment} from '@environments/environment';
 import ext2mime from '@core/ext2mime.json';
 import {User} from '@app/_models';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-shared-event-join',
@@ -45,15 +46,28 @@ export class SharedEventJoinComponent implements OnInit{
               private authService: AuthenticationService,
               private route: ActivatedRoute,
               private modalService: MDBModalService,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              private location: Location) {
   }
 
   ngOnInit() {
     this.lang = this.translate.instant('LANG');
+    this.form = this.formBuilder.group({
+      firstName: new FormControl('', [Validators.required]),
+      lastName: new FormControl('', [Validators.required]),
+      country: new FormControl('', [Validators.required]),
+      city: new FormControl('', [Validators.required]),
+      company: new FormControl('', [Validators.required]),
+      jobTitle: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required]),
+      phone: new FormControl('', [Validators.required]),
+    });
+
+    this.user = this.authService.currentUserValue;
+    this.data = this.service.editableRowValue();
     this.route.paramMap.subscribe(map => {
       this.id = map.get('id');
     });
-    this.data = this.service.editableRowValue();
     if (!this.data) {
       this.service.get({scope: this.scope, id: this.id}).pipe(first())
         .subscribe(res => {
@@ -68,17 +82,6 @@ export class SharedEventJoinComponent implements OnInit{
           }
         });
     }
-    this.user = this.authService.currentUserValue;
-    this.form = this.formBuilder.group({
-      firstName: new FormControl('', [Validators.required]),
-      lastName: new FormControl('', [Validators.required]),
-      country: new FormControl('', [Validators.required]),
-      city: new FormControl('', [Validators.required]),
-      company: new FormControl('', [Validators.required]),
-      jobTitle: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
-      phone: new FormControl('', [Validators.required]),
-    });
     this.f.firstName.patchValue(this.user.firstName);
     this.f.lastName.patchValue(this.user.lastName);
     this.f.country.patchValue(this.user.country);
@@ -134,5 +137,9 @@ export class SharedEventJoinComponent implements OnInit{
 
   closeAlert() {
     this.alert.show = false;
+  }
+
+  goBack(params) {
+    this.location.back();
   }
 }

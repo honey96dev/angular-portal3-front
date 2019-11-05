@@ -11,7 +11,7 @@ export class BusinessPartnerDataService {
   }
 
   list(params) {
-    return this.http.post<any>(`${environment.assetsApiBaseUrl}${apis.common.businessPartner.list}`, params)
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.businessPartner.list}`, params)
       .pipe(map(res => {
         return res;
       }));

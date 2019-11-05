@@ -11,7 +11,7 @@ export class OurServicesDataService {
   }
 
   list(params) {
-    return this.http.post<any>(`${environment.assetsApiBaseUrl}${apis.common.ourServices.list}`, params)
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.ourServices.list}`, params)
       .pipe(map(res => {
         return res;
       }));

@@ -2,21 +2,20 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 import {GlobalVariableService} from '@app/_services';
-import {EventsDataService} from '@app/shared/_services';
-import {Event} from '@app/shared/_model';
+import {CoursesDataService, TrainingDataService} from '@app/shared/_services';
+import {Course, Event} from '@app/shared/_model';
 import {environment} from '@environments/environment';
 import {first} from 'rxjs/operators';
-import ext2mime from '@core/ext2mime.json';
 import consts from '@core/consts';
+import ext2mime from '@core/ext2mime.json';
 
 @Component({
-  selector: 'app-shared-all-events',
-  templateUrl: './shared-all-events.component.html',
-  styleUrls: ['./shared-all-events.component.scss']
+  selector: 'app-shared-courses',
+  templateUrl: './shared-courses.component.html',
+  styleUrls: ['./shared-courses.component.scss']
 })
-export class SharedAllEventsComponent implements OnInit{
+export class SharedCoursesComponent implements OnInit{
   @Input() scope: string;
-  @Input() category: string;
   lang: string = '';
   title: string;
 
@@ -24,7 +23,7 @@ export class SharedAllEventsComponent implements OnInit{
 
   items: Event[] = [];
   typeClasses = ['green-text', 'pink-text', 'indigo-text'];
-  defaultItems: Event[] = [
+  defaultItems: Course[] = [
     {
       fake: true,
       id: 0,
@@ -33,9 +32,11 @@ export class SharedAllEventsComponent implements OnInit{
       typeClass: this.typeClasses[0],
       nameEn: this.translate.instant('COMPANY'),
       nameAr: this.translate.instant('COMPANY'),
+      timestamp: new Date().toISOString().substr(0, 10),
       titleEn: this.translate.instant('COMMON.NO_DATA'),
       titleAr: this.translate.instant('COMMON.NO_DATA'),
-      timestamp: new Date().toISOString().substr(0, 10),
+      summaryEn: '',
+      summaryAr: '',
       descriptionEn: '',
       descriptionAr: '',
       media: `${environment.assetsBaseUrl}/images/welcome.jpg`,
@@ -46,25 +47,37 @@ export class SharedAllEventsComponent implements OnInit{
   constructor(private router: Router,
               private globalVariableService: GlobalVariableService,
               private translate: TranslateService,
-              private service: EventsDataService) {
+              private service: CoursesDataService,
+              private trainingService: TrainingDataService) {
   }
 
   ngOnInit() {
     this.lang = this.translate.instant('LANG');
     const {scope} = this;
     if (scope === consts.previous) {
-      this.title = this.translate.instant('SHARED_EVENTS.PREVIOUS_EVENTS');
+      this.title = this.translate.instant('BUSINESS_LAYOUT.PREVIOUS');
     } else if (scope === consts.upcoming) {
-      this.title = this.translate.instant('SHARED_EVENTS.UPCOMING_EVENTS');
+      this.title = this.translate.instant('BUSINESS_LAYOUT.MOST_UPCOMING');
+    } else {
+      this.trainingService.annualUpcomingYear({}).pipe(first())
+        .subscribe(res => {
+          if (res.result === consts.success) {
+            this.title = this.translate.instant('BUSINESS_LAYOUT.ANNUAL_UPCOMING', {year: res.data});
+          } else {
+            this.title = '';
+          }
+        }, error => {
+          this.title = '';
+        });
     }
     this.loadData();
   }
 
   loadData() {
     // console.log(this.category);
-    const {scope, category} = this;
-    const limit = consts.eventsCount.normal;
-    this.service.list({scope, category, limit}).pipe(first())
+    const {scope} = this;
+    const limit = scope === 'upcoming' ? consts.coursesCount.recent : consts.coursesCount.normal;
+    this.service.list({scope, limit}).pipe(first())
       .subscribe(res => {
         if (res.result === consts.success && res.data.length > 0) {
           // this.items = [];
@@ -86,8 +99,7 @@ export class SharedAllEventsComponent implements OnInit{
             slide['media'] = `${environment.assetsBaseUrl}${slide.media}`;
             slide['mime'] = ext2mime[extension];
           }
-
-          this.items = res.data.slice(consts.eventsCount.recent);
+          this.items = res.data;
         } else {
           this.items = this.defaultItems;
         }

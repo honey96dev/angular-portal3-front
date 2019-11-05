@@ -23,6 +23,9 @@ import {SharedRecentEventsItemComponent} from '@app/shared/views/_partials/recen
 import {SharedAllEventsComponent} from '@app/shared/views/_partials/all-events/shared-all-events.component';
 import {SharedAllEventsItemComponent} from '@app/shared/views/_partials/all-events/shared-all-events-item.component';
 import {SharedEventJoinComponent} from '@app/shared/views/_partials/event-join/shared-event-join.component';
+import {SharedCoursesComponent} from '@app/shared/views/_partials/courses/shared-courses.component';
+import {SharedCoursesItemComponent} from '@app/shared/views/_partials/courses/shared-courses-item.component';
+import {SharedCourseDetailsComponent} from '@app/shared/views/_partials/courses/shared-course-details.component';
 
 @NgModule({
   imports: [
@@ -54,6 +57,9 @@ import {SharedEventJoinComponent} from '@app/shared/views/_partials/event-join/s
     SharedAllEventsComponent,
     SharedAllEventsItemComponent,
     SharedEventJoinComponent,
+    SharedCoursesComponent,
+    SharedCoursesItemComponent,
+    SharedCourseDetailsComponent,
   ],
   exports: [
     MDBBootstrapModulesPro,
@@ -77,6 +83,9 @@ import {SharedEventJoinComponent} from '@app/shared/views/_partials/event-join/s
     SharedRecentEventsComponent,
     SharedAllEventsComponent,
     SharedEventJoinComponent,
+    SharedCoursesComponent,
+    SharedCoursesItemComponent,
+    SharedCourseDetailsComponent,
   ]
 })
 export class SharedModule { }

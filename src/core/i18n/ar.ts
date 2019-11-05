@@ -51,6 +51,7 @@ export const locale = {
       SHOW_MORE: '(أظهر المزيد)',
       SHOW_LESS: '(عرض أقل)',
       JOIN: 'انضم',
+      DETAILS: 'تفاصيل',
     },
     SIGNIN: {
       SIGNIN: 'تسجيل الدخول',
@@ -237,6 +238,12 @@ export const locale = {
         P3: 'الشعار على اللوحات',
         S1: 'تخصيص 10 دعوات لكبار الشخصيات لزيارة المنتدى',
       },
+    },
+    SHARED_COURSE_DETAILS: {
+      COURSE_DETAILS: 'تفاصيل الدورة',
+      DATE: 'تاريخ',
+      ABOUT_COURSE: 'حول الدورة',
+      INSTRUCTORS: 'المدربين',
     },
     BUSINESS_LAYOUT: {
       MAIN: 'الأساسية',

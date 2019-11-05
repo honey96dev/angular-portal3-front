@@ -6,8 +6,8 @@
     <!--Image-->
     <div class="view overlay rounded z-depth-1 mb-4">
       <!--            <img class="img-fluid" [src]="data.media" alt="Sample image">-->
-      <img *ngIf="data.mime.startsWith('image')" class="img-fluid full-width" [src]="data.media">
-      <video *ngIf="data.mime.startsWith('video')" class="video-fluid full-width" [autoplay]="true" [loop]="true" [muted]="true">
+      <img *ngIf="!!data.mime && data.mime.startsWith('image')" class="img-fluid full-width" [src]="data.media">
+      <video *ngIf="!!data.mime && data.mime.startsWith('video')" class="video-fluid full-width" [autoplay]="true" [loop]="true" [muted]="true">
         <source [src]="data.media" [type]="data.mime" />
       </video>
       <a>
@@ -28,12 +28,13 @@
       <div class="col-11 pl-0 mb-3">
         <p *ngIf="!showMore" class="dark-grey-text mb-0">{{lang === 'en' ? shortDescriptionEn : shortDescriptionAr}}</p>
         <p *ngIf="showMore" class="dark-grey-text mb-0">{{lang === 'en' ? data.descriptionEn : data.descriptionAr}}</p>
-        <a (click)="toggleShowMore()">{{(showMore ? 'COMMON.SHOW_LESS' : 'COMMON.SHOW_MORE') | translate}}</a>
+        <a *ngIf="minified" (click)="toggleShowMore()">{{(showMore ? 'COMMON.SHOW_LESS' : 'COMMON.SHOW_MORE') | translate}}</a>
       </div>
       <!--            <a>-->
       <!--              <mdb-icon fas icon="angle-double-right"></mdb-icon>-->
       <!--            </a>-->
     </div>
+    <a *ngIf="scope == 'upcoming' && !data.fake" [routerLink]="[routes.conference.eventJoin, data.id]" mdbBtn mdbWavesEffect color="indigo" size="sm" (click)="setEditableRow()">{{'COMMON.JOIN' | translate}}</a>
 
   </div>
   <!-- Grid column -->

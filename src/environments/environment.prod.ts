@@ -2,10 +2,10 @@ export const environment = {
   production: true,
   // apiUrl: 'http://localhost:800/api/',
   // socketIOUrl: 'http://localhost:800',
-  apiUrl: 'http://eliteresources.co/api/',
-  assetsApiBaseUrl: 'http://eliteresources.co/assets-api/',
-  assetsBaseUrl: 'http://eliteresources.co/assets',
-  socketIOUrl: 'http://eliteresources.co',
+  apiUrl: 'https://eliteresources.co/api/',
+  assetsApiBaseUrl: 'https://eliteresources.co/assets-api/',
+  assetsBaseUrl: 'https://eliteresources.co/assets',
+  socketIOUrl: 'https://eliteresources.co',
 
   pingTimeoutDelay: 30 * 1000,
 };

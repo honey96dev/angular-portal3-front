@@ -32,6 +32,8 @@ export class SharedMediaSliderComponent implements OnInit{
     }
   ];
 
+  title: string= '';
+
   constructor(private router: Router,
               private globalVariableService: GlobalVariableService,
               private translate: TranslateService,
@@ -40,6 +42,16 @@ export class SharedMediaSliderComponent implements OnInit{
 
   ngOnInit() {
     this.lang = this.translate.instant('LANG');
+
+    const {category} = this;
+    if (category === consts.human) {
+      this.title = this.translate.instant('HOME_FRONT.HUMAN_CAPITAL');
+    } else if (category === consts.conference) {
+      this.title = this.translate.instant('HOME_FRONT.CONFERENCE');
+    } else {
+      this.title = this.translate.instant('HOME_FRONT.BUSINESS_SOLUTION');
+    }
+
     this.loadData();
   }
 

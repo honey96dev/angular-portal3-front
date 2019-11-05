@@ -36,6 +36,11 @@ const apis = {
     training: {
       annualUpcomingYear: 'training/annual-upcoming-year',
     },
+    courses: {
+      list: 'courses/list',
+      get: 'courses/get',
+      join: 'courses/join',
+    },
   },
 };
 
