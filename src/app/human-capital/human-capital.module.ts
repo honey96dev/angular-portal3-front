@@ -1,9 +1,10 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {SharedModule} from '@app/shared/shared.module';
 import {HumanCapitalRoutingModule} from '@app/human-capital/human-capital-routing.module';
 import {HumanLayoutComponent} from '@app/views/layouts/human-layout/human-layout.component';
 import {HumanFrontComponent} from '@app/human-capital/views/front/human-front.component';
-import {SharedModule} from '@app/shared/shared.module';
+import {HumanMyaccountComponent} from '@app/human-capital/views/myaccount/human-myaccount.component';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import {SharedModule} from '@app/shared/shared.module';
     HumanFrontComponent,
     HumanLayoutComponent,
     HumanFrontComponent,
+    HumanMyaccountComponent,
   ],
   imports: [
     CommonModule,

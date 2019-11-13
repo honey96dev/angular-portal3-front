@@ -9,8 +9,10 @@ import {ConferenceUpcomingEventsComponent} from '@app/conference/views/upcoming-
 import {ConferenceContactUsComponent} from '@app/conference/views/contact-us/conference-contact-us.component';
 import {ConferenceSponsorRequestComponent} from '@app/conference/views/sponsor-request/conference-sponsor-request.component';
 import {ConferenceSponsorRequestPartialComponent} from '@app/conference/views/_partials/_sponsor-request/conference-sponsor-request-partial.component';
+import {ConferencePrevSponsorsComponent} from '@app/conference/views/prev-sponsors/conference-prev-sponsors.component';
 import {ConferenceDirectorBoardComponent} from '@app/conference/views/director-board/conference-director-board.component';
 import {ConferenceEventJoinComponent} from '@app/conference/views/event-join/conference-event-join.component';
+import {ConferenceMyaccountComponent} from '@app/conference/views/myaccount/conference-myaccount.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +23,10 @@ import {ConferenceEventJoinComponent} from '@app/conference/views/event-join/con
     ConferenceContactUsComponent,
     ConferenceSponsorRequestComponent,
     ConferenceSponsorRequestPartialComponent,
+    ConferencePrevSponsorsComponent,
     ConferenceDirectorBoardComponent,
     ConferenceEventJoinComponent,
+    ConferenceMyaccountComponent,
   ],
   imports: [
     CommonModule,

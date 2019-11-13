@@ -32,17 +32,23 @@
                mdbWavesEffect>{{'BUSINESS_LAYOUT.BOARD_OF_DIRECTORS' | translate}}</a>
           </li>
         </ul>
-<!--        <ul class="navbar-nav" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'ml-auto' : 'mr-auto'">-->
-<!--          <li class="nav-item">-->
-<!--            <a  class="nav-link waves-light" [routerLink]="routes.business.registrationRequest"-->
-<!--                mdbWavesEffect>{{'BUSINESS_LAYOUT.REGISTRATION' | translate}}</a>-->
-<!--          </li>-->
-<!--          <li class="nav-item">-->
-<!--            <a class="nav-link waves-light" [routerLink]="routes.business.signIn"-->
-<!--               mdbWavesEffect>{{'BUSINESS_LAYOUT.SIGN_IN' | translate}}</a>-->
-<!--          </li>-->
-
-<!--        </ul>-->
+        <ul class="navbar-nav nav-flex-icons" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'ml-auto' : 'mr-auto'">
+          <li class="nav-item dropdown" dropdown>
+            <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light">
+              <mdb-icon fas icon="user"></mdb-icon><span class="caret"></span>
+            </a>
+            <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+              <div *ngIf="currentUser">
+                <a [routerLink]="routes.business.myaccount" class="dropdown-item waves-light" mdbWavesEffect>{{'SIGNIN.MY_ACCOUNT' | translate}}</a>
+                <a (click)="signOut()" class="dropdown-item waves-light" mdbWavesEffect>{{'SIGNIN.SIGNOUT' | translate}}</a>
+              </div>
+              <div *ngIf="!currentUser">
+                <a [routerLink]="routes.auth.signIn" class="dropdown-item waves-light" mdbWavesEffect>{{'SIGNIN.SIGNIN' | translate}}</a>
+                <a [routerLink]="routes.auth.signUp" class="dropdown-item waves-light" mdbWavesEffect>{{'SIGNIN.SIGNUP' | translate}}</a>
+              </div>
+            </div>
+          </li>
+        </ul>
       </links>
     </mdb-navbar>
     <router-outlet></router-outlet>

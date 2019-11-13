@@ -5,6 +5,8 @@ export * from './courses-data.service';
 export * from './events-data.service';
 export * from './director-board-data.service';
 export * from './media-slider-data.service';
+export * from './myaccount.service';
 export * from './our-clients-data.service';
 export * from './our-services-data.service';
+export * from './prev-sponsors-data.service';
 export * from './training-data.service';

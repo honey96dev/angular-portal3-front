@@ -16,4 +16,11 @@ export class TrainingDataService {
         return res;
       }));
   }
+
+  loadAllSettings(params) {
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.training.loadAllSettings}`, params)
+      .pipe(map(res => {
+        return res;
+      }));
+  }
 }

@@ -127,3 +127,7 @@
   padding-left: unset !important;
   padding-right: 0.7rem !important;
 }
+
+.rtl-content h1, .rtl-content h2, .rtl-content h3, .rtl-content h4, .rtl-content h5, .rtl-content h6, .rtl-content p {
+  text-align: right;
+}

@@ -1,7 +1,10 @@
 export default {
   app: '/app',
   home: '/home',
-  human: '/human',
+  human: {
+    main: '/human',
+    myaccount: '/human/myaccount',
+  },
   auth: {
     signIn: '/auth/sign-in',
     signUp: '/auth/sign-up',
@@ -14,7 +17,9 @@ export default {
     register: 'register',
     contactUs: '/conference/contact-us',
     sponsorRequest: '/conference/sponsor-request',
+    prevSponsors: '/conference/prev-sponsors',
     directorBoard: '/conference/director-board',
+    myaccount: '/conference/myaccount',
   },
   business: {
     main: '/business',
@@ -23,7 +28,9 @@ export default {
     upcoming: '/business/upcoming',
     previous: '/business/previous',
     courseDetails: '/business/course-details',
+    courseJoin: '/business/course-join',
     contactUs: '/business/contact-us',
     directorBoard: '/business/director-board',
+    myaccount: '/business/myaccount',
   },
 };

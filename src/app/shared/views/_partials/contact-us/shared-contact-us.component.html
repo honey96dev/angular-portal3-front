@@ -102,16 +102,16 @@
           </li>
           <li>
             <mdb-icon fas icon="mobile-alt" size="2x" class="mt-3 blue-text"></mdb-icon>
-            <p dir="ltr">+966566655007</p>
+            <p dir="ltr">{{consts.contactInfo.mobile}}</p>
           </li>
           <li>
             <mdb-icon fas icon="phone" size="2x" class="mt-3 blue-text"></mdb-icon>
-            <p>0112304705</p>
+            <p>{{consts.contactInfo.phone}}</p>
           </li>
           <li>
             <a [href]="'mailto:' + ('SHARED_CONTACT_US.MAIL_VALUE' | translate)">
               <mdb-icon fas icon="envelope" size="2x" class="mt-3 blue-text"></mdb-icon>
-              <p class="mb-0 foreground-text">{{'SHARED_CONTACT_US.MAIL_VALUE' | translate}}</p>
+              <p class="mb-0 foreground-text">{{consts.contactInfo.email}}</p>
             </a>
           </li>
 <!--          <li>-->

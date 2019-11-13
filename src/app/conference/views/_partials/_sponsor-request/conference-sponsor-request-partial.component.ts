@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 import {GlobalVariableService} from '@app/_services';
+import routes from '@core/routes';
 
 @Component({
   selector: 'app-conference-sponsor-request-partial',
@@ -11,6 +12,7 @@ import {GlobalVariableService} from '@app/_services';
 export class ConferenceSponsorRequestPartialComponent implements OnInit{
   @Input() category: string;
   title: string;
+  routes = routes;
 
   constructor(private router: Router,
               private globalVariableService: GlobalVariableService,

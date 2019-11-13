@@ -29,7 +29,8 @@
     <!-- Read more button -->
     <!--        <a mdbBtn color="success" mdbWavesEffect class="mb-lg-0 mb-4">Read more</a>-->
 
-    <a *ngIf="!data.fake" [routerLink]="[routes.business.courseDetails, data.id]" mdbBtn mdbWavesEffect color="indigo" size="sm" (click)="setEditableRow()">{{'COMMON.DETAILS' | translate}}</a>
+    <a *ngIf="!data.fake" [routerLink]="[routes.business.courseDetails, data.id]" mdbBtn mdbWavesEffect color="indigo" size="sm" (click)="setEditableRow()">{{'SHARED_COURSE_DETAILS.COURSE_DETAILS' | translate}}</a>
+    <a *ngIf="!data.fake && data['isFuture']" [routerLink]="[routes.business.courseJoin, data.id]" mdbBtn mdbWavesEffect color="secondary" size="sm" (click)="setEditableRow()">{{'SHARED_COURSE_DETAILS.TO_REGISTER' | translate}}</a>
   </div>
   <!-- Grid column -->
 

@@ -13,6 +13,7 @@ import routes from '@core/routes';
 })
 export class SharedAllEventsItemComponent implements OnInit{
   @Input() scope: string;
+  @Input() bigPostImage: boolean;
   @Input() data: Event;
   @Input() lang: string;
   routes = routes;

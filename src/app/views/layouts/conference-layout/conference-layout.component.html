@@ -31,6 +31,10 @@
                mdbWavesEffect>{{'CONFERENCE_LAYOUT.SPONSOR_REQUEST4COMPANIES' | translate}}</a>
           </li>
           <li class="nav-item">
+            <a  class="nav-link waves-light" [routerLink]="routes.conference.prevSponsors"
+               mdbWavesEffect>{{'CONFERENCE_LAYOUT.PREV_SPONSORS' | translate}}</a>
+          </li>
+          <li class="nav-item">
             <a  class="nav-link waves-light" [routerLink]="routes.conference.directorBoard"
                mdbWavesEffect>{{'CONFERENCE_LAYOUT.BOARD_OF_DIRECTORS' | translate}}</a>
           </li>
@@ -65,7 +69,7 @@
             </a>
             <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
               <div *ngIf="currentUser">
-                <a class="dropdown-item waves-light" mdbWavesEffect>{{'SIGNIN.MY_ACCOUNT' | translate}}</a>
+                <a [routerLink]="routes.conference.myaccount" class="dropdown-item waves-light" mdbWavesEffect>{{'SIGNIN.MY_ACCOUNT' | translate}}</a>
                 <a (click)="signOut()" class="dropdown-item waves-light" mdbWavesEffect>{{'SIGNIN.SIGNOUT' | translate}}</a>
               </div>
               <div *ngIf="!currentUser">

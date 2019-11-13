@@ -28,6 +28,13 @@ export class CoursesDataService {
       }));
   }
 
+  join(params) {
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.courses.join}`, params)
+      .pipe(map(res => {
+        return res;
+      }));
+  }
+
   setEditableRow(params: any) {
     this.editableRow = params;
   }

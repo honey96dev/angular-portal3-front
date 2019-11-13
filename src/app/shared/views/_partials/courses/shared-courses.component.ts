@@ -21,6 +21,8 @@ export class SharedCoursesComponent implements OnInit{
 
   consts = consts;
 
+  summary = {};
+
   items: Event[] = [];
   typeClasses = ['green-text', 'pink-text', 'indigo-text'];
   defaultItems: Course[] = [
@@ -69,6 +71,25 @@ export class SharedCoursesComponent implements OnInit{
         }, error => {
           this.title = '';
         });
+      this.trainingService.loadAllSettings({}).pipe(first())
+        .subscribe(res => {
+          if (res.result === consts.success) {
+            this.summary = {
+              en: res['data'][consts.annualUpcomingSummaryEn],
+              ar: res['data'][consts.annualUpcomingSummaryAr],
+            }
+          } else {
+            this.summary = {
+              en: '',
+              ar: '',
+            }
+          }
+        }, error => {
+          this.summary = {
+            en: '',
+            ar: '',
+          }
+        });
     }
     this.loadData();
   }
@@ -76,7 +97,7 @@ export class SharedCoursesComponent implements OnInit{
   loadData() {
     // console.log(this.category);
     const {scope} = this;
-    const limit = scope === 'upcoming' ? consts.coursesCount.recent : consts.coursesCount.normal;
+    const limit = scope === 'upcoming' ? consts.coursesCount.normal : consts.coursesCount.normal;
     this.service.list({scope, limit}).pipe(first())
       .subscribe(res => {
         if (res.result === consts.success && res.data.length > 0) {

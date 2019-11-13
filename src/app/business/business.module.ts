@@ -8,8 +8,10 @@ import {BusinessAnnualComponent} from '@app/business/views/annual/business-annua
 import {BusinessUpcomingComponent} from '@app/business/views/upcoming/business-upcoming.component';
 import {BusinessPreviousComponent} from '@app/business/views/previous/business-previous.component';
 import {BusinessCourseDetailsComponent} from '@app/business/views/course-details/business-course-details.component';
+import {BusinessCourseJoinComponent} from '@app/business/views/course-join/business-course-join.component';
 import {BusinessContactUsComponent} from '@app/business/views/contact-us/business-contact-us.component';
 import {BusinessDirectorBoardComponent} from '@app/business/views/director-board/business-director-board.component';
+import {BusinessMyaccountComponent} from '@app/business/views/myaccount/business-myaccount.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,10 @@ import {BusinessDirectorBoardComponent} from '@app/business/views/director-board
     BusinessUpcomingComponent,
     BusinessPreviousComponent,
     BusinessCourseDetailsComponent,
+    BusinessCourseJoinComponent,
     BusinessContactUsComponent,
     BusinessDirectorBoardComponent,
+    BusinessMyaccountComponent,
   ],
   imports: [
     CommonModule,

@@ -1,7 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {AuthenticationService, GlobalVariableService, TranslationService} from '@app/_services';
 import {Router} from '@angular/router';
-import {MDBModalService} from 'ng-uikit-pro-standard';
 import {TranslateService} from '@ngx-translate/core';
 import routes from '@core/routes';
 import {User} from '@app/_models';
@@ -16,9 +15,6 @@ import {User} from '@app/_models';
 export class ConferenceLayoutComponent implements OnInit {
   routes = routes;
   language: string;
-  scrollDuration: number = 650;
-  scrollEasing: string = 'easeInQuad';
-  scrollOffset: number = -66;
 
   currentUser: User;
 
@@ -36,19 +32,12 @@ export class ConferenceLayoutComponent implements OnInit {
     this.currentUser = this.authService.currentUserValue;
   }
 
-  onLanguageButtonClicked() {
-    let lang = this.translationService.getSelectedLanguage();
-    lang = lang === 'en' ? 'ar' : 'en';
-    this.translationService.setLanguage(lang);
-    this.globalVariableService.setLanguage(lang);
-  }
-
   clearSection() {
     this.globalVariableService.setSection('');
   }
 
   onActivate(event) {
-    window.scroll(0,0);
+    window.scroll(0, 0);
     //or document.body.scrollTop = 0;
     //or document.querySelector('body').scrollTo(0,0)
   }

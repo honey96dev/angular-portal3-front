@@ -5,8 +5,9 @@ import {GlobalVariableService} from '@app/_services';
 import {environment} from '@environments/environment';
 import {first} from 'rxjs/operators';
 import consts from '@core/consts';
-import {BusinessPartnerDataService} from '@app/shared/_services';
+import {BusinessPartnerDataService, DirectorBoardDataService} from '@app/shared/_services';
 import {PartnerCard} from '@app/shared/_model';
+import {DeviceDetectorService} from 'ngx-device-detector';
 
 @Component({
   selector: 'app-shared-business-partner',
@@ -37,11 +38,15 @@ export class SharedBusinessPartnerComponent implements OnInit{
     }
     return R;
   }
+  isDesktop: boolean;
+  isMobile: boolean;
+  isTablet: boolean;
 
   constructor(private router: Router,
               private globalVariableService: GlobalVariableService,
               private translate: TranslateService,
-              private service: BusinessPartnerDataService) {
+              private service: BusinessPartnerDataService,
+              private deviceService: DeviceDetectorService) {
   }
 
   ngOnInit() {
@@ -80,5 +85,9 @@ export class SharedBusinessPartnerComponent implements OnInit{
         this.cards = this.defaultSlides;
         this.slides = this.chunk(this.cards, 3);
       });
+
+    this.isDesktop = this.deviceService.isDesktop();
+    this.isMobile = this.deviceService.isMobile();
+    this.isTablet = this.deviceService.isTablet();
   }
 }

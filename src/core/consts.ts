@@ -17,6 +17,11 @@ export default {
     snapchat: 'https://www.snapchat.com/add/g_chcs',
     whatsapp: 'https://iwtsp.com/966566655007',
   },
+  contactInfo: {
+    mobile: '+966566655007',
+    phone: '0112304705',
+    email: 'pm@eliteresources.co',
+  },
   eventsCount: {
     recent: 3,
     normal: 50,
@@ -30,4 +35,7 @@ export default {
     n1: -10,
     n2: -100,
   },
+  annualUpcomingYear: 'annual-upcoming-year',
+  annualUpcomingSummaryEn: 'annual-upcoming-summary-en',
+  annualUpcomingSummaryAr: 'annual-upcoming-summary-ar',
 }

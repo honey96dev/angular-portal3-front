@@ -1,7 +1,7 @@
 <section class="screen-breakpoint margin-auto-x my-5">
 
   <h2 class="h1-responsive font-weight-bold text-center my-5">{{'SHARED_DIRECTOR_BOARD.PAGE_TITLE' | translate}}</h2>
-  <mdb-carousel [isControls]="true" class="carousel slide carousel-multi-item v-2" [type]="'carousel-multi-item'"
+  <mdb-carousel *ngIf="isDesktop || isTablet" [isControls]="true" class="carousel slide carousel-multi-item v-2" [type]="'carousel-multi-item'"
                 [animation]="'slide'" dir="ltr">
     <mdb-carousel-item *ngFor="let item of slides; let i = index">
       <div class="col-md-4" [ngClass]="{'d-none d-md-block': cardIndex !== 0}" *ngFor="let card of item; let cardIndex = index">
@@ -21,6 +21,27 @@
           </mdb-card-body>
         </mdb-card>
       </div>
+    </mdb-carousel-item>
+  </mdb-carousel>
+
+  <mdb-carousel *ngIf="isMobile" [isControls]="true" class="carousel slide carousel-multi-item v-2" [type]="'carousel-multi-item'"
+                [animation]="'slide'" dir="ltr">
+    <mdb-carousel-item *ngFor="let card of cards; let i = index">
+      <mdb-card class="my-1 my-card">
+        <div class="view view-cascade overlay waves-light" mdbWavesEffect>
+          <img [src]="card.img" alt="Card image cap" class="my-card-image round-border-top mx-auto">
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+        <mdb-card-body [class.text-align-right]="('DIRECTION' | translate) === 'rtl'">
+          <mdb-card-title class="text-align-center">
+            <h4>{{lang === 'en' ? card.nameEn : card.nameAr}}</h4>
+          </mdb-card-title>
+          <h5>{{lang === 'en' ? card.titleEn : card.titleAr}}</h5>
+          <p class="my-card-text">{{lang === 'en' ? card.descriptionEn : card.descriptionAr}}</p>
+        </mdb-card-body>
+      </mdb-card>
     </mdb-carousel-item>
   </mdb-carousel>
 

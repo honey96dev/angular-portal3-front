@@ -1,0 +1,125 @@
+
+<h2 class="h1-responsive font-weight-bold text-center mt-3">{{'SHARED_MYACCOUNT.MYACCOUNT' | translate}}</h2>
+<h5 class="mb-0">{{'SHARED_MYACCOUNT.INFORMATION' | translate}}</h5>
+<form [formGroup]="form" class="mx-2 mt-4" (ngSubmit)="onSubmit()">
+  <input id="id" type="hidden" class="form-control grey-text" formControlName="id" mdbInput>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="md-form mt-0">
+        <input type="text" id="firstName" class="form-control" mdbInput mdbValidate formControlName="firstName" [readOnly]="loading">
+        <label for="firstName">{{'SHARED_MYACCOUNT.FIRST_NAME' | translate}}</label>
+        <mdb-error *ngIf="f.firstName.errors && f.firstName.errors.required && (f.firstName.dirty || f.firstName.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_MYACCOUNT.FIRST_NAME' | translate}"></mdb-error>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="md-form mt-0">
+        <input type="text" id="lastName" class="form-control" mdbInput mdbValidate formControlName="lastName" [readOnly]="loading">
+        <label for="lastName">{{'SHARED_MYACCOUNT.LAST_NAME' | translate}}</label>
+        <mdb-error *ngIf="f.lastName.errors && f.lastName.errors.required && (f.lastName.dirty || f.lastName.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_MYACCOUNT.LAST_NAME' | translate}"></mdb-error>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="md-form mt-0">
+        <input type="text" id="company" class="form-control" mdbInput mdbValidate formControlName="company" [readOnly]="loading">
+        <label for="company">{{'SHARED_MYACCOUNT.COMPANY' | translate}}</label>
+        <mdb-error *ngIf="f.company.errors && f.company.errors.required && (f.company.dirty || f.company.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_MYACCOUNT.COMPANY' | translate}"></mdb-error>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="md-form mt-0">
+        <input type="text" id="position" class="form-control" mdbInput mdbValidate formControlName="position" [readOnly]="loading">
+        <label for="position">{{'SHARED_MYACCOUNT.POSITION' | translate}}</label>
+        <mdb-error *ngIf="f.position.errors && f.position.errors.required && (f.position.dirty || f.position.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_MYACCOUNT.POSITION' | translate}"></mdb-error>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="md-form mt-0">
+        <input type="text" id="country" class="form-control" mdbInput mdbValidate formControlName="country" [readOnly]="loading" [mdbAutoCompleter]="country" autocomplete="na">
+        <label for="country">{{'SHARED_MYACCOUNT.COUNTRY' | translate}}</label>
+        <mdb-auto-completer #country="mdbAutoCompleter" [textNoResults]="'COMMON.NO_DATA' | translate">
+          <mdb-option *ngFor="let country of countriesData | async" [value]="country.name">
+            {{ country.name }}
+          </mdb-option>
+        </mdb-auto-completer>
+        <mdb-error *ngIf="f.country.errors && f.country.errors.required && (f.country.dirty || f.country.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_MYACCOUNT.COUNTRY' | translate}"></mdb-error>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="md-form mt-0">
+        <input type="text" id="city" class="form-control" mdbInput mdbValidate formControlName="city" [readOnly]="loading">
+        <label for="city">{{'SHARED_MYACCOUNT.CITY' | translate}}</label>
+        <mdb-error *ngIf="f.city.errors && f.city.errors.required && (f.city.dirty || f.city.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_MYACCOUNT.CITY' | translate}"></mdb-error>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="md-form mt-0">
+        <input type="email" id="email" class="form-control" mdbInput mdbValidate formControlName="email" [readOnly]="loading">
+        <label for="email">{{'SHARED_MYACCOUNT.EMAIL' | translate}}</label>
+        <mdb-error *ngIf="f.email.errors && f.email.errors.required && (f.email.dirty || f.email.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_MYACCOUNT.EMAIL' | translate}"></mdb-error>
+        <mdb-error *ngIf="f.email.errors && f.email.errors.email && (f.email.dirty || f.email.touched)" [translate]="'COMMON.FIELD_INVALID'" [translateParams]="{field: 'SHARED_MYACCOUNT.EMAIL' | translate}"></mdb-error>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="md-form mt-0">
+        <input type="text" id="phone" class="form-control" mdbInput mdbValidate formControlName="phone" [readOnly]="loading">
+        <label for="phone">{{'SHARED_MYACCOUNT.PHONE' | translate}}</label>
+        <mdb-error *ngIf="f.phone.errors && f.phone.errors.required && (f.phone.dirty || f.phone.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_MYACCOUNT.PHONE' | translate}"></mdb-error>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="alert.show" class="alert alert-dismissible fade show mt-3" [ngClass]="alert.type" role="alert">
+    <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    {{alert.message}}
+  </div>
+  <div class="button-spec">
+    <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect
+            [disabled]="form.invalid || loading">{{'COMMON.SAVE' | translate}}
+    </button>
+  </div>
+</form>
+<h5 class="mt-5 mb-0">{{'SIGNIN.PASSWORD' | translate}}</h5>
+<form [formGroup]="passwordForm" class="mx-2 mt-4" (ngSubmit)="changePassword()">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="md-form mt-0">
+        <input type="password" id="currentPassword" class="form-control" mdbInput mdbValidate formControlName="currentPassword" [readOnly]="passwordLoading">
+        <label for="currentPassword">{{'SHARED_MYACCOUNT.CURRENT_PASSWORD' | translate}}</label>
+        <mdb-error *ngIf="passwordF.currentPassword.errors && passwordF.currentPassword.errors.required && (passwordF.currentPassword.dirty || passwordF.currentPassword.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_MYACCOUNT.CURRENT_PASSWORD' | translate}"></mdb-error>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="md-form mt-0">
+        <input type="password" id="password" class="form-control" mdbInput mdbValidate formControlName="password" [readOnly]="passwordLoading">
+        <label for="password">{{'SHARED_MYACCOUNT.PASSWORD' | translate}}</label>
+        <mdb-error *ngIf="passwordF.password.errors && passwordF.password.errors.required && (passwordF.password.dirty || passwordF.password.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_MYACCOUNT.PASSWORD' | translate}"></mdb-error>
+        <mdb-error *ngIf="passwordF.password.errors && passwordF.password.errors.minlength && (passwordF.password.dirty || passwordF.password.touched)" [translate]="'COMMON.FIELD_MIN_LENGTH'" [translateParams]="{field: 'SHARED_MYACCOUNT.PASSWORD' | translate, length: 6}"></mdb-error>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="md-form mt-0">
+        <input type="password" id="password2" class="form-control" mdbInput mdbValidate formControlName="password2" [readOnly]="passwordLoading" mdb-validateEqual="password" validateEqual="password">
+        <label for="password2">{{'SHARED_MYACCOUNT.PASSWORD2' | translate}}</label>
+        <mdb-error *ngIf="passwordF.password2.errors && passwordF.password2.errors.required && (passwordF.password2.dirty || passwordF.password2.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_MYACCOUNT.PASSWORD2' | translate}"></mdb-error>
+        <mdb-error *ngIf="passwordF.password2.errors && passwordF.password2.errors.minlength && (passwordF.password2.dirty || passwordF.password2.touched)" [translate]="'COMMON.FIELD_MIN_LENGTH'" [translateParams]="{field: 'SHARED_MYACCOUNT.PASSWORD2' | translate, length: 6}"></mdb-error>
+        <mdb-error *ngIf="passwordF.password2.errors && !passwordF.password2.errors.required && !passwordF.password2.errors.minlength && !passwordF.password2.errors.validateEqual && (passwordF.password2.dirty || passwordF.password2.touched)" [translate]="'COMMON.MAKE_SURE_SAME_TO'" [translateParams]="{field: 'SHARED_MYACCOUNT.PASSWORD' | translate}"></mdb-error>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="passwordAlert.show" class="alert alert-dismissible fade show mt-3" [ngClass]="passwordAlert.type" role="alert">
+    <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    {{passwordAlert.message}}
+  </div>
+  <div class="button-spec">
+    <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect [disabled]="passwordForm.invalid || passwordLoading">{{'COMMON.CHANGE' | translate}}
+    </button>
+  </div>
+</form>
+<!--  </div>-->
+<!--</div>-->

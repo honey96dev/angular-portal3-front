@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {GlobalVariableService, TranslationService} from '@app/_services';
+import {AuthenticationService, GlobalVariableService, TranslationService} from '@app/_services';
 import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 import routes from '@core/routes';
 import {first} from 'rxjs/operators';
 import consts from '@core/consts';
 import {TrainingDataService} from '@app/shared/_services';
+import {User} from '@app/_models';
 
 // let authLayout;
 
@@ -19,15 +20,19 @@ export class BusinessLayoutComponent implements OnInit {
   language: string;
   annualUpcoming: string = '';
 
+  currentUser: User;
+
   constructor(private globalVariableService: GlobalVariableService,
               private router: Router,
               private translationService: TranslationService,
               private translate: TranslateService,
-              private trainingService: TrainingDataService) {
+              private trainingService: TrainingDataService,
+              private authService: AuthenticationService,) {
     // authLayout = this;
   }
 
   ngOnInit() {
+    this.currentUser = this.authService.currentUserValue;
     this.trainingService.annualUpcomingYear({}).pipe(first())
       .subscribe(res => {
         if (res.result === consts.success) {
@@ -40,14 +45,13 @@ export class BusinessLayoutComponent implements OnInit {
       });
   }
 
-  onLanguageButtonClicked() {
-    let lang = this.translationService.getSelectedLanguage();
-    lang = lang === 'en' ? 'ar' : 'en';
-    this.translationService.setLanguage(lang);
-    this.globalVariableService.setLanguage(lang);
-  }
-
   clearSection() {
     this.globalVariableService.setSection('');
+  }
+
+  signOut() {
+    this.authService.signOut();
+    this.currentUser = this.authService.currentUserValue;
+    // this.router.navigate(['/']);
   }
 }

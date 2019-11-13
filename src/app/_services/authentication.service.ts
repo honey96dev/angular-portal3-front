@@ -46,4 +46,11 @@ export class AuthenticationService {
     sessionStorage.removeItem(consts.currentUser);
     this.currentUserSubject.next(null);
   }
+
+  changeCurrentUserValue(params) {
+    let currentUser = this.currentUserValue;
+    currentUser = Object.assign({}, currentUser, params);
+    sessionStorage.setItem(consts.currentUser, JSON.stringify(currentUser));
+    this.currentUserSubject.next(currentUser);
+  }
 }

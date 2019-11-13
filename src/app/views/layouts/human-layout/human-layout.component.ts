@@ -3,6 +3,8 @@ import {AuthenticationService, GlobalVariableService, TranslationService} from '
 import {Router} from '@angular/router';
 import {MDBModalService} from 'ng-uikit-pro-standard';
 import {TranslateService} from '@ngx-translate/core';
+import {User} from '@app/_models';
+import routes from '@core/routes';
 
 // let authLayout;
 
@@ -12,29 +14,27 @@ import {TranslateService} from '@ngx-translate/core';
   styleUrls: ['./human-layout.component.scss']
 })
 export class HumanLayoutComponent implements OnInit {
+  routes = routes;
   language: string;
   scrollDuration: number = 300;
   scrollEasing: string = 'easeInQuad';
   scrollOffset: number = 70;
+
+  currentUser: User;
+  myaccountUrl: string;
 
   @ViewChild('sidenav', {static: true}) public sidenav: any;
 
   constructor(private globalVariableService: GlobalVariableService,
               private router: Router,
               private translationService: TranslationService,
-              private translate: TranslateService) {
+              private translate: TranslateService,
+              private authService: AuthenticationService,) {
     // authLayout = this;
   }
 
   ngOnInit() {
-
-  }
-
-  onLanguageButtonClicked() {
-    let lang = this.translationService.getSelectedLanguage();
-    lang = lang === 'en' ? 'ar' : 'en';
-    this.translationService.setLanguage(lang);
-    this.globalVariableService.setLanguage(lang);
+    this.currentUser = this.authService.currentUserValue;
   }
 
   clearSection() {
@@ -45,5 +45,11 @@ export class HumanLayoutComponent implements OnInit {
     window.scroll(0,0);
     //or document.body.scrollTop = 0;
     //or document.querySelector('body').scrollTo(0,0)
+  }
+
+  signOut() {
+    this.authService.signOut();
+    this.currentUser = this.authService.currentUserValue;
+    // this.router.navigate(['/']);
   }
 }

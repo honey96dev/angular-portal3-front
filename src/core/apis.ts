@@ -35,11 +35,20 @@ const apis = {
     },
     training: {
       annualUpcomingYear: 'training/annual-upcoming-year',
+      loadAllSettings: 'training/load-all-settings',
     },
     courses: {
       list: 'courses/list',
       get: 'courses/get',
       join: 'courses/join',
+    },
+    prevSponsors: {
+      list: 'prev-sponsors/list',
+    },
+    myaccount: {
+      load: 'myaccount/load',
+      save: 'myaccount/save',
+      changePassword: 'myaccount/change-password',
     },
   },
 };

@@ -87,7 +87,8 @@ export class SharedAllEventsComponent implements OnInit{
             slide['mime'] = ext2mime[extension];
           }
 
-          this.items = res.data.slice(consts.eventsCount.recent);
+          this.items = res.data;
+          // this.items = res.data.slice(consts.eventsCount.recent);
         } else {
           this.items = this.defaultItems;
         }

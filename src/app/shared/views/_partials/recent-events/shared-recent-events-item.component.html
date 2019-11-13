@@ -38,7 +38,7 @@
     <!-- Read more button -->
     <!--        <a mdbBtn color="success" mdbWavesEffect class="mb-lg-0 mb-4">Read more</a>-->
 
-    <a *ngIf="scope == 'upcoming' && !data.fake" [routerLink]="[routes.conference.eventJoin, data.id]" mdbBtn mdbWavesEffect color="indigo" size="sm" (click)="setEditableRow()">{{'COMMON.JOIN' | translate}}</a>
+    <a *ngIf="scope == 'upcoming' && !data.fake" [routerLink]="[routes.conference.eventJoin, data.id]" mdbBtn mdbWavesEffect color="indigo" size="sm" (click)="setEditableRow()">{{'COMMON.JOIN_US' | translate}}</a>
   </div>
   <!-- Grid column -->
 
