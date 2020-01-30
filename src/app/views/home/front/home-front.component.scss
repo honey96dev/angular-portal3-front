@@ -1,5 +1,18 @@
 @import "../../../../consts";
 
+$button-color-1: #0e68a5;
+$button-color-2: #0581cb;
+$button-color-3: #2daaef;
+
+.inner-container {
+  width: 60%;
+}
+@media (max-width: $screen-breakpoint2) {
+  .inner-container {
+    width: 100%;
+  }
+}
+
 .section-container {
   padding-left: 30px;
   padding-right: 30px;
@@ -20,4 +33,34 @@
   margin-right: 35px;
   padding-top: 50px;
   padding-bottom: 150px;
+}
+
+.logo-img {
+  width: 350px;
+}
+
+@media (max-width: $screen-breakpoint2) {
+  .logo-img {
+    width: 300px;
+  }
+}
+
+.button-color-1 {
+  background-color: $button-color-1;
+}
+
+.button-color-2 {
+  background-color: $button-color-2;
+}
+
+.button-color-3 {
+  background-color: $button-color-3;
+}
+
+.remember-me {
+  font-size: 1.1rem;
+}
+
+.text-color-1 {
+  color: $button-color-1;
 }

@@ -47,4 +47,10 @@ export class ConferenceLayoutComponent implements OnInit {
     this.currentUser = this.authService.currentUserValue;
     // this.router.navigate(['/']);
   }
+
+  onLanguageButtonClicked(lang) {
+    this.language = lang;
+    this.translationService.setLanguage(lang);
+    this.globalVariableService.setLanguage(lang);
+  }
 }

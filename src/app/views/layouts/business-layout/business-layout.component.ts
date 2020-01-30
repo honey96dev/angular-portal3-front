@@ -36,7 +36,8 @@ export class BusinessLayoutComponent implements OnInit {
     this.trainingService.annualUpcomingYear({}).pipe(first())
       .subscribe(res => {
         if (res.result === consts.success) {
-          this.annualUpcoming = this.translate.instant('BUSINESS_LAYOUT.ANNUAL_UPCOMING', {year: res.data});
+          this.annualUpcoming = this.translate.instant('BUSINESS_LAYOUT.ANNUAL_UPCOMING2');
+          // this.annualUpcoming = this.translate.instant('BUSINESS_LAYOUT.ANNUAL_UPCOMING', {year: res.data});
         } else {
           this.annualUpcoming = '';
         }
@@ -53,5 +54,11 @@ export class BusinessLayoutComponent implements OnInit {
     this.authService.signOut();
     this.currentUser = this.authService.currentUserValue;
     // this.router.navigate(['/']);
+  }
+
+  onLanguageButtonClicked(lang) {
+    this.language = lang;
+    this.translationService.setLanguage(lang);
+    this.globalVariableService.setLanguage(lang);
   }
 }

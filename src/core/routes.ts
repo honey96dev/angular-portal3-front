@@ -1,13 +1,14 @@
 export default {
   app: '/app',
   home: '/home',
-  human: {
-    main: '/human',
-    myaccount: '/human/myaccount',
-  },
   auth: {
     signIn: '/auth/sign-in',
     signUp: '/auth/sign-up',
+  },
+  human: {
+    main: '/human',
+    myaccount: '/human/myaccount',
+    client: '/human/client',
   },
   conference: {
     main: '/conference',
@@ -27,6 +28,7 @@ export default {
     mostUpcoming: '/business/most-upcoming',
     upcoming: '/business/upcoming',
     previous: '/business/previous',
+    prevClients: '/business/prev-clients',
     courseDetails: '/business/course-details',
     courseJoin: '/business/course-join',
     contactUs: '/business/contact-us',

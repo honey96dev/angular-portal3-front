@@ -29,3 +29,11 @@ mdb-card-body p {
   margin-top: 0;
   margin-bottom: 0;
 }
+
+ul.my-ul {
+  padding-left: 0;
+}
+
+.my-ul li {
+  list-style: none !important;
+}

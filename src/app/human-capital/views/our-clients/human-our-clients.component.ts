@@ -2,25 +2,21 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 import {Title} from '@angular/platform-browser';
-import {AuthenticationService, GlobalVariableService} from '@app/_services';
+import {GlobalVariableService} from '@app/_services';
 import consts from '@core/consts';
-import {User} from '@app/_models';
 
 @Component({
-  selector: 'app-human-front',
-  templateUrl: './human-front.component.html',
-  styleUrls: ['./human-front.component.scss']
+  selector: 'app-human-our-clients',
+  templateUrl: './human-our-clients.component.html',
+  styleUrls: ['./human-our-clients.component.scss']
 })
-export class HumanFrontComponent implements OnInit{
+export class HumanOurClientsComponent implements OnInit{
   consts = consts;
-
-  currentUser: User;
 
   constructor(private router: Router,
               private title: Title,
               private globalVariableService: GlobalVariableService,
-              private translate: TranslateService,
-              private authService: AuthenticationService,) {
+              private translate: TranslateService) {
   }
 
   ngOnInit() {
@@ -29,6 +25,5 @@ export class HumanFrontComponent implements OnInit{
       .subscribe(data => {
         this.title.setTitle(this.translate.instant('HOME_FRONT.HUMAN_CAPITAL') + ' - ' + this.translate.instant('SITE_NAME'));
       });
-    this.currentUser = this.authService.currentUserValue;
   }
 }

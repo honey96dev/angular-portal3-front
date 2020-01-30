@@ -18,6 +18,7 @@ import {SharedMediaSliderComponent} from '@app/shared/views/_partials/media-slid
 import {SharedContactUsComponent} from '@app/shared/views/_partials/contact-us/shared-contact-us.component';
 import {SharedBusinessPartnerComponent} from '@app/shared/views/_partials/business-partner/shared-business-partner.component';
 import {SharedOurClientsComponent} from '@app/shared/views/_partials/our-clients/shared-our-clients.component';
+import {SharedOurClientsItemComponent} from '@app/shared/views/_partials/our-clients/shared-our-clients-item.component';
 import {SharedOurServicesComponent} from '@app/shared/views/_partials/our-services/shared-our-services.component';
 import {SharedDirectorsBoardComponent} from '@app/shared/views/_partials/directors-board/shared-directors-board.component';
 import {SharedRecentEventsComponent} from '@app/shared/views/_partials/recent-events/shared-recent-events.component';
@@ -59,6 +60,7 @@ import {SharedPrevSponsorsItemComponent} from '@app/shared/views/_partials/prev-
     SharedContactUsComponent,
     SharedBusinessPartnerComponent,
     SharedOurClientsComponent,
+    SharedOurClientsItemComponent,
     SharedDirectorsBoardComponent,
     SharedRecentEventsComponent,
     SharedRecentEventsItemComponent,
@@ -92,6 +94,7 @@ import {SharedPrevSponsorsItemComponent} from '@app/shared/views/_partials/prev-
     SharedContactUsComponent,
     SharedBusinessPartnerComponent,
     SharedOurClientsComponent,
+    SharedOurClientsItemComponent,
     SharedDirectorsBoardComponent,
     SharedRecentEventsComponent,
     SharedAllEventsComponent,

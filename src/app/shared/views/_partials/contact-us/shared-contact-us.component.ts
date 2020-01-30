@@ -1,13 +1,14 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
-import {GlobalVariableService} from '@app/_services';
+import {AuthenticationService, GlobalVariableService} from '@app/_services';
 import consts from '@core/consts';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ContactUsDataService} from '@app/shared/_services';
 import {first} from 'rxjs/operators';
 import {AlertModalComponent} from '@app/shared/views/_partials/common-dialogs/alert/alert-modal.component';
 import {MDBModalRef, MDBModalService} from 'ng-uikit-pro-standard';
+import {User} from '@app/_models';
 
 @Component({
   selector: 'app-shared-contact-us',
@@ -19,6 +20,8 @@ export class SharedContactUsComponent implements OnInit{
   consts = consts;
   modalRef: MDBModalRef;
 
+  currentUser: User;
+
   form: FormGroup;
   loading: boolean = false;
 
@@ -27,7 +30,8 @@ export class SharedContactUsComponent implements OnInit{
               private translate: TranslateService,
               private service: ContactUsDataService,
               private modalService: MDBModalService,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              private authService: AuthenticationService,) {
   }
 
   ngOnInit() {
@@ -37,6 +41,9 @@ export class SharedContactUsComponent implements OnInit{
       subject: new FormControl('', Validators.required),
       message: new FormControl('', Validators.required),
     });
+    this.currentUser = this.authService.currentUserValue;
+    this.f.name.patchValue(this.currentUser.firstName + " " + this.currentUser.lastName);
+    this.f.email.patchValue(this.currentUser.email);
   }
 
   get f() {

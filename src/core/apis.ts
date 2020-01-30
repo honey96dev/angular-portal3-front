@@ -24,6 +24,7 @@ const apis = {
     },
     ourClients: {
       list: 'our-clients/list',
+      get: 'our-clients/get',
     },
     directorBoard: {
       list: 'director-board/list',

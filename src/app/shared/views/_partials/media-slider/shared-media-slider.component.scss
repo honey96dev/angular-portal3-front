@@ -1,6 +1,10 @@
 @import "../../../../../consts";
-$media-slider-item-height: 600px;
-$media-slider-item-height2: 400px;
+$media-slider-item-height: 500px;
+$media-slider-item-height2: 350px;
+
+.media-slider-container {
+  width: 80%;
+}
 
 .media-slider-item {
   height: $media-slider-item-height;

@@ -10,6 +10,8 @@ import {BusinessPreviousComponent} from '@app/business/views/previous/business-p
 import {BusinessCourseDetailsComponent} from '@app/business/views/course-details/business-course-details.component';
 import {BusinessCourseJoinComponent} from '@app/business/views/course-join/business-course-join.component';
 import {BusinessContactUsComponent} from '@app/business/views/contact-us/business-contact-us.component';
+import {BusinessPrevClientsComponent} from '@app/business/views/prev-clients/business-prev-clients.component';
+import {BusinessPrevClientsItemComponent} from '@app/business/views/prev-clients/business-prev-clients-item.component';
 import {BusinessDirectorBoardComponent} from '@app/business/views/director-board/business-director-board.component';
 import {BusinessMyaccountComponent} from '@app/business/views/myaccount/business-myaccount.component';
 
@@ -23,6 +25,8 @@ import {BusinessMyaccountComponent} from '@app/business/views/myaccount/business
     BusinessCourseDetailsComponent,
     BusinessCourseJoinComponent,
     BusinessContactUsComponent,
+    BusinessPrevClientsComponent,
+    BusinessPrevClientsItemComponent,
     BusinessDirectorBoardComponent,
     BusinessMyaccountComponent,
   ],

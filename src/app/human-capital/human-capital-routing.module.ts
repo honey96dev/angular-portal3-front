@@ -4,6 +4,7 @@ import {AuthGuard} from '@app/_helpers';
 import {HumanLayoutComponent} from '@app/views/layouts/human-layout/human-layout.component';
 import {HumanFrontComponent} from '@app/human-capital/views/front/human-front.component';
 import {HumanMyaccountComponent} from '@app/human-capital/views/myaccount/human-myaccount.component';
+import {HumanOurClientsComponent} from '@app/human-capital/views/our-clients/human-our-clients.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,8 @@ const routes: Routes = [
       {path: '', component: HumanFrontComponent},
       {path: 'myaccount', component: HumanMyaccountComponent, canActivate: [AuthGuard]},
     ]
-  }
+  },
+  {path: 'client/:id', component: HumanOurClientsComponent},
 ];
 
 @NgModule({

@@ -1,8 +1,12 @@
 <section class="screen-breakpoint margin-auto-x my-5">
 
-  <h2 class="h1-responsive font-weight-bold text-center my-5">{{'HUMAN_LAYOUT.OUR_CLIENTS' | translate}}</h2>
+  <h2 class="h1-responsive font-weight-bold text-center my-5">{{title}}</h2>
+
+  <div *ngIf="!items.length">
+    <h4 class="h4-responsive font-weight-bold text-center my-5">{{'COMMON.NO_DATA' | translate}}</h4>
+  </div>
   <!-- Grid row -->
-  <div class="row full-width px-3">
+  <div *ngIf="!!items.length" class="row full-width px-3">
 
     <!-- Grid column -->
     <div class="col-md-12">
@@ -23,13 +27,13 @@
           <div class="excerpt">
             <!-- Brief -->
             <div class="brief">
-              <a class="name">{{lang === 'en' ? item.nameEn : item.nameAr}}</a>
+              <a [routerLink]="[detailLink, item.id]" class="name">{{lang === 'en' ? item.nameEn : item.nameAr}}</a>
 <!--              posted on his page-->
               <div class="date">{{item.ago}}</div>
             </div>
-            <star-rating [value]="item.stars" checkedcolor="gold" uncheckedcolor="gray" size="24px" readonly="true"></star-rating>
+<!--            <star-rating [value]="item.stars" checkedcolor="gold" uncheckedcolor="gray" size="24px" readonly="true"></star-rating>-->
             <!-- Added text -->
-            <div class="added-text">{{lang === 'en' ? item.feedbackEn : item.feedbackAr}}</div>
+            <div class="added-text"><span class="">{{'SHARED_OUR_CLIENTS.TITLE' | translate}}</span>: {{lang === 'en' ? item.titleEn : item.titleAr}}</div>
             <!-- Feed footer -->
             <div class="feed-footer">
             </div>

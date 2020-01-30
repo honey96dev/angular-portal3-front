@@ -1,5 +1,9 @@
 @import "../../../../consts";
 
+main {
+  height: 100vh;
+}
+
 .main-container {
   width: $screen-breakpoint;
 }
@@ -7,5 +11,26 @@
 @media (max-width: $screen-breakpoint) {
   .main-container{
     width: 100%;
+  }
+}
+
+
+.bg {
+ background-size: 100%;
+ background-repeat: no-repeat;
+}
+
+.bg-en {
+  background-image: url("/assets/media/bg/home-en.png");
+  background-position-x: right;
+}
+
+.bg-ar {
+  background-image: url("/assets/media/bg/home-ar.png");
+}
+
+@media (min-width: $screen-breakpoint0) {
+  .bg {
+    background-size: 80%;
   }
 }

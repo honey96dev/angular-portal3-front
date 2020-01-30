@@ -16,4 +16,11 @@ export class OurClientsDataService {
         return res;
       }));
   }
+
+  get(params) {
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.ourClients.get}`, params)
+      .pipe(map(res => {
+        return res;
+      }));
+  }
 }

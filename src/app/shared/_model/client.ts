@@ -1,13 +1,18 @@
 export class Client {
+  id: number;
   timestamp: string;
   ago: string;
   nameEn: string;
   nameAr: string;
   photo: string;
-  stars: number;
   titleEn: string;
   titleAr: string;
-  feedbackEn: string;
-  feedbackAr: string;
-  files: string;
+  descriptionEn: string;
+  descriptionAr: string;
+  durationEn: string;
+  durationAr: string;
+  scopeEn: string;
+  scopeAr: string;
+  deliverableEn: string;
+  deliverableAr: string;
 }

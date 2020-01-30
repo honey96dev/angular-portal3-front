@@ -17,6 +17,7 @@
               <a href="#ourService" mdbPageScroll [pageScrollOffset]="scrollOffset" [pageScrollDuration]="scrollDuration" class="nav-link waves-light" mdbWavesEffect>{{'HUMAN_LAYOUT.OUR_SERVICES' | translate}}</a>
             </li>
             <li class="nav-item">
+<!--            <li *ngIf="currentUser" class="nav-item">-->
               <a href="#contactUs" mdbPageScroll [pageScrollOffset]="scrollOffset" [pageScrollDuration]="scrollDuration" class="nav-link waves-light" mdbWavesEffect>{{'HUMAN_LAYOUT.CONTACT_US' | translate}}</a>
             </li>
             <li class="nav-item">
@@ -29,23 +30,34 @@
               <a href="#directorsBoard" mdbPageScroll [pageScrollOffset]="scrollOffset" [pageScrollDuration]="scrollDuration" class="nav-link waves-light" mdbWavesEffect>{{'HUMAN_LAYOUT.BOARD_OF_DIRECTORS' | translate}}</a>
             </li>
           </ul>
-<!--          <ul class="navbar-nav nav-flex-icons" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'ml-auto' : 'mr-auto'">-->
-<!--            <li class="nav-item dropdown" dropdown>-->
-<!--              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light">-->
-<!--                <mdb-icon fas icon="user"></mdb-icon><span class="caret"></span>-->
-<!--              </a>-->
-<!--              <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">-->
-<!--                <div *ngIf="currentUser">-->
-<!--                  <a [routerLink]="routes.human.myaccount" class="dropdown-item waves-light" mdbWavesEffect>{{'SIGNIN.MY_ACCOUNT' | translate}}</a>-->
-<!--                  <a (click)="signOut()" class="dropdown-item waves-light" mdbWavesEffect>{{'SIGNIN.SIGNOUT' | translate}}</a>-->
-<!--                </div>-->
-<!--                <div *ngIf="!currentUser">-->
-<!--                  <a [routerLink]="routes.auth.signIn" class="dropdown-item waves-light" mdbWavesEffect>{{'SIGNIN.SIGNIN' | translate}}</a>-->
-<!--                  <a [routerLink]="routes.auth.signUp" class="dropdown-item waves-light" mdbWavesEffect>{{'SIGNIN.SIGNUP' | translate}}</a>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </li>-->
-<!--          </ul>-->
+          <ul class="navbar-nav nav-flex-icons" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'ml-auto' : 'mr-auto'">
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light">
+                {{'COMMON.LANGUAGE' | translate}}<span class="caret"></span>
+              </a>
+              <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                <div >
+                  <a (click)="onLanguageButtonClicked('ar')" class="dropdown-item waves-light" mdbWavesEffect>{{'COMMON.ARABIC' | translate}}</a>
+                  <a (click)="onLanguageButtonClicked('en')" class="dropdown-item waves-light" mdbWavesEffect>{{'COMMON.ENGLISH' | translate}}</a>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light">
+                <mdb-icon fas icon="user"></mdb-icon><span class="caret"></span>
+              </a>
+              <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                <div *ngIf="currentUser">
+                  <a [routerLink]="routes.conference.myaccount" class="dropdown-item waves-light" mdbWavesEffect>{{'SIGNIN.MY_ACCOUNT' | translate}}</a>
+                  <a (click)="signOut()" class="dropdown-item waves-light" mdbWavesEffect>{{'SIGNIN.SIGNOUT' | translate}}</a>
+                </div>
+                <div *ngIf="!currentUser">
+                  <a [routerLink]="routes.auth.signIn" class="dropdown-item waves-light" mdbWavesEffect>{{'SIGNIN.SIGNIN' | translate}}</a>
+                  <a [routerLink]="routes.auth.signUp" class="dropdown-item waves-light" mdbWavesEffect>{{'SIGNIN.SIGNUP' | translate}}</a>
+                </div>
+              </div>
+            </li>
+          </ul>
         </links>
         <!-- Collapsible content -->
 <!--      </div>-->

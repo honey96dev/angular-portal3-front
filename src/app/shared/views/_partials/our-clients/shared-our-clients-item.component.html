@@ -1,0 +1,48 @@
+<section class="my-5 screen-breakpoint margin-auto-x my-5 col-md-12">
+
+  <!-- Section heading -->
+  <h2 class="h1-responsive font-weight-bold text-center my-5">{{title}}</h2>
+
+  <div  [class.text-align-right]="('DIRECTION' | translate) === 'rtl'">
+    <button type="button" mdbBtn flat="true" color="warning" class="waves-light" aria-label="Close"
+            mdbWavesEffect (click)="goBack()">{{'COMMON.BACK' | translate}}
+    </button>
+  </div>
+
+  <div class="row">
+
+    <!-- Grid column -->
+    <div class="col-md-5">
+      <!-- Featured image -->
+      <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4 waves-light" mdbWavesEffect>
+        <!--          <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/img%20(27).jpg" alt="Sample image">-->
+        <img class="img-fluid full-width" [src]="data.media">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-md-7" [class.text-align-right]="('DIRECTION' | translate) === 'rtl'">
+
+      <!-- Category -->
+      <a>
+        <h5 class="font-weight-bold mb-3">
+          <!--            <mdb-icon fas icon="utensils" class="pr-2"></mdb-icon>-->
+          {{lang === 'en' ? data.nameEn : data.nameAr}}
+        </h5>
+      </a>
+      <!-- Post title -->
+      <h3 class="h3-responsive mb-3">{{'SHARED_OUR_CLIENTS.TITLE' | translate}}: <strong>{{lang === 'en' ? data.titleEn : data.titleAr}}</strong></h3>
+      <p>{{'SHARED_OUR_CLIENTS.DESCRIPTION' | translate}}: {{lang === 'en' ? data.descriptionEn : data.descriptionAr}}</p>
+      <p>{{'SHARED_OUR_CLIENTS.DURATION' | translate}}: {{lang === 'en' ? data.durationEn : data.durationAr}}</p>
+      <p>{{'SHARED_OUR_CLIENTS.SCOPE' | translate}}: {{lang === 'en' ? data.scopeEn : data.scopeAr}}</p>
+      <p>{{'SHARED_OUR_CLIENTS.DELIVERABLE' | translate}}: {{lang === 'en' ? data.deliverableEn : data.deliverableAr}}</p>
+    </div>
+    <!-- Grid column -->
+
+  </div>
+</section>

@@ -7,6 +7,7 @@ import {OurClientsDataService} from '@app/shared/_services';
 import {first} from 'rxjs/operators';
 import consts from '@core/consts';
 import {environment} from '@environments/environment';
+import routes from '@core/routes';
 
 @Component({
   selector: 'app-shared-our-clients',
@@ -16,10 +17,31 @@ import {environment} from '@environments/environment';
 export class SharedOurClientsComponent implements OnInit{
   @Input() category: string;
   lang: string = '';
+  routes = routes;
+
+  title: string;
+  detailLink: string;
 
   items: Client[] = [];
   defaultItems: Client[] = [
-
+    // {
+    //   id: 0,
+    //   timestamp: '',
+    //   ago: '',
+    //   nameEn: this.translate.instant('COMPANY'),
+    //   nameAr: this.translate.instant('COMPANY'),
+    //   photo: `${environment.assetsBaseUrl}/images/welcome.jpg`,
+    //   titleEn: this.translate.instant('COMMON.NO_DATA'),
+    //   titleAr: this.translate.instant('COMMON.NO_DATA'),
+    //   descriptionEn: '',
+    //   descriptionAr: '',
+    //   durationEn: '',
+    //   durationAr: '',
+    //   scopeEn: '',
+    //   scopeAr: '',
+    //   deliverableEn: '',
+    //   deliverableAr: '',
+    // },
   ];
 
   constructor(private router: Router,
@@ -30,6 +52,13 @@ export class SharedOurClientsComponent implements OnInit{
 
   ngOnInit() {
     this.loadData();
+    if (this.category === consts.human) {
+      this.title = this.translate.instant('HUMAN_LAYOUT.OUR_CLIENTS');
+      this.detailLink = routes.human.client;
+    } else if (this.category === consts.business) {
+      this.title = this.translate.instant('BUSINESS_LAYOUT.PREV_CLIENTS');
+      this.detailLink = routes.business.prevClients;
+    }
   }
 
   loadData() {

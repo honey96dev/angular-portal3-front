@@ -5,6 +5,7 @@ import {HumanCapitalRoutingModule} from '@app/human-capital/human-capital-routin
 import {HumanLayoutComponent} from '@app/views/layouts/human-layout/human-layout.component';
 import {HumanFrontComponent} from '@app/human-capital/views/front/human-front.component';
 import {HumanMyaccountComponent} from '@app/human-capital/views/myaccount/human-myaccount.component';
+import {HumanOurClientsComponent} from '@app/human-capital/views/our-clients/human-our-clients.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import {HumanMyaccountComponent} from '@app/human-capital/views/myaccount/human-
     HumanLayoutComponent,
     HumanFrontComponent,
     HumanMyaccountComponent,
+    HumanOurClientsComponent,
   ],
   imports: [
     CommonModule,

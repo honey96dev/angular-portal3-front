@@ -19,11 +19,16 @@
             <a class="nav-link waves-light" [routerLink]="routes.business.upcoming"
                mdbWavesEffect>{{'BUSINESS_LAYOUT.MOST_UPCOMING' | translate}}</a>
           </li>
+<!--          <li class="nav-item">-->
+<!--            <a  class="nav-link waves-light" [routerLink]="routes.business.previous"-->
+<!--               mdbWavesEffect>{{'BUSINESS_LAYOUT.PREVIOUS' | translate}}</a>-->
+<!--          </li>-->
           <li class="nav-item">
-            <a  class="nav-link waves-light" [routerLink]="routes.business.previous"
-               mdbWavesEffect>{{'BUSINESS_LAYOUT.PREVIOUS' | translate}}</a>
+            <a  class="nav-link waves-light" [routerLink]="routes.business.prevClients"
+               mdbWavesEffect>{{'BUSINESS_LAYOUT.PREV_CLIENTS' | translate}}</a>
           </li>
           <li class="nav-item">
+<!--          <li *ngIf="currentUser" class="nav-item">-->
             <a  class="nav-link waves-light" [routerLink]="routes.business.contactUs"
                mdbWavesEffect>{{'BUSINESS_LAYOUT.CONTACT_US' | translate}}</a>
           </li>
@@ -33,6 +38,17 @@
           </li>
         </ul>
         <ul class="navbar-nav nav-flex-icons" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'ml-auto' : 'mr-auto'">
+          <li class="nav-item dropdown" dropdown>
+            <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light">
+              {{'COMMON.LANGUAGE' | translate}}<span class="caret"></span>
+            </a>
+            <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+              <div >
+                <a (click)="onLanguageButtonClicked('ar')" class="dropdown-item waves-light" mdbWavesEffect>{{'COMMON.ARABIC' | translate}}</a>
+                <a (click)="onLanguageButtonClicked('en')" class="dropdown-item waves-light" mdbWavesEffect>{{'COMMON.ENGLISH' | translate}}</a>
+              </div>
+            </div>
+          </li>
           <li class="nav-item dropdown" dropdown>
             <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light">
               <mdb-icon fas icon="user"></mdb-icon><span class="caret"></span>
