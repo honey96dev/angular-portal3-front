@@ -1,6 +1,6 @@
 <section class="screen-breakpoint margin-auto-x my-5">
 
-  <h2 class="h1-responsive font-weight-bold text-center my-5">{{title}}</h2>
+  <h2 class="h1-responsive font-weight-bold text-center my-5">{{(category === consts.human ? 'HUMAN_LAYOUT.OUR_CLIENTS' : 'BUSINESS_LAYOUT.PREV_CLIENTS') | translate}}</h2>
 
   <div *ngIf="!items.length">
     <h4 class="h4-responsive font-weight-bold text-center my-5">{{'COMMON.NO_DATA' | translate}}</h4>

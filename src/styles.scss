@@ -131,3 +131,51 @@
 .rtl-content h1, .rtl-content h2, .rtl-content h3, .rtl-content h4, .rtl-content h5, .rtl-content h6, .rtl-content p {
   text-align: right;
 }
+
+.rtl-content {
+  .text-left {
+    text-align: right !important;
+  }
+  .text-right {
+    text-align: left !important;
+  }
+}
+
+$about-us-image-width: 200px;
+
+.about-us-image-padding {
+  padding-left: $about-us-image-width;
+}
+
+.absolute-left-0 {
+  left: 0;
+}
+
+.rtl-content {
+  .about-us-image-padding {
+    padding-left: 0;
+    padding-right: $about-us-image-width;
+  }
+
+  .absolute-left-0 {
+    left: unset;
+    right: 0;
+  }
+}
+@media (max-width: $screen-breakpoint) {
+  .about-us-image-padding {
+    padding-left: calc(#{$about-us-image-width} / 1.8);
+  }
+
+  .rtl-content {
+    .about-us-image-padding {
+      padding-left: unset;
+      padding-right: calc(#{$about-us-image-width} / 1.8);
+    }
+  }
+
+  .h5-responsive {
+    font-size: 1.1rem;
+  }
+}
+

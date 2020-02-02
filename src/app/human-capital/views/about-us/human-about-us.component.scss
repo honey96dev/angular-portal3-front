@@ -1,0 +1,19 @@
+@import "../../../../consts";
+
+$bg-width: 250px;
+
+img.bg {
+  position: absolute;
+  top: 0;
+  width: $bg-width;
+}
+
+@media (max-width: $screen-breakpoint) {
+  img.bg {
+    width: calc(#{$bg-width} / 2.4);
+  }
+}
+
+ul li {
+  //ma
+}

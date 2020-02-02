@@ -9,6 +9,7 @@ export default {
     main: '/human',
     myaccount: '/human/myaccount',
     client: '/human/client',
+    aboutUs: '/human/about-us',
   },
   conference: {
     main: '/conference',
@@ -20,6 +21,7 @@ export default {
     sponsorRequest: '/conference/sponsor-request',
     prevSponsors: '/conference/prev-sponsors',
     directorBoard: '/conference/director-board',
+    aboutUs: '/conference/about-us',
     myaccount: '/conference/myaccount',
   },
   business: {
@@ -33,6 +35,7 @@ export default {
     courseJoin: '/business/course-join',
     contactUs: '/business/contact-us',
     directorBoard: '/business/director-board',
+    aboutUs: '/business/about-us',
     myaccount: '/business/myaccount',
   },
 };

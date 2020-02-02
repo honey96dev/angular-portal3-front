@@ -29,6 +29,9 @@
             <li class="nav-item">
               <a href="#directorsBoard" mdbPageScroll [pageScrollOffset]="scrollOffset" [pageScrollDuration]="scrollDuration" class="nav-link waves-light" mdbWavesEffect>{{'HUMAN_LAYOUT.BOARD_OF_DIRECTORS' | translate}}</a>
             </li>
+            <li class="nav-item">
+              <a [routerLink]="routes.human.aboutUs" class="nav-link waves-light" mdbWavesEffect>{{'HUMAN_LAYOUT.ABOUT_US' | translate}}</a>
+            </li>
           </ul>
           <ul class="navbar-nav nav-flex-icons" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'ml-auto' : 'mr-auto'">
             <li class="nav-item dropdown" dropdown>

@@ -126,7 +126,7 @@ export class SharedCourseJoinComponent implements OnInit{
 
     const jobTitle = this.f.jobTitle.value;
 
-    const params = {target: this.data.id, userId: this.user.id, jobTitle};
+    const params = {target: this.data.id, userId: this.user.id, jobTitle, email: this.f.email.value};
 
     this.service.join(params).pipe(first())
       .subscribe(res => {

@@ -1,5 +1,5 @@
 <section class="my-5 screen-breakpoint margin-auto-x my-5">
-  <h2 class="h1-responsive font-weight-bold text-center my-5">{{title}}</h2>
+  <h2 class="h1-responsive font-weight-bold text-center my-5">{{(scope === consts.previous ? 'SHARED_PREV_SPONSORS.PREVIOUS_SPONSORS' : 'SHARED_EVENTS.UPCOMING_EVENTS') | translate}}</h2>
   <div class="col-md-12">
     <div *ngFor="let item of items; let i = index" class="single-news mb-4">
     <app-shared-prev-sponsors-item [scope]="scope" [data]="item"></app-shared-prev-sponsors-item>

@@ -5,6 +5,7 @@ import {HumanLayoutComponent} from '@app/views/layouts/human-layout/human-layout
 import {HumanFrontComponent} from '@app/human-capital/views/front/human-front.component';
 import {HumanMyaccountComponent} from '@app/human-capital/views/myaccount/human-myaccount.component';
 import {HumanOurClientsComponent} from '@app/human-capital/views/our-clients/human-our-clients.component';
+import {HumanAboutUsComponent} from '@app/human-capital/views/about-us/human-about-us.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
     ]
   },
   {path: 'client/:id', component: HumanOurClientsComponent},
+  {path: 'about-us', component: HumanAboutUsComponent},
 ];
 
 @NgModule({

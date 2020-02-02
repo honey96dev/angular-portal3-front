@@ -12,6 +12,7 @@ import {BusinessContactUsComponent} from '@app/business/views/contact-us/busines
 import {BusinessPrevClientsComponent} from '@app/business/views/prev-clients/business-prev-clients.component';
 import {BusinessPrevClientsItemComponent} from '@app/business/views/prev-clients/business-prev-clients-item.component';
 import {BusinessDirectorBoardComponent} from '@app/business/views/director-board/business-director-board.component';
+import {BusinessAboutUsComponent} from '@app/business/views/about-us/business-about-us.component';
 import {BusinessMyaccountComponent} from '@app/business/views/myaccount/business-myaccount.component';
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
       {path: 'prev-clients', component: BusinessPrevClientsComponent},
       {path: 'prev-clients/:id', component: BusinessPrevClientsItemComponent},
       {path: 'director-board', component: BusinessDirectorBoardComponent},
+      {path: 'about-us', component: BusinessAboutUsComponent},
       {path: 'myaccount', component: BusinessMyaccountComponent, canActivate: [AuthGuard]},
     ]
   }

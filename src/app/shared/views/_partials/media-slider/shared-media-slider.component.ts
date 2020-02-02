@@ -17,6 +17,7 @@ import ext2mime from '@core/ext2mime.json';
 export class SharedMediaSliderComponent implements OnInit{
   @Input() category: string;
   lang: string = '';
+  consts = consts;
 
   slides: Slide[] = [];
   defaultSlides: Slide[] = [

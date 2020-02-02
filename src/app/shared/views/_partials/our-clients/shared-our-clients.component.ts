@@ -18,6 +18,7 @@ export class SharedOurClientsComponent implements OnInit{
   @Input() category: string;
   lang: string = '';
   routes = routes;
+  consts = consts;
 
   title: string;
   detailLink: string;

@@ -1,14 +1,15 @@
 <main>
   <div class="full-width">
     <!-- Navbar -->
-    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar background-color-white">
+    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-light background-color-white sticky-top"
+                [containerInside]="false">
       <mdb-navbar-brand>
         <a class="logo navbar-brand waves-light btn-sm" mdbWavesEffect mdbBtn color="primary" (click)="onLanguageButtonClicked()"><strong>{{'LANGUAGE' | translate}}</strong></a>
       </mdb-navbar-brand>
       <links>
-        <ul class="navbar-nav" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'ml-auto' : 'mr-auto'">
+        <ul class="navbar-nav nav-flex-icons" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'ml-auto' : 'mr-auto'">
           <li class="nav-item">
-            <a [routerLink]="routes.home" class="nav-link waves-light" mdbWavesEffect mdbBtn color="secondary"
+            <a [routerLink]="routes.home" class="nav-link waves-light text-white btn-sm" mdbWavesEffect mdbBtn color="secondary"
             >{{'COMMON.HOME' | translate}}</a>
           </li>
         </ul>

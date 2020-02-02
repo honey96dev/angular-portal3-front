@@ -1,5 +1,5 @@
 // Angular
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable, Output} from '@angular/core';
 // Tranlsation
 import { TranslateService } from '@ngx-translate/core';
 
@@ -13,6 +13,8 @@ export interface Locale {
 export class TranslationService {
   // Private properties
   private langIds: any = [];
+
+  @Output() language: EventEmitter<string> = new EventEmitter();
 
   /**
    * Service Constructor
@@ -56,6 +58,7 @@ export class TranslationService {
       this.translate.use(this.translate.getDefaultLang());
       this.translate.use(lang);
       localStorage.setItem('language', lang);
+      this.language.emit(lang);
     }
   }
 

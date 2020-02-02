@@ -12,6 +12,7 @@ import {ConferenceSponsorRequestPartialComponent} from '@app/conference/views/_p
 import {ConferencePrevSponsorsComponent} from '@app/conference/views/prev-sponsors/conference-prev-sponsors.component';
 import {ConferenceDirectorBoardComponent} from '@app/conference/views/director-board/conference-director-board.component';
 import {ConferenceEventJoinComponent} from '@app/conference/views/event-join/conference-event-join.component';
+import {ConferenceAboutUsComponent} from '@app/conference/views/about-us/conference-about-us.component';
 import {ConferenceMyaccountComponent} from '@app/conference/views/myaccount/conference-myaccount.component';
 
 @NgModule({
@@ -26,6 +27,7 @@ import {ConferenceMyaccountComponent} from '@app/conference/views/myaccount/conf
     ConferencePrevSponsorsComponent,
     ConferenceDirectorBoardComponent,
     ConferenceEventJoinComponent,
+    ConferenceAboutUsComponent,
     ConferenceMyaccountComponent,
   ],
   imports: [

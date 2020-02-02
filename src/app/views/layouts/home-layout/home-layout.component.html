@@ -2,10 +2,10 @@
   <div class="screen-breakpoint margin-auto-x">
     <div class="pt-2" [class.text-align-right]="language === 'ar'">
       <div class="row">
-        <div class="col" [ngClass]="language === 'en' ? 'text-left' : 'text-right'">
+        <div class="col text-left">
           <button mdbBtn color="primary" class="btn-sm" (click)="onLanguageButtonClicked()">{{'LANGUAGE' | translate}}</button>
         </div>
-        <div class="col" [ngClass]="language === 'ar' ? 'text-left' : 'text-right'">
+        <div class="col text-right">
           <a href="/admin" mdbBtn color="secondary" class="btn-sm" >{{'COMMON.ADMIN' | translate}}</a>
         </div>
       </div>

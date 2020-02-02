@@ -1,7 +1,7 @@
 <section class="my-5 screen-breakpoint margin-auto-x my-5 col-md-12">
 
   <!-- Section heading -->
-  <h2 class="h1-responsive font-weight-bold text-center my-5">{{title}}</h2>
+  <h2 class="h1-responsive font-weight-bold text-center my-5">{{(scope === consts.upcoming ? 'BUSINESS_LAYOUT.MOST_UPCOMING' : scope === consts.previous ? 'BUSINESS_LAYOUT.PREVIOUS' : 'BUSINESS_LAYOUT.ANNUAL_UPCOMING2') | translate}}</h2>
   <!-- Section description -->
   <p *ngIf="scope === consts.annual" class="text-center w-responsive mx-auto mb-5">{{summary[lang]}}</p>
 

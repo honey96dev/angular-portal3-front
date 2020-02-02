@@ -42,8 +42,6 @@ export class SharedContactUsComponent implements OnInit{
       message: new FormControl('', Validators.required),
     });
     this.currentUser = this.authService.currentUserValue;
-    this.f.name.patchValue(this.currentUser.firstName + " " + this.currentUser.lastName);
-    this.f.email.patchValue(this.currentUser.email);
   }
 
   get f() {

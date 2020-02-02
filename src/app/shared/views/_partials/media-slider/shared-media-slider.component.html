@@ -1,5 +1,5 @@
 <section class="full-width">
-  <h2 class="h1-responsive font-weight-bold text-center my-5">{{title}}</h2>
+  <h2 class="h1-responsive font-weight-bold text-center my-5">{{(category === consts.human ? 'HOME_FRONT.HUMAN_CAPITAL' : category === consts.conference ? 'HOME_FRONT.CONFERENCE' : 'HOME_FRONT.BUSINESS_SOLUTION') | translate}}</h2>
   <p class="text-center w-responsive mx-auto my-5">{{'SHARED_MEDIA_SLIDER.DESCRIPTION_MSG' | translate}}</p>
 <!--  <div class="media-slider-container">-->
     <mdb-carousel class="carousel slide carousel-slide" nav-class="red" indicatorClass="red" [animation]="'slide'">

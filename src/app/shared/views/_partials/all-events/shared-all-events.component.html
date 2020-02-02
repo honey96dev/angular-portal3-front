@@ -2,7 +2,7 @@
 <section class="my-5 screen-breakpoint margin-auto-x my-5">
 
   <!-- Section heading -->
-  <h2 class="h1-responsive font-weight-bold text-center my-5">{{title}}</h2>
+  <h2 class="h1-responsive font-weight-bold text-center my-5">{{(scope === consts.upcoming ? 'SHARED_EVENTS.UPCOMING_EVENTS' : 'SHARED_EVENTS.PREVIOUS_EVENTS') | translate}}</h2>
   <!-- Section description -->
 <!--  <p class="text-center dark-grey-text w-responsive mx-auto mb-5">Duis aute irure dolor in reprehenderit in-->
 <!--    voluptate-->
