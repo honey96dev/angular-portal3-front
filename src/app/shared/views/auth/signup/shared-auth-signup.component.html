@@ -1,90 +1,157 @@
 <!--Form-->
-<mdb-card class="wow fadeInRight" data-wow-delay="0.3s">
-  <mdb-card-body class="z-depth-2">
-    <!--Header-->
-    <div class="text-center">
-      <h3 class="dark-grey-text">
-        <strong>{{'SIGNIN.SIGNUP' | translate}}</strong>
-      </h3>
-      <hr>
+<div class="admin-nav text-right">
+  <a [routerLink]="routes.admin" mdbBtn size="sm" rounded="true" color="indigo">{{"COMMON.ADMIN_PAGE" | translate}}</a>
+</div>
+<div class="text-center">
+  <img class="logo-img mb-5" src="/assets/media/logos/logo-alt.png"/>
+</div>
+<mdb-card class="wow fadeInRight auth-bg mb-5" data-wow-delay="0.3s">
+  <mdb-card-body class="mx-md-4 mx-sm-1">
+    <div class="row text-center">
+      <div class="col-6 col-lg-4">
+        <a [routerLink]="routes.auth.signIn" ><p class="text-white h5">{{"SIGNIN.SIGNIN" | translate}}</p></a>
+      </div>
+      <div class="col-6 col-lg-4 underlined white-border">
+        <p class="text-white h5">{{"SIGNIN.SIGNUP" | translate}}</p>
+      </div>
     </div>
-    <!--Body-->
 
-    <div *ngIf="alert.show" class="alert alert-dismissible fade show" [ngClass]="alert.type" role="alert">
-      <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      {{alert.message}}
-    </div>
     <form name="form" [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="md-form">
-        <input type="email" id="email" class="form-control" mdbInput mdbValidate formControlName="email" [readOnly]="loading">
-        <label for="email">{{'SIGNIN.EMAIL' | translate}}</label>
-        <mdb-error *ngIf="f.email.errors && f.email.errors.required && (f.email.dirty || f.email.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.EMAIL' | translate}"></mdb-error>
-        <mdb-error *ngIf="f.email.errors && f.email.errors.email && (f.email.dirty || f.email.touched)" [translate]="'COMMON.FIELD_INVALID'" [translateParams]="{field: 'SIGNIN.EMAIL' | translate}"></mdb-error>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="md-form md-bg mb-0">
+            <input type="email" id="email" class="form-control" mdbInput mdbValidate formControlName="email" [readOnly]="loading">
+            <label for="email">{{'SIGNIN.EMAIL' | translate}}</label>
+            <mdb-error *ngIf="f.email.errors && f.email.errors.required && (f.email.dirty || f.email.touched)" class="error-message2 text-left" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.EMAIL' | translate}"></mdb-error>
+            <mdb-error *ngIf="f.email.errors && f.email.errors.email && (f.email.dirty || f.email.touched)" class="error-message2 text-left" [translate]="'COMMON.FIELD_INVALID'" [translateParams]="{field: 'SIGNIN.EMAIL' | translate}"></mdb-error>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="md-form md-bg mb-0">
+            <input type="text" id="username" class="form-control" mdbInput mdbValidate formControlName="username" [readOnly]="loading">
+            <label for="username">{{'SIGNIN.USERNAME' | translate}}</label>
+            <mdb-error *ngIf="f.username.errors && f.username.errors.required && (f.username.dirty || f.username.touched)" class="error-message2 text-left" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.USERNAME' | translate}"></mdb-error>
+            <mdb-error *ngIf="f.username.errors && f.username.errors.maxlength && (f.username.dirty || f.username.touched)" class="error-message2 text-left" [translate]="'COMMON.FIELD_MAX_LENGTH'" [translateParams]="{field: 'SIGNIN.USERNAME' | translate, length: lang === 'en' ? 20 : '٢٠'}"></mdb-error>
+          </div>
+        </div>
       </div>
-      <div class="md-form">
-        <input type="text" id="firstName" class="form-control" mdbInput mdbValidate formControlName="firstName" [readOnly]="loading">
-        <label for="firstName">{{'SIGNIN.FIRST_NAME' | translate}}</label>
-        <mdb-error *ngIf="f.firstName.errors && f.firstName.errors.required && (f.firstName.dirty || f.firstName.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.FIRST_NAME' | translate}"></mdb-error>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="md-form md-bg mb-0">
+            <input type="text" id="firstName" class="form-control" mdbInput mdbValidate formControlName="firstName" [readOnly]="loading">
+            <label for="firstName">{{'SIGNIN.FIRST_NAME' | translate}}</label>
+            <mdb-error *ngIf="f.firstName.errors && f.firstName.errors.required && (f.firstName.dirty || f.firstName.touched)" class="error-message2 text-left" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.FIRST_NAME' | translate}"></mdb-error>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="md-form md-bg mb-0">
+            <input type="text" id="fatherName" class="form-control" mdbInput mdbValidate formControlName="fatherName" [readOnly]="loading">
+            <label for="fatherName">{{'SIGNIN.FATHER_NAME' | translate}}</label>
+            <mdb-error *ngIf="f.fatherName.errors && f.fatherName.errors.required && (f.fatherName.dirty || f.fatherName.touched)" class="error-message2 text-left" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.FATHER_NAME' | translate}"></mdb-error>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="md-form md-bg mb-0">
+            <input type="text" id="lastName" class="form-control" mdbInput mdbValidate formControlName="lastName" [readOnly]="loading">
+            <label for="lastName">{{'SIGNIN.LAST_NAME' | translate}}</label>
+            <mdb-error *ngIf="f.lastName.errors && f.lastName.errors.required && (f.lastName.dirty || f.lastName.touched)" class="error-message2 text-left" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.LAST_NAME' | translate}"></mdb-error>
+          </div>
+        </div>
       </div>
-      <div class="md-form">
-        <input type="text" id="lastName" class="form-control" mdbInput mdbValidate formControlName="lastName" [readOnly]="loading">
-        <label for="lastName">{{'SIGNIN.LAST_NAME' | translate}}</label>
-        <mdb-error *ngIf="f.lastName.errors && f.lastName.errors.required && (f.lastName.dirty || f.lastName.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.LAST_NAME' | translate}"></mdb-error>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="md-form md-bg mb-0">
+            <mdb-select formControlName="gender" [label]="'SIGNIN.GENDER' | translate" [options]="genders" class="white pb-1"></mdb-select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="md-form md-bg mb-0">
+            <mdb-date-picker [inline]="true" formControlName="birthday" [label]="'SIGNIN.BIRTHDAY' | translate" [options]="datePickerOptions" required class="white"></mdb-date-picker>
+          </div>
+        </div>
       </div>
-      <div class="md-form">
-        <input type="password" id="password" class="form-control" mdbInput mdbValidate formControlName="password" [readOnly]="loading">
-        <label for="password">{{'SIGNIN.PASSWORD' | translate}}</label>
-        <mdb-error *ngIf="f.password.errors && f.password.errors.required && (f.password.dirty || f.password.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.PASSWORD' | translate}"></mdb-error>
-        <mdb-error *ngIf="f.password.errors && f.password.errors.minlength && (f.password.dirty || f.password.touched)" [translate]="'COMMON.FIELD_MIN_LENGTH'" [translateParams]="{field: 'SIGNIN.PASSWORD' | translate, length: 6}"></mdb-error>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="md-form md-bg mb-0">
+            <input type="text" id="jobTitle" class="form-control" mdbInput mdbValidate formControlName="jobTitle" [readOnly]="loading">
+            <label for="jobTitle">{{'SIGNIN.JOB_TITLE' | translate}}</label>
+            <mdb-error *ngIf="f.jobTitle.errors && f.jobTitle.errors.required && (f.jobTitle.dirty || f.jobTitle.touched)" class="error-message2 text-left" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.JOB_TITLE' | translate}"></mdb-error>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="md-form md-bg mb-0">
+            <input type="text" id="sector" class="form-control" mdbInput mdbValidate formControlName="sector" [readOnly]="loading">
+            <label for="sector">{{'SIGNIN.SECTOR' | translate}}</label>
+            <mdb-error *ngIf="f.sector.errors && f.sector.errors.required && (f.sector.dirty || f.sector.touched)" class="error-message2 text-left" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.SECTOR' | translate}"></mdb-error>
+          </div>
+        </div>
       </div>
-      <div class="md-form">
-        <input type="password" id="password2" class="form-control" mdbInput mdbValidate formControlName="password2" [readOnly]="loading"  mdb-validateEqual="password" validateEqual="password">
-        <label for="password2">{{'SIGNIN.PASSWORD2' | translate}}</label>
-        <mdb-error *ngIf="f.password2.errors && f.password2.errors.required && (f.password2.dirty || f.password2.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.PASSWORD2' | translate}"></mdb-error>
-        <mdb-error *ngIf="f.password2.errors && f.password2.errors.minlength && (f.password2.dirty || f.password2.touched)" [translate]="'COMMON.FIELD_MIN_LENGTH'" [translateParams]="{field: 'SIGNIN.PASSWORD2' | translate, length: 6}"></mdb-error>
-        <mdb-error *ngIf="f.password2.errors && !f.password2.errors.required && !f.password2.errors.minlength && !f.password2.errors.validateEqual && (f.password2.dirty || f.password2.touched)" [translate]="'COMMON.MAKE_SURE_SAME_TO'" [translateParams]="{field: 'SIGNIN.PASSWORD' | translate}"></mdb-error>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="md-form md-bg mb-0">
+            <input type="text" id="company" class="form-control" mdbInput mdbValidate formControlName="company" [readOnly]="loading">
+            <label for="company">{{'SIGNIN.COMPANY' | translate}}</label>
+            <mdb-error *ngIf="f.company.errors && f.company.errors.required && (f.company.dirty || f.company.touched)" class="error-message2 text-left" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.COMPANY' | translate}"></mdb-error>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="md-form md-bg mb-0">
+            <input type="text" id="city" class="form-control" mdbInput mdbValidate formControlName="city" [readOnly]="loading">
+            <label for="city">{{'SIGNIN.CITY' | translate}}</label>
+            <mdb-error *ngIf="f.city.errors && f.city.errors.required && (f.city.dirty || f.city.touched)" class="error-message2 text-left" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.CITY' | translate}"></mdb-error>
+          </div>
+        </div>
       </div>
-      <div class="md-form">
-        <input type="text" id="company" class="form-control" mdbInput mdbValidate formControlName="company" [readOnly]="loading">
-        <label for="company">{{'SIGNIN.COMPANY' | translate}}</label>
-        <mdb-error *ngIf="f.company.errors && f.company.errors.required && (f.company.dirty || f.company.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.COMPANY' | translate}"></mdb-error>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="md-form md-bg mb-0">
+            <mdb-select formControlName="countryCode" [label]="'SIGNIN.COUNTRY_CODE' | translate" [options]="countryCodes" class="white pb-1"></mdb-select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="md-form md-bg mb-0">
+            <input type="text" id="phone" class="form-control" mdbInput mdbValidate formControlName="phone" [readOnly]="loading">
+            <label for="phone">{{'SIGNIN.PHONE' | translate}}</label>
+            <mdb-error *ngIf="f.phone.errors && f.phone.errors.required && (f.phone.dirty || f.phone.touched)" class="error-message2 text-left" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.PHONE' | translate}"></mdb-error>
+          </div>
+        </div>
       </div>
-      <div class="md-form">
-        <input type="text" id="position" class="form-control" mdbInput mdbValidate formControlName="position" [readOnly]="loading">
-        <label for="position">{{'SIGNIN.POSITION' | translate}}</label>
-        <mdb-error *ngIf="f.position.errors && f.position.errors.required && (f.position.dirty || f.position.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.POSITION' | translate}"></mdb-error>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="md-form md-bg">
+            <input type="password" id="password" class="form-control" mdbInput mdbValidate formControlName="password" [readOnly]="loading">
+            <label for="password">{{'SIGNIN.PASSWORD' | translate}}</label>
+            <mdb-error *ngIf="f.password.errors && f.password.errors.required && (f.password.dirty || f.password.touched)" class="error-message2 text-left" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.PASSWORD' | translate}"></mdb-error>
+            <mdb-error *ngIf="f.password.errors && f.password.errors.minlength && (f.password.dirty || f.password.touched)" class="error-message2 text-left" [translate]="'COMMON.FIELD_MIN_LENGTH'" [translateParams]="{field: 'SIGNIN.PASSWORD' | translate, length: 6}"></mdb-error>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="md-form md-bg">
+            <input type="password" id="password2" class="form-control" mdbInput mdbValidate formControlName="password2" [readOnly]="loading"  mdb-validateEqual="password" validateEqual="password">
+            <label for="password2">{{'SIGNIN.PASSWORD2' | translate}}</label>
+            <mdb-error *ngIf="f.password2.errors && f.password2.errors.required && (f.password2.dirty || f.password2.touched)" class="error-message2 text-left" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.PASSWORD2' | translate}"></mdb-error>
+            <mdb-error *ngIf="f.password2.errors && f.password2.errors.minlength && (f.password2.dirty || f.password2.touched)" class="error-message2 text-left" [translate]="'COMMON.FIELD_MIN_LENGTH'" [translateParams]="{field: 'SIGNIN.PASSWORD2' | translate, length: 6}"></mdb-error>
+            <mdb-error *ngIf="f.password2.errors && !f.password2.errors.required && !f.password2.errors.minlength && !f.password2.errors.validateEqual && (f.password2.dirty || f.password2.touched)" class="error-message2 text-left" [translate]="'COMMON.MAKE_SURE_SAME_TO'" [translateParams]="{field: 'SIGNIN.PASSWORD' | translate}"></mdb-error>
+          </div>
+        </div>
       </div>
-      <div class="md-form">
-        <input type="text" id="country" class="form-control" mdbInput mdbValidate formControlName="country" [readOnly]="loading" [mdbAutoCompleter]="country" autocomplete="na">
-        <label for="country">{{'SIGNIN.COUNTRY' | translate}}</label>
-        <mdb-auto-completer #country="mdbAutoCompleter" [textNoResults]="'COMMON.NO_DATA' | translate">
-          <mdb-option *ngFor="let country of countriesData | async" [value]="country.name">
-            {{ country.name }}
-          </mdb-option>
-        </mdb-auto-completer>
-        <mdb-error *ngIf="f.country.errors && f.country.errors.required && (f.country.dirty || f.country.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.COUNTRY' | translate}"></mdb-error>
+
+      <div *ngIf="alert.show" class="alert alert-dismissible fade show mb-3" [ngClass]="alert.type" role="alert">
+        <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        {{alert.message}}
       </div>
-      <div class="md-form">
-        <input type="text" id="city" class="form-control" mdbInput mdbValidate formControlName="city" [readOnly]="loading">
-        <label for="city">{{'SIGNIN.CITY' | translate}}</label>
-        <mdb-error *ngIf="f.city.errors && f.city.errors.required && (f.city.dirty || f.city.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.CITY' | translate}"></mdb-error>
-      </div>
-      <div class="md-form">
-        <input type="text" id="phone" class="form-control" mdbInput mdbValidate formControlName="phone" [readOnly]="loading">
-        <label for="phone">{{'SIGNIN.PHONE' | translate}}</label>
-        <mdb-error *ngIf="f.phone.errors && f.phone.errors.required && (f.phone.dirty || f.phone.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.PHONE' | translate}"></mdb-error>
-      </div>
-      <div class="text-center mt-3">
-        <button type="submit" mdbBtn color="indigo" mdbWavesEffect [disabled]="form.invalid || loading">
+      <div class="text-center mt-4 mb-3 mx-5">
+        <button mdbBtn color="white" rounded="true" class="full-width z-depth-1a blue-grey-text" [disabled]="loading">
           <mdb-icon fas icon="sign-in-alt"></mdb-icon>
           {{'SIGNIN.SIGNUP' | translate}}
-        </button>
-      </div>
-      <div class="text-center mt-3">
-        <button mdbBtn color="link" [routerLink]="routes.auth.signIn" [disabled]="loading">
-          {{'SIGNIN.SIGNIN' | translate}}
         </button>
       </div>
     </form>

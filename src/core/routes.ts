@@ -1,9 +1,13 @@
 export default {
   app: '/app',
   home: '/home',
+  adminPotal: "https://eliteresources.co/admin/",
+  admin: "/admin",
   auth: {
     signIn: '/auth/sign-in',
     signUp: '/auth/sign-up',
+    forgotPass: '/auth/forgot-pass',
+    resetPass: '/auth/reset-pass',
   },
   human: {
     main: '/human',
@@ -15,6 +19,7 @@ export default {
     main: '/conference',
     previousEvents: '/conference/previous-events',
     upcomingEvents: '/conference/upcoming-events',
+    eventPhotos: '/conference/event-photos',
     eventJoin: '/conference/event-join',
     register: 'register',
     contactUs: '/conference/contact-us',

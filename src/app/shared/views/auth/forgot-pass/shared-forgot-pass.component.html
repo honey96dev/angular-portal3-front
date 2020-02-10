@@ -1,0 +1,43 @@
+<!--Form-->
+<div class="admin-nav2 text-right">
+<!--  <a [routerLink]="routes.admin" mdbBtn size="sm" rounded="true" color="indigo">{{"COMMON.ADMIN_PAGE" | translate}}</a>-->
+</div>
+<div class="text-center">
+  <img class="logo-img mb-5" src="/assets/media/logos/logo-alt.png"/>
+</div>
+<mdb-card class="wow fadeInRight auth-bg mb-5" data-wow-delay="0.3s">
+  <mdb-card-body class="mx-md-4 mx-sm-1">
+    <div class="row text-center">
+      <div class="col-12 underlined white-border">
+        <p class="text-white h5">{{"SIGNIN.FORGOT_PASSWORD" | translate}}</p>
+      </div>
+    </div>
+    <!--Body-->
+    <form name="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="md-form md-bg">
+        <input type="email" id="email" class="form-control" mdbInput mdbValidate formControlName="email" [readOnly]="loading">
+        <label for="email">{{'SIGNIN.EMAIL' | translate}}</label>
+        <mdb-error *ngIf="f.email.errors && f.email.errors.required && (f.email.dirty || f.email.touched)" class="error-message2 text-left" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.EMAIL' | translate}"></mdb-error>
+        <mdb-error *ngIf="f.email.errors && f.email.errors.email && (f.email.dirty || f.email.touched)" class="error-message2 text-left" [translate]="'COMMON.FIELD_INVALID'" [translateParams]="{field: 'SIGNIN.EMAIL' | translate}"></mdb-error>
+      </div>
+
+      <div *ngIf="alert.show" class="alert alert-dismissible fade show mb-3" [ngClass]="alert.type" role="alert">
+        <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        {{alert.message}}
+      </div>
+      <div class="text-center mt-4 mb-3 mx-5">
+        <button mdbBtn color="white" rounded="true" class="full-width z-depth-1a blue-grey-text" [disabled]="form.invalid || loading">
+          <mdb-icon fas icon="lock"></mdb-icon>
+          {{'SIGNIN.RESET_PASSWORD' | translate}}
+        </button>
+      </div>
+
+      <p class="font-small white-text d-flex justify-content-end pb-3">
+        <a [routerLink]="routes.auth.signIn" class="ml-1 white-text">{{"SIGNIN.SIGNIN" | translate}}</a>
+      </p>
+    </form>
+  </mdb-card-body>
+</mdb-card>
+<!--/.Form-->

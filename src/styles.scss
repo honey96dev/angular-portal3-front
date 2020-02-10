@@ -1,6 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./consts";
 
+@-webkit-keyframes autofill {
+  to {
+    //background: transparent;
+    //background: linear-gradient(to bottom, #ced4da, #ced4da);
+  }
+}
+
+input[type]:-webkit-autofill:not(.browser-default):not([type=search])+label {
+  -webkit-transform: unset !important;
+  transform: unset !important;
+}
+
+@keyframes autofill {
+  to {
+    //background: transparent;
+    //background: linear-gradient(to bottom, #4285f4, #4285f4), linear-gradient(to bottom, #ced4da, #ced4da);
+  }
+}
+
 .rtl-content {
   direction: rtl;
 }
@@ -151,6 +170,12 @@ $about-us-image-width: 200px;
   left: 0;
 }
 
+.error-message2 {
+  position: unset !important;
+  top: unset !important;
+  color: #ffdde2 !important;
+}
+
 .rtl-content {
   .about-us-image-padding {
     padding-left: 0;
@@ -160,6 +185,21 @@ $about-us-image-width: 200px;
   .absolute-left-0 {
     left: unset;
     right: 0;
+  }
+
+  .mdb-select-toggle {
+    float: left;
+    left: 0;
+    right: unset;
+  }
+
+  .datepicker-inline-icon {
+    left: 0;
+    right: unset;
+  }
+
+  mdb-select-dropdown .dropdown-content li>a, mdb-select-dropdown .dropdown-content li>span {
+    text-align: right;
   }
 }
 @media (max-width: $screen-breakpoint) {

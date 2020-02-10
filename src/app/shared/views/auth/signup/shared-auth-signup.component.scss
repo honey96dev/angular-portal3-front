@@ -1,4 +1,12 @@
 @import "../../../../../consts";
 
-/* Required for full background image */
+.underlined {
+  border-bottom: white 1px solid;
+}
 
+.auth-bg {
+  background-image: url(/assets/media/bg/auth-bg.png) !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}

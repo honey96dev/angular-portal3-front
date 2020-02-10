@@ -43,7 +43,7 @@
 <div class="row">
 
   <!-- Grid column -->
-  <div class="col-md-5" [class.big-post-image]="bigPostImage">
+  <a class="col-md-5" [class.big-post-image]="bigPostImage" [routerLink]="[routes.conference.eventPhotos, data.id]">
     <!-- Featured image -->
     <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4 waves-light" mdbWavesEffect>
       <!--          <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/img%20(27).jpg" alt="Sample image">-->
@@ -56,14 +56,14 @@
       </a>
     </div>
 
-  </div>
+  </a>
   <!-- Grid column -->
 
   <!-- Grid column -->
   <div class="col-md-7" [class.text-align-right]="('DIRECTION' | translate) === 'rtl'">
 
     <!-- Category -->
-    <a [class]="data.typeClass">
+    <a [class]="data.typeClass" [routerLink]="[routes.conference.eventPhotos, data.id]">
       <h6 class="font-weight-bold mb-3">
         <!--            <mdb-icon fas icon="utensils" class="pr-2"></mdb-icon>-->
         {{lang === 'en' ? data.typeEn : data.typeAr}}

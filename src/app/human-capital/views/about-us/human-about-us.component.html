@@ -1,17 +1,30 @@
-<section class="full-width about-us-image-padding">
-  <img [src]="lang === 'en' ? 'assets/media/bg/human-about-en.png' : 'assets/media/bg/human-about-ar.png'" class="bg absolute-left-0" >
-  <h2 class="h1-responsive font-weight-bold text-center my-5">{{'HUMAN_ABOUT_US.TITLE' | translate}}</h2>
-<!--  <div class="w-responsive mx-auto text-right">-->
-<!--    <a [routerLink]="routes.human.main">{{'COMMON.BACK' | translate}}</a>-->
-<!--  </div>-->
-  <h4 class="h5-responsive text-left w-responsive mx-auto mt-3 px-3">{{'HUMAN_ABOUT_US.DESCRIPTION' | translate}}</h4>
-  <ul>
-    <li class="h5-responsive text-left w-responsive mx-auto">{{'HUMAN_ABOUT_US.ITEM1' | translate}}</li>
-    <li class="h5-responsive text-left w-responsive mx-auto">{{'HUMAN_ABOUT_US.ITEM2' | translate}}</li>
-    <li class="h5-responsive text-left w-responsive mx-auto">{{'HUMAN_ABOUT_US.ITEM3' | translate}}</li>
-    <li class="h5-responsive text-left w-responsive mx-auto">{{'HUMAN_ABOUT_US.ITEM4' | translate}}</li>
-    <li class="h5-responsive text-left w-responsive mx-auto">{{'HUMAN_ABOUT_US.ITEM5' | translate}}</li>
-    <li class="h5-responsive text-left w-responsive mx-auto">{{'HUMAN_ABOUT_US.ITEM6' | translate}}</li>
-    <li class="h5-responsive text-left w-responsive mx-auto">{{'HUMAN_ABOUT_US.ITEM7' | translate}}</li>
-  </ul>
+<section class="full-width">
+  <div class="about-us-image-padding mb-5">
+    <img [src]="lang === 'en' ? 'assets/media/bg/human-about-en.png' : 'assets/media/bg/human-about-ar.png'" class="bg absolute-left-0" >
+    <h2 class="h1-responsive font-weight-bold text-center my-5">{{'HUMAN_ABOUT_US.TITLE' | translate}}</h2>
+    <!--  <div class="w-responsive mx-auto text-right">-->
+    <!--    <a [routerLink]="routes.human.main">{{'COMMON.BACK' | translate}}</a>-->
+    <!--  </div>-->
+    <h4 class="h5-responsive text-left w-responsive mx-auto mt-3 px-3">{{'HUMAN_ABOUT_US.DESCRIPTION' | translate}}</h4>
+    <ul>
+      <li class="h5-responsive text-left w-responsive mx-auto">{{'HUMAN_ABOUT_US.ITEM1' | translate}}</li>
+      <li class="h5-responsive text-left w-responsive mx-auto">{{'HUMAN_ABOUT_US.ITEM2' | translate}}</li>
+      <li class="h5-responsive text-left w-responsive mx-auto">{{'HUMAN_ABOUT_US.ITEM3' | translate}}</li>
+      <li class="h5-responsive text-left w-responsive mx-auto">{{'HUMAN_ABOUT_US.ITEM4' | translate}}</li>
+      <li class="h5-responsive text-left w-responsive mx-auto">{{'HUMAN_ABOUT_US.ITEM5' | translate}}</li>
+      <li class="h5-responsive text-left w-responsive mx-auto">{{'HUMAN_ABOUT_US.ITEM6' | translate}}</li>
+      <li class="h5-responsive text-left w-responsive mx-auto">{{'HUMAN_ABOUT_US.ITEM7' | translate}}</li>
+    </ul>
+    <div *ngIf="!!brochure" class="w-responsive mx-auto my-5 text-left">
+      <a mdbBtn color="primary" rounded="true" (click)="onBrochureClicked()">
+        <mdb-icon fas icon="file-pdf" class="brochure-icon" [ngClass]="('LANG' | translate) === 'en' ? 'mr-2' : 'ml-2'"></mdb-icon> {{'COMMON.BROCHURE' | translate}}
+      </a>
+    </div>
+  </div>
+  <div *ngIf="!!video" class="view w-100 mb-5">
+    <video class="media-slider-image mx-auto" controls [autoplay]="true" [loop]="true" [muted]="true">
+      <source [src]="video['url']" [type]="video['mime']" />
+    </video>
+    <div class="rgba-black-light waves-light" mdbWavesEffect></div>
+  </div>
 </section>

@@ -38,7 +38,7 @@ export class SharedMediaSliderComponent implements OnInit{
   constructor(private router: Router,
               private globalVariableService: GlobalVariableService,
               private translate: TranslateService,
-              private service: MediaSliderDataService) {
+              private service: MediaSliderDataService,) {
   }
 
   ngOnInit() {

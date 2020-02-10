@@ -1,6 +1,15 @@
 <!--<section mdbScrollSpyElement="navbarScrollspy" id="contactUs" class="screen-breakpoint margin-auto-x my-5 px-3 row">-->
 <section class="screen-breakpoint margin-auto-x my-5 px-3">
-  <p class="text-center w-responsive mx-auto my-5">{{'SHARED_EVENT_JOIN.WELCOME_MESSAGE' | translate}}</p>
+<!--  <p class="text-center w-responsive mx-auto my-5">{{'SHARED_EVENT_JOIN.WELCOME_MESSAGE' | translate}}</p>-->
+  <p class="text-center w-responsive mx-auto my-5">{{'SHARED_EVENT_JOIN.WELCOME_MESSAGE2' | translate}}</p>
+  <p class="text-left w-responsive mx-auto my-1 information-spec">{{'SHARED_EVENT_JOIN.BENEFICIARY_NAME' | translate}} <span>{{'SHARED_EVENT_JOIN.BENEFICIARY_NAME2' | translate}}</span></p>
+  <p class="text-left w-responsive mx-auto my-1 information-spec">{{'SHARED_EVENT_JOIN.IBAN' | translate}} <span>{{'SHARED_EVENT_JOIN.IBAN2' | translate}}</span></p>
+  <p class="text-left w-responsive mx-auto my-1 information-spec">{{'SHARED_EVENT_JOIN.BANK' | translate}} <span>{{'SHARED_EVENT_JOIN.BANK2' | translate}}</span></p>
+  <p class="text-left w-responsive mx-auto my-1 information-spec">{{'SHARED_EVENT_JOIN.EMAIL' | translate}} <span>{{'SHARED_EVENT_JOIN.EMAIL2' | translate}}</span></p>
+  <p class="text-left w-responsive mx-auto my-1 information-spec">{{'SHARED_EVENT_JOIN.INSTRUCTION' | translate}}</p>
+  <p class="text-left w-responsive mx-auto my-1 information-spec">{{'SHARED_EVENT_JOIN.CONTACT' | translate}}</p>
+  <p class="text-left w-responsive mx-auto my-1 information-spec" dir="ltr"><span>{{'SHARED_EVENT_JOIN.PHONE' | translate}}</span></p>
+  <p class="text-left w-responsive mx-auto my-1 information-spec"><span>{{'SHARED_EVENT_JOIN.NAME' | translate}}</span></p>
 
   <h2 class="h1-responsive font-weight-bold text-center my-5">{{'SHARED_EVENT_JOIN.YOUR_INFORMATION' | translate}}</h2>
   <div class="card">
@@ -19,6 +28,12 @@
             </div>
             <div class="col-md-6">
               <div class="md-form mb-0">
+                <input type="text" id="fatherName" class="form-control" mdbInput readonly formControlName="fatherName">
+                <label for="fatherName" class="">{{'SIGNIN.FATHER_NAME'| translate}}</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="md-form mb-0">
                 <input type="text" id="lastName" class="form-control" mdbInput readonly formControlName="lastName">
                 <label for="lastName" class="">{{'SIGNIN.LAST_NAME'| translate}}</label>
               </div>
@@ -27,29 +42,14 @@
           <div class="row">
             <div class="col-md-6">
               <div class="md-form mb-0">
-                <input type="text" id="country" class="form-control" mdbInput readonly formControlName="country">
-                <label for="country" class="">{{'SHARED_EVENT_JOIN.COUNTRY'| translate}}</label>
+                <input type="text" id="company" class="form-control" mdbInput readonly formControlName="company">
+                <label for="company" class="">{{'SIGNIN.COMPANY'| translate}}</label>
               </div>
             </div>
             <div class="col-md-6">
               <div class="md-form mb-0">
                 <input type="text" id="city" class="form-control" mdbInput readonly formControlName="city">
                 <label for="city" class="">{{'SIGNIN.CITY'| translate}}</label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="md-form mb-0">
-                <input type="text" id="company" class="form-control" mdbInput readonly formControlName="company">
-                <label for="company" class="">{{'SHARED_EVENT_JOIN.COMPANY'| translate}}</label>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="md-form mb-0">
-                <input type="text" id="jobTitle" class="form-control" mdbInput formControlName="jobTitle">
-                <label for="jobTitle" class="">{{'SHARED_EVENT_JOIN.JOB_TITLE'| translate}}</label>
-                <mdb-error *ngIf="f.jobTitle.errors && f.jobTitle.errors.required && (f.jobTitle.dirty || f.jobTitle.touched || this.submitted)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_EVENT_JOIN.JOB_TITLE' | translate}"></mdb-error>
               </div>
             </div>
           </div>

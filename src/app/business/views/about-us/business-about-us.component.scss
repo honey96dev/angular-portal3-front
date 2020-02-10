@@ -3,7 +3,7 @@
 $bg-width: 250px;
 
 section {
-  margin-bottom: $bg-width;
+  //margin-bottom: $bg-width;
 }
 
 img.bg {
@@ -25,4 +25,12 @@ img.bg {
 
 ul li {
   //ma
+}
+
+.brochure-icon i {
+  font-size: 1.5rem !important;
+}
+
+video {
+  width: 80%;
 }

@@ -47,6 +47,27 @@ export class AuthenticationService {
     this.currentUserSubject.next(null);
   }
 
+  sendForgotPasswordMail(payload: object) {
+    return this.http.post<any>(`${environment.apiUrl}${apis.auth.sendForgotPasswordMail}`, payload)
+      .pipe(map(res => {
+        return res;
+      }));
+  }
+
+  validateToken(payload: object) {
+    return this.http.post<any>(`${environment.apiUrl}${apis.auth.validateToken}`, payload)
+      .pipe(map(res => {
+        return res;
+      }));
+  }
+
+  resetPassword(payload: object) {
+    return this.http.post<any>(`${environment.apiUrl}${apis.auth.resetPassword}`, payload)
+      .pipe(map(res => {
+        return res;
+      }));
+  }
+
   changeCurrentUserValue(params) {
     let currentUser = this.currentUserValue;
     currentUser = Object.assign({}, currentUser, params);

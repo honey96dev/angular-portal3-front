@@ -2,6 +2,7 @@ export * from './business-partner-data.service';
 export * from './contact-us-data.service';
 export * from './counter.service';
 export * from './courses-data.service';
+export * from './event-photos-data.service';
 export * from './events-data.service';
 export * from './director-board-data.service';
 export * from './media-slider-data.service';

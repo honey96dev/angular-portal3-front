@@ -84,25 +84,33 @@ export class SharedCourseJoinComponent implements OnInit{
       });
 
     this.form = this.formBuilder.group({
-      firstName: new FormControl('', [Validators.required]),
-      lastName: new FormControl('', [Validators.required]),
-      country: new FormControl('', [Validators.required]),
-      city: new FormControl('', [Validators.required]),
-      company: new FormControl('', [Validators.required]),
-      jobTitle: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
-      phone: new FormControl('', [Validators.required]),
+      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required, Validators.maxLength(20)]],
+      firstName: ['', [Validators.required]],
+      fatherName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      gender: ['', [Validators.required]],
+      birthday: ['', [Validators.required]],
+      jobTitle: ['', [Validators.required]],
+      sector: ['', [Validators.required]],
+      company: ['', [Validators.required]],
+      city: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
     });
 
     this.user = this.authService.currentUserValue;
-    this.f.firstName.patchValue(this.user.firstName);
-    this.f.lastName.patchValue(this.user.lastName);
-    this.f.country.patchValue(this.user.country);
-    this.f.city.patchValue(this.user.city);
-    this.f.company.patchValue(this.user.company);
-    // this.f.jobTitle.patchValue(this.user.lastName);
     this.f.email.patchValue(this.user.email);
-    this.f.phone.patchValue(this.user.phone);
+    this.f.username.patchValue(this.user.username);
+    this.f.firstName.patchValue(this.user.firstName);
+    this.f.fatherName.patchValue(this.user.fatherName);
+    this.f.lastName.patchValue(this.user.lastName);
+    this.f.gender.patchValue(this.user.gender);
+    this.f.birthday.patchValue(this.user.birthday);
+    this.f.jobTitle.patchValue(this.user.jobTitle);
+    this.f.sector.patchValue(this.user.sector);
+    this.f.company.patchValue(this.user.company);
+    this.f.city.patchValue(this.user.city);
+    this.f.phone.patchValue(`${this.user.countryCode}${this.user.phone}`);
   }
 
   get f() {

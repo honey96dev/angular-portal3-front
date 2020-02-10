@@ -2,6 +2,9 @@ const apis = {
   auth: {
     signIn: 'auth/sign-in',
     signUp: 'auth/sign-up',
+    sendForgotPasswordMail: 'auth/send-forgot-password-mail',
+    validateToken: 'auth/validate-token',
+    resetPassword: 'auth/reset-password',
   },
   date: {
     today: 'date/today',
@@ -34,6 +37,9 @@ const apis = {
       get: 'events/get',
       join: 'events/join',
     },
+    eventPhotos: {
+      list: 'event-photos/list',
+    },
     training: {
       annualUpcomingYear: 'training/annual-upcoming-year',
       loadAllSettings: 'training/load-all-settings',
@@ -50,6 +56,9 @@ const apis = {
       load: 'myaccount/load',
       save: 'myaccount/save',
       changePassword: 'myaccount/change-password',
+    },
+    aboutUs: {
+      load: 'about-us/load',
     },
   },
 };

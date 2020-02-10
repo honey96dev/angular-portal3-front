@@ -1,14 +1,24 @@
 <section class="full-width">
-  <h2 class="h1-responsive font-weight-bold text-center my-5">{{(category === consts.human ? 'HOME_FRONT.HUMAN_CAPITAL' : category === consts.conference ? 'HOME_FRONT.CONFERENCE' : 'HOME_FRONT.BUSINESS_SOLUTION') | translate}}</h2>
-  <p class="text-center w-responsive mx-auto my-5">{{'SHARED_MEDIA_SLIDER.DESCRIPTION_MSG' | translate}}</p>
+  <h2 class="h1-responsive font-weight-bold text-center my-5">{{'SHARED_EVENT_PHOTOS.HEADING' | translate}}</h2>
+  <div class="text-right screen-breakpoint">
+    <a mdbBtn rounded="true" size="sm" color="warning" (click)="goBack({})">{{'COMMON.BACK' | translate}}</a>
+  </div>
+  <h4 *ngIf="!!event" class="h4-responsice text-center w-responsive mx-auto">{{('LANG' | translate) === 'en' ? event['nameEn'] : event['nameAr']}}</h4>
+  <p *ngIf="!!event" class="text-center w-responsive mx-auto mt-3 mb-5">{{('LANG' | translate) === 'en' ? event['descriptionEn'] : event['descriptionAr']}}</p>
 <!--  <div class="media-slider-container">-->
-    <mdb-carousel class="carousel slide carousel-slide" nav-class="red" indicatorClass="red" [animation]="'slide'" [interval]="slides.length > 1 ? 5000 : 0">
+    <mdb-carousel class="carousel slide carousel-slide" nav-class="red" indicatorClass="red" [animation]="'slide'" [interval]="!!slides.length ? 5000 : 0">
+      <mdb-carousel-item *ngIf="!!event" class="media-slider-item"><div class="view w-100">
+        <img class="d-block media-slider-image mx-auto" [src]="event.media">
+        <div class="rgba-black-light waves-light" mdbWavesEffect></div>
+      </div>
+        <div class="carousel-caption">
+          <!--        <h3 class="h3-responsive">{{lang === 'en' ? item.titleEn: item.titleAr}}</h3>-->
+          <!--        <p>{{lang === 'en' ? item.descriptionEn: item.descriptionAr}}</p>-->
+        </div>
+      </mdb-carousel-item>
       <mdb-carousel-item *ngFor="let item of slides; let i=index" class="media-slider-item">
         <div class="view w-100">
-          <img *ngIf="item.mime.startsWith('image')" class="d-block media-slider-image mx-auto" [src]="item.media">
-          <video *ngIf="item.mime.startsWith('video')" class="media-slider-image mx-auto" [autoplay]="true" [loop]="true" [muted]="true">
-            <source [src]="item.media" [type]="item.mime" />
-          </video>
+          <img class="d-block media-slider-image mx-auto" [src]="item.media">
           <div class="rgba-black-light waves-light" mdbWavesEffect></div>
         </div>
         <div class="carousel-caption">

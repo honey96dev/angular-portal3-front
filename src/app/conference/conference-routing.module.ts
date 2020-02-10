@@ -5,6 +5,7 @@ import {ConferenceLayoutComponent} from '@app/views/layouts/conference-layout/co
 import {ConferenceFrontComponent} from '@app/conference/views/front/conference-front.component';
 import {ConferencePreviousEventsComponent} from '@app/conference/views/previous-events/conference-previous-events.component';
 import {ConferenceUpcomingEventsComponent} from '@app/conference/views/upcoming-events/conference-upcoming-events.component';
+import {ConferenceEventPhotosComponent} from '@app/conference/views/event-photos/conference-event-photos.component';
 import {ConferenceContactUsComponent} from '@app/conference/views/contact-us/conference-contact-us.component';
 import {ConferenceSponsorRequestComponent} from '@app/conference/views/sponsor-request/conference-sponsor-request.component';
 import {ConferencePrevSponsorsComponent} from '@app/conference/views/prev-sponsors/conference-prev-sponsors.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
       {path: '', component: ConferenceFrontComponent},
       {path: 'previous-events', component: ConferencePreviousEventsComponent},
       {path: 'upcoming-events', component: ConferenceUpcomingEventsComponent},
+      {path: 'event-photos/:targetId', component: ConferenceEventPhotosComponent},
       {path: 'contact-us', component: ConferenceContactUsComponent},
       {path: 'sponsor-request', component: ConferenceSponsorRequestComponent},
       {path: 'prev-sponsors', component: ConferencePrevSponsorsComponent},

@@ -11,6 +11,7 @@ import {getCodeList} from 'country-list';
 import {MyaccountService} from '@app/shared/_services';
 import {Country, User} from '@app/_models';
 import {Observable} from 'rxjs';
+import {IMyOptions, IOption} from 'ng-uikit-pro-standard';
 
 @Component({
   selector: 'app-shared-myaccount',
@@ -33,13 +34,19 @@ export class SharedMyaccountComponent implements OnInit {
     type: '',
     message: '',
   };
-
+  lang: string;
 
   passwordLoading = false;
   passwordAlert = {
     show: false,
     type: '',
     message: '',
+  };
+
+  genders: Array<IOption> = [];
+  countryCodes: Array<IOption> = [];
+  public datePickerOptions: IMyOptions = {
+    minYear: 1900,
   };
 
   constructor(private router: Router,
@@ -65,50 +72,119 @@ export class SharedMyaccountComponent implements OnInit {
         title = this.translate.instant('HOME_FRONT.BUSINESS_SOLUTION') + ' - ' + this.translate.instant('SITE_NAME');
         break;
     }
+
+    this.genders = [
+      {value: consts.male, label: this.translate.instant('COMMON.GENDER.MALE'), icon: ''},
+      {value: consts.female, label: this.translate.instant('COMMON.GENDER.FEMALE'), icon: ''},
+    ];
+    this.countryCodes = [
+      {
+        value: consts.PHONE_PREFIX_BAHRAIN,
+        label: consts.PHONE_PREFIX_BAHRAIN + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.BAHRAIN'),
+        icon: ''
+      },
+      {
+        value: consts.PHONE_PREFIX_KUWAIT,
+        label: consts.PHONE_PREFIX_KUWAIT + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.KUWAIT'),
+        icon: ''
+      },
+      {
+        value: consts.PHONE_PREFIX_OMAN,
+        label: consts.PHONE_PREFIX_OMAN + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.OMAN'),
+        icon: ''
+      },
+      {
+        value: consts.PHONE_PREFIX_QATAR,
+        label: consts.PHONE_PREFIX_QATAR + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.QATAR'),
+        icon: ''
+      },
+      {
+        value: consts.PHONE_PREFIX_SAUDI_ARABIA,
+        label: consts.PHONE_PREFIX_SAUDI_ARABIA + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.SAUDI_ARABIA'),
+        icon: ''
+      },
+      {
+        value: consts.PHONE_PREFIX_UAE,
+        label: consts.PHONE_PREFIX_UAE + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.UAE'),
+        icon: ''
+      },
+    ];
+
     this.title.setTitle(title);
     this.globalVariableService.getLanguage()
       .subscribe(data => {
         this.title.setTitle(title);
+        this.lang = data;
+
+        this.genders = [
+          {value: consts.male, label: this.translate.instant('COMMON.GENDER.MALE'), icon: ''},
+          {value: consts.female, label: this.translate.instant('COMMON.GENDER.FEMALE'), icon: ''},
+        ];
+        this.countryCodes = [
+          {
+            value: consts.PHONE_PREFIX_BAHRAIN,
+            label: consts.PHONE_PREFIX_BAHRAIN + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.BAHRAIN'),
+            icon: ''
+          },
+          {
+            value: consts.PHONE_PREFIX_KUWAIT,
+            label: consts.PHONE_PREFIX_KUWAIT + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.KUWAIT'),
+            icon: ''
+          },
+          {
+            value: consts.PHONE_PREFIX_OMAN,
+            label: consts.PHONE_PREFIX_OMAN + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.OMAN'),
+            icon: ''
+          },
+          {
+            value: consts.PHONE_PREFIX_QATAR,
+            label: consts.PHONE_PREFIX_QATAR + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.QATAR'),
+            icon: ''
+          },
+          {
+            value: consts.PHONE_PREFIX_SAUDI_ARABIA,
+            label: consts.PHONE_PREFIX_SAUDI_ARABIA + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.SAUDI_ARABIA'),
+            icon: ''
+          },
+          {
+            value: consts.PHONE_PREFIX_UAE,
+            label: consts.PHONE_PREFIX_UAE + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.UAE'),
+            icon: ''
+          },
+        ];
       });
 
     this.form = this.formBuilder.group({
       id: [''],
       email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required, Validators.maxLength(20)]],
       firstName: ['', [Validators.required]],
+      fatherName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
+      gender: ['', [Validators.required]],
+      birthday: ['', [Validators.required]],
+      jobTitle: ['', [Validators.required]],
+      sector: ['', [Validators.required]],
       company: ['', [Validators.required]],
-      position: ['', [Validators.required]],
-      country: ['', [Validators.required]],
       city: ['', [Validators.required]],
+      countryCode: ['', [Validators.required]],
       phone: ['', [Validators.required]],
     });
 
-    this.countriesData = this.f.country.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => typeof value === 'string' ? value : value.name),
-        map(name => name ? this.filter(name) : this.countries.slice())
-      );
-
-    const countries = getCodeList();
-    let temp = [];
-    Object.entries(countries).forEach(value => {
-      temp.push({
-        code: value[0],
-        name: value[1],
-      });
-    });
-    this.countries = temp;
-
     this.currentUser = this.authService.currentUserValue;
     this.f.id.patchValue(this.currentUser.id);
-    this.f.firstName.patchValue(this.currentUser.firstName);
-    this.f.lastName.patchValue(this.currentUser.lastName);
-    this.f.company.patchValue(this.currentUser.company);
-    this.f.position.patchValue(this.currentUser.position);
-    this.f.country.patchValue(this.currentUser.country);
-    this.f.city.patchValue(this.currentUser.city);
     this.f.email.patchValue(this.currentUser.email);
+    this.f.username.patchValue(this.currentUser.username);
+    this.f.firstName.patchValue(this.currentUser.firstName);
+    this.f.fatherName.patchValue(this.currentUser.fatherName);
+    this.f.lastName.patchValue(this.currentUser.lastName);
+    this.f.gender.patchValue(this.currentUser.gender);
+    this.f.birthday.patchValue(this.currentUser.birthday);
+    this.f.jobTitle.patchValue(this.currentUser.jobTitle);
+    this.f.sector.patchValue(this.currentUser.sector);
+    this.f.company.patchValue(this.currentUser.company);
+    this.f.city.patchValue(this.currentUser.city);
+    this.f.countryCode.patchValue(this.currentUser.countryCode);
     this.f.phone.patchValue(this.currentUser.phone);
 
     this.passwordForm = this.formBuilder.group({
@@ -133,17 +209,39 @@ export class SharedMyaccountComponent implements OnInit {
   onSubmit() {
     const f = this.f;
     const id = f.id.value;
-    const firstName = f.firstName.value;
-    const lastName = f.lastName.value;
-    const company = f.company.value;
-    const position = f.position.value;
-    const country = f.country.value;
-    const city = f.city.value;
-    const email = f.email.value;
-    const phone = f.phone.value;
+    const email = this.f.email.value;
+    const username = this.f.username.value;
+    const firstName = this.f.firstName.value;
+    const fatherName = this.f.fatherName.value;
+    const lastName = this.f.lastName.value;
+    const gender = this.f.gender.value;
+    const birthday = this.f.birthday.value || new Date().toISOString().substr(0, 10);
+    const jobTitle = this.f.jobTitle.value;
+    const sector = this.f.sector.value;
+    const company = this.f.company.value;
+    const city = this.f.city.value;
+    const countryCode = this.f.countryCode.value;
+    const phone = this.f.phone.value;
+
+    // console.log(birthday);
+    // const birthdayStr = birthday.toISOString().substr(0, 10);
+    const birthdayStr = birthday;
 
     const data = {
-      id, firstName, lastName, company, position, country, city, email, phone
+      id,
+      email,
+      username,
+      firstName,
+      fatherName,
+      lastName,
+      gender,
+      birthday: birthdayStr,
+      jobTitle,
+      sector,
+      company,
+      city,
+      countryCode,
+      phone,
     };
 
     this.loading = true;

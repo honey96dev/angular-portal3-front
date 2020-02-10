@@ -38,4 +38,14 @@ export default {
   annualUpcomingYear: 'annual-upcoming-year',
   annualUpcomingSummaryEn: 'annual-upcoming-summary-en',
   annualUpcomingSummaryAr: 'annual-upcoming-summary-ar',
+
+  male: 'M',
+  female: 'F',
+
+  PHONE_PREFIX_BAHRAIN: "+973",
+  PHONE_PREFIX_KUWAIT: "+965",
+  PHONE_PREFIX_OMAN: "+968",
+  PHONE_PREFIX_QATAR: "+974",
+  PHONE_PREFIX_SAUDI_ARABIA: "+966",
+  PHONE_PREFIX_UAE: "+971",
 }

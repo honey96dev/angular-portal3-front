@@ -1,6 +1,6 @@
 <!--Form-->
-<div class="admin-nav text-right">
-  <a [routerLink]="routes.admin" mdbBtn size="sm" rounded="true" color="indigo">{{"COMMON.ADMIN_PAGE" | translate}}</a>
+<div class="admin-nav2 text-right">
+  <!--  <a [routerLink]="routes.admin" mdbBtn size="sm" rounded="true" color="indigo">{{"COMMON.ADMIN_PAGE" | translate}}</a>-->
 </div>
 <div class="text-center">
   <img class="logo-img mb-5" src="/assets/media/logos/logo-alt.png"/>
@@ -8,24 +8,14 @@
 <mdb-card class="wow fadeInRight auth-bg mb-5" data-wow-delay="0.3s">
   <mdb-card-body class="mx-md-4 mx-sm-1">
     <div class="row text-center">
-      <div class="col-6 col-lg-4 underlined white-border">
-        <p class="text-white h5">{{"SIGNIN.SIGNIN" | translate}}</p>
-      </div>
-      <div class="col-6 col-lg-4">
-        <a [routerLink]="routes.auth.signUp" ><p class="text-white h5">{{"SIGNIN.SIGNUP" | translate}}</p></a>
+      <div class="col-12 underlined white-border">
+        <p class="text-white h5">{{"SIGNIN.RESET_PASSWORD" | translate}}</p>
       </div>
     </div>
     <!--Body-->
+
     <form name="form" [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="md-form mt-5 md-bg">
-        <input type="email" id="email" class="form-control" mdbInput mdbValidate formControlName="email" [readOnly]="loading">
-        <label for="email">{{'SIGNIN.EMAIL' | translate}}</label>
-        <mdb-error *ngIf="f.email.errors && f.email.errors.required && (f.email.dirty || f.email.touched)" class="error-message2 text-left" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.EMAIL' | translate}"></mdb-error>
-        <mdb-error *ngIf="f.email.errors && f.email.errors.email && (f.email.dirty || f.email.touched)" class="error-message2 text-left" [translate]="'COMMON.FIELD_INVALID'" [translateParams]="{field: 'SIGNIN.EMAIL' | translate}"></mdb-error>
-      </div>
       <div class="md-form md-bg">
-<!--        <mdb-icon fas icon="envelope" class="prefix grey-text"></mdb-icon>-->
-<!--        <input type="password" class="form-control" mdbInput placeholder="{{'SIGNIN.PASSWORD' | translate}}">-->
         <input type="password" id="password" class="form-control" mdbInput mdbValidate formControlName="password" [readOnly]="loading">
         <label for="password">{{'SIGNIN.PASSWORD' | translate}}</label>
         <mdb-error *ngIf="f.password.errors && f.password.errors.required && (f.password.dirty || f.password.touched)" class="error-message2 text-left"
@@ -41,13 +31,14 @@
         {{alert.message}}
       </div>
       <div class="text-center mt-4 mb-3 mx-5">
-        <button mdbBtn color="white" rounded="true" class="full-width z-depth-1a blue-grey-text" [disabled]="loading">
-          {{'SIGNIN.SIGNIN' | translate}}
+        <button mdbBtn color="white" rounded="true" class="full-width z-depth-1a blue-grey-text" [disabled]="form.invalid || loading">
+          <mdb-icon fas icon="lock"></mdb-icon>
+          {{'SIGNIN.RESET_PASSWORD' | translate}}
         </button>
       </div>
 
       <p class="font-small white-text d-flex justify-content-end pb-3">
-        <a [routerLink]="routes.auth.forgotPass" class="ml-1 white-text">{{"SIGNIN.FORGOT_PASSWORD" | translate}}</a>
+        <a [routerLink]="routes.auth.signIn" class="ml-1 white-text">{{"SIGNIN.SIGNIN" | translate}}</a>
       </p>
     </form>
   </mdb-card-body>

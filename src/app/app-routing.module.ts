@@ -7,6 +7,8 @@ import {AuthedLayoutComponent} from '@app/views/layouts/authed-layout/authed-lay
 import {HomeFrontComponent} from '@app/views/home/front/home-front.component';
 import {SharedAuthSigninComponent} from '@app/shared/views/auth/signin/shared-auth-signin.component';
 import {SharedAuthSignupComponent} from '@app/shared/views/auth/signup/shared-auth-signup.component';
+import {SharedForgotPassComponent} from '@app/shared/views/auth/forgot-pass/shared-forgot-pass.component';
+import {SharedResetPassComponent} from '@app/shared/views/auth/reset-pass/shared-reset-pass.component';
 
 const routes: Routes = [
   {
@@ -15,6 +17,8 @@ const routes: Routes = [
     children: [
       {path: 'sign-in', component: SharedAuthSigninComponent},
       {path: 'sign-up', component: SharedAuthSignupComponent},
+      {path: 'forgot-pass', component: SharedForgotPassComponent},
+      {path: 'reset-pass/:email/:token', component: SharedResetPassComponent},
     ],
   },
   {

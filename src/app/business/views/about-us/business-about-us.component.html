@@ -1,10 +1,23 @@
-<section class="full-width about-us-image-padding">
-  <img [src]="lang === 'en' ? 'assets/media/bg/business-about-en.png' : 'assets/media/bg/business-about-ar.png'" class="bg absolute-left-0" >
-  <h2 class="h1-responsive font-weight-bold text-center my-5">{{'BUSINESS_ABOUT_US.TITLE' | translate}}</h2>
-  <h4 class="h5-responsive text-left w-responsive mx-auto mt-3 px-3">{{'BUSINESS_ABOUT_US.DESCRIPTION1' | translate}}</h4>
-  <h4 class="h5-responsive text-left w-responsive mx-auto mt-3 px-3">{{'BUSINESS_ABOUT_US.DESCRIPTION2' | translate}}</h4>
-  <ul>
-    <li class="h5-responsive text-left w-responsive mx-auto">{{'BUSINESS_ABOUT_US.ITEM1' | translate}}</li>
-    <li class="h5-responsive text-left w-responsive mx-auto">{{'BUSINESS_ABOUT_US.ITEM2' | translate}}</li>
-  </ul>
+<section class="full-width">
+  <div class="about-us-image-padding mb-5">
+    <img [src]="lang === 'en' ? 'assets/media/bg/business-about-en.png' : 'assets/media/bg/business-about-ar.png'" class="bg absolute-left-0" >
+    <h2 class="h1-responsive font-weight-bold text-center my-5">{{'BUSINESS_ABOUT_US.TITLE' | translate}}</h2>
+    <h4 class="h5-responsive text-left w-responsive mx-auto mt-3 px-3">{{'BUSINESS_ABOUT_US.DESCRIPTION1' | translate}}</h4>
+    <h4 class="h5-responsive text-left w-responsive mx-auto mt-3 px-3">{{'BUSINESS_ABOUT_US.DESCRIPTION2' | translate}}</h4>
+    <ul>
+      <li class="h5-responsive text-left w-responsive mx-auto">{{'BUSINESS_ABOUT_US.ITEM1' | translate}}</li>
+      <li class="h5-responsive text-left w-responsive mx-auto">{{'BUSINESS_ABOUT_US.ITEM2' | translate}}</li>
+    </ul>
+    <div *ngIf="!!brochure" class="w-responsive mx-auto my-5 text-left">
+      <a mdbBtn color="primary" rounded="true" (click)="onBrochureClicked()">
+        <mdb-icon fas icon="file-pdf" class="brochure-icon" [ngClass]="('LANG' | translate) === 'en' ? 'mr-2' : 'ml-2'"></mdb-icon> {{'COMMON.BROCHURE' | translate}}
+      </a>
+    </div>
+  </div>
+  <div *ngIf="!!video" class="view w-100 mb-5">
+    <video class="media-slider-image mx-auto" controls [autoplay]="true" [loop]="true" [muted]="true">
+      <source [src]="video['url']" [type]="video['mime']" />
+    </video>
+    <div class="rgba-black-light waves-light" mdbWavesEffect></div>
+  </div>
 </section>

@@ -13,6 +13,8 @@ import {LayoutFooterComponent} from '@app/views/layouts/_partials/footer/layout-
 import {QuestionModalComponent} from '@app/shared/views/_partials/common-dialogs/question/question-modal.component';
 import {SharedAuthSigninComponent} from '@app/shared/views/auth/signin/shared-auth-signin.component';
 import {SharedAuthSignupComponent} from '@app/shared/views/auth/signup/shared-auth-signup.component';
+import {SharedForgotPassComponent} from '@app/shared/views/auth/forgot-pass/shared-forgot-pass.component';
+import {SharedResetPassComponent} from '@app/shared/views/auth/reset-pass/shared-reset-pass.component';
 import {SharedMyaccountComponent} from '@app/shared/views/_partials/myaccount/shared-myaccount.component';
 import {SharedMediaSliderComponent} from '@app/shared/views/_partials/media-slider/shared-media-slider.component';
 import {SharedContactUsComponent} from '@app/shared/views/_partials/contact-us/shared-contact-us.component';
@@ -25,6 +27,7 @@ import {SharedRecentEventsComponent} from '@app/shared/views/_partials/recent-ev
 import {SharedRecentEventsItemComponent} from '@app/shared/views/_partials/recent-events/shared-recent-events-item.component';
 import {SharedAllEventsComponent} from '@app/shared/views/_partials/all-events/shared-all-events.component';
 import {SharedAllEventsItemComponent} from '@app/shared/views/_partials/all-events/shared-all-events-item.component';
+import {SharedEventPhotosComponent} from '@app/shared/views/_partials/event-photos/shared-event-photos.component';
 import {SharedEventJoinComponent} from '@app/shared/views/_partials/event-join/shared-event-join.component';
 import {SharedCoursesComponent} from '@app/shared/views/_partials/courses/shared-courses.component';
 import {SharedCoursesItemComponent} from '@app/shared/views/_partials/courses/shared-courses-item.component';
@@ -75,6 +78,8 @@ export class MyHammerConfig extends HammerGestureConfig {
 
     SharedAuthSigninComponent,
     SharedAuthSignupComponent,
+    SharedForgotPassComponent,
+    SharedResetPassComponent,
 
     SharedMyaccountComponent,
 
@@ -89,6 +94,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     SharedRecentEventsItemComponent,
     SharedAllEventsComponent,
     SharedAllEventsItemComponent,
+    SharedEventPhotosComponent,
     SharedEventJoinComponent,
     SharedCoursesComponent,
     SharedCoursesItemComponent,
@@ -109,6 +115,8 @@ export class MyHammerConfig extends HammerGestureConfig {
 
     SharedAuthSigninComponent,
     SharedAuthSignupComponent,
+    SharedForgotPassComponent,
+    SharedResetPassComponent,
 
     SharedMyaccountComponent,
 
@@ -121,6 +129,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     SharedDirectorsBoardComponent,
     SharedRecentEventsComponent,
     SharedAllEventsComponent,
+    SharedAllEventsItemComponent,
+    SharedEventPhotosComponent,
     SharedEventJoinComponent,
     SharedCoursesComponent,
     SharedCoursesItemComponent,

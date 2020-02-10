@@ -10,22 +10,7 @@ import consts from '@core/consts';
 import routes from '@core/routes';
 import {Country} from '@app/_models';
 import {Observable} from 'rxjs';
-
-// var country_list = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas"
-//   ,"Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands"
-//   ,"Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica"
-//   ,"Cote D Ivoire","Croatia","Cruise Ship","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea"
-//   ,"Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana"
-//   ,"Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India"
-//   ,"Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kuwait","Kyrgyz Republic","Laos","Latvia"
-//   ,"Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mauritania"
-//   ,"Mauritius","Mexico","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Namibia","Nepal","Netherlands","Netherlands Antilles","New Caledonia"
-//   ,"New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal"
-//   ,"Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre &amp; Miquelon","Samoa","San Marino","Satellite","Saudi Arabia","Senegal","Serbia","Seychelles"
-//   ,"Sierra Leone","Singapore","Slovakia","Slovenia","South Africa","South Korea","Spain","Sri Lanka","St Kitts &amp; Nevis","St Lucia","St Vincent","St. Lucia","Sudan"
-//   ,"Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad &amp; Tobago","Tunisia"
-//   ,"Turkey","Turkmenistan","Turks &amp; Caicos","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","United States Minor Outlying Islands","Uruguay"
-//   ,"Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
+import {IMyOptions, IOption} from 'ng-uikit-pro-standard';
 
 @Component({
   selector: 'app-shared-auth-signup',
@@ -34,6 +19,7 @@ import {Observable} from 'rxjs';
 })
 export class SharedAuthSignupComponent implements OnInit {
   routes = routes;
+  consts = consts;
 
   alert: {
     show: boolean,
@@ -42,10 +28,13 @@ export class SharedAuthSignupComponent implements OnInit {
   } = {show: false, type: 'alert-danger', message: 'error message'};
   loading: boolean = false;
 
+  lang: string;
   form: FormGroup;
-  returnUrl: string;
-  countries: Country[] = [];
-  countriesData: Observable<Country[]>;
+  genders: Array<IOption> = [];
+  countryCodes: Array<IOption> = [];
+  public datePickerOptions: IMyOptions = {
+    minYear: 1900,
+  };
 
   constructor(private router: Router,
               private title: Title,
@@ -59,54 +48,129 @@ export class SharedAuthSignupComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.genders = [
+      {value: consts.male, label: this.translate.instant('COMMON.GENDER.MALE'), icon: ''},
+      {value: consts.female, label: this.translate.instant('COMMON.GENDER.FEMALE'), icon: ''},
+    ];
+    this.countryCodes = [
+      {
+        value: consts.PHONE_PREFIX_BAHRAIN,
+        label: consts.PHONE_PREFIX_BAHRAIN + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.BAHRAIN'),
+        icon: ''
+      },
+      {
+        value: consts.PHONE_PREFIX_KUWAIT,
+        label: consts.PHONE_PREFIX_KUWAIT + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.KUWAIT'),
+        icon: ''
+      },
+      {
+        value: consts.PHONE_PREFIX_OMAN,
+        label: consts.PHONE_PREFIX_OMAN + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.OMAN'),
+        icon: ''
+      },
+      {
+        value: consts.PHONE_PREFIX_QATAR,
+        label: consts.PHONE_PREFIX_QATAR + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.QATAR'),
+        icon: ''
+      },
+      {
+        value: consts.PHONE_PREFIX_SAUDI_ARABIA,
+        label: consts.PHONE_PREFIX_SAUDI_ARABIA + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.SAUDI_ARABIA'),
+        icon: ''
+      },
+      {
+        value: consts.PHONE_PREFIX_UAE,
+        label: consts.PHONE_PREFIX_UAE + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.UAE'),
+        icon: ''
+      },
+    ];
     this.title.setTitle(this.translate.instant('SIGNIN.SIGNUP') + ' - ' + this.translate.instant('SITE_NAME'));
     this.globalVariableService.getLanguage()
       .subscribe(data => {
         this.title.setTitle(this.translate.instant('SIGNIN.SIGNUP') + ' - ' + this.translate.instant('SITE_NAME'));
       });
+    this.globalVariableService.getLanguage()
+      .subscribe(data => {
+        this.lang = data;
+        this.genders = [
+          {value: consts.male, label: this.translate.instant('COMMON.GENDER.MALE'), icon: ''},
+          {value: consts.female, label: this.translate.instant('COMMON.GENDER.FEMALE'), icon: ''},
+        ];
+        this.countryCodes = [
+          {
+            value: consts.PHONE_PREFIX_BAHRAIN,
+            label: consts.PHONE_PREFIX_BAHRAIN + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.BAHRAIN'),
+            icon: ''
+          },
+          {
+            value: consts.PHONE_PREFIX_KUWAIT,
+            label: consts.PHONE_PREFIX_KUWAIT + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.KUWAIT'),
+            icon: ''
+          },
+          {
+            value: consts.PHONE_PREFIX_OMAN,
+            label: consts.PHONE_PREFIX_OMAN + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.OMAN'),
+            icon: ''
+          },
+          {
+            value: consts.PHONE_PREFIX_QATAR,
+            label: consts.PHONE_PREFIX_QATAR + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.QATAR'),
+            icon: ''
+          },
+          {
+            value: consts.PHONE_PREFIX_SAUDI_ARABIA,
+            label: consts.PHONE_PREFIX_SAUDI_ARABIA + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.SAUDI_ARABIA'),
+            icon: ''
+          },
+          {
+            value: consts.PHONE_PREFIX_UAE,
+            label: consts.PHONE_PREFIX_UAE + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.UAE'),
+            icon: ''
+          },
+        ];
+      });
+
+    // this.genders = [
+    //   {value: consts.male, label: this.translate.instant('COMMON.GENDER.MALE')},
+    //   {value: consts.female, label: this.translate.instant('COMMON.GENDER.FEMALE')},
+    // ];
 
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required, Validators.maxLength(20)]],
       firstName: ['', [Validators.required]],
+      fatherName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
+      gender: ['', [Validators.required]],
+      birthday: ['', [Validators.required]],
+      jobTitle: ['', [Validators.required]],
+      sector: ['', [Validators.required]],
+      company: ['', [Validators.required]],
+      city: ['', [Validators.required]],
+      countryCode: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       password2: ['', [Validators.required, Validators.minLength(6)]],
-      company: ['', [Validators.required]],
-      position: ['', [Validators.required]],
-      country: ['', [Validators.required]],
-      city: ['', [Validators.required]],
-      phone: ['', [Validators.required]],
     });
-
-    this.countriesData = this.f.country.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => typeof value === 'string' ? value : value.name),
-        map(name => name ? this.filter(name) : this.countries.slice())
-      );
 
     if (isDevMode()) {
       this.f.email.patchValue('honey96dev@gmail.com');
+      this.f.username.patchValue('honey96dev');
       this.f.firstName.patchValue('Zhenlong');
+      this.f.fatherName.patchValue('Xuan');
       this.f.lastName.patchValue('Jin');
-      this.f.password.patchValue('123456');
-      this.f.password2.patchValue('123456');
+      this.f.gender.patchValue('M');
+      this.f.birthday.patchValue(new Date().toISOString());
+      this.f.jobTitle.patchValue('IT');
+      this.f.sector.patchValue('Web');
       this.f.company.patchValue('Wangzi');
-      this.f.position.patchValue('Xin\'an');
       // this.f.country.patchValue('China');
       this.f.city.patchValue('Hunchun');
-      this.f.phone.patchValue('+8618943750790');
+      this.f.countryCode.patchValue('+966');
+      this.f.phone.patchValue('571623415');
+      this.f.password.patchValue('123456');
+      this.f.password2.patchValue('123456');
     }
-
-    const countries = getCodeList();
-    let temp = [];
-    Object.entries(countries).forEach(value => {
-      temp.push({
-        code: value[0],
-        name: value[1],
-      });
-    });
-    this.countries = temp;
   }
 
   get f() {
@@ -117,16 +181,6 @@ export class SharedAuthSignupComponent implements OnInit {
     this.alert.show = false;
   }
 
-  onDisplayValue(country?: Country): string | undefined {
-    return country ? country.name : '';
-  }
-
-  filter(name: string): Country[] {
-    const filterValue = name.toLowerCase();
-
-    return this.countries.filter(option => option.name.toLowerCase().indexOf(filterValue) >= 0);
-  }
-
   onSubmit() {
     if (this.form.invalid) {
       return;
@@ -135,26 +189,38 @@ export class SharedAuthSignupComponent implements OnInit {
     this.loading = true;
 
     const email = this.f.email.value;
+    const username = this.f.username.value;
     const firstName = this.f.firstName.value;
+    const fatherName = this.f.fatherName.value;
     const lastName = this.f.lastName.value;
-    const password = this.f.password.value;
+    const gender = this.f.gender.value;
+    const birthday = this.f.birthday.value;
+    const jobTitle = this.f.jobTitle.value;
+    const sector = this.f.sector.value;
     const company = this.f.company.value;
-    const position = this.f.position.value;
-    const country = this.f.country.value;
     const city = this.f.city.value;
+    const countryCode = this.f.countryCode.value;
     const phone = this.f.phone.value;
-    window.scrollTo(window.scrollX, 0);
+    const password = this.f.password.value;
+    // window.scrollTo(window.scrollX, 0);
+    // const birthdayStr = birthday.toISOString().substr(0, 10);
+    const birthdayStr = birthday;
 
     this.authService.signUp({
       email,
+      username,
       firstName,
+      fatherName,
       lastName,
-      password,
+      gender,
+      birthday: birthdayStr,
+      jobTitle,
+      sector,
       company,
-      position,
-      country,
       city,
+      countryCode,
       phone,
+      password,
     })
       .pipe(first())
       .subscribe(res => {

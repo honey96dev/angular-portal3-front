@@ -6,6 +6,7 @@ import {ConferenceLayoutComponent} from '@app/views/layouts/conference-layout/co
 import {ConferenceFrontComponent} from '@app/conference/views/front/conference-front.component';
 import {ConferencePreviousEventsComponent} from '@app/conference/views/previous-events/conference-previous-events.component';
 import {ConferenceUpcomingEventsComponent} from '@app/conference/views/upcoming-events/conference-upcoming-events.component';
+import {ConferenceEventPhotosComponent} from '@app/conference/views/event-photos/conference-event-photos.component';
 import {ConferenceContactUsComponent} from '@app/conference/views/contact-us/conference-contact-us.component';
 import {ConferenceSponsorRequestComponent} from '@app/conference/views/sponsor-request/conference-sponsor-request.component';
 import {ConferenceSponsorRequestPartialComponent} from '@app/conference/views/_partials/_sponsor-request/conference-sponsor-request-partial.component';
@@ -21,6 +22,7 @@ import {ConferenceMyaccountComponent} from '@app/conference/views/myaccount/conf
     ConferenceFrontComponent,
     ConferencePreviousEventsComponent,
     ConferenceUpcomingEventsComponent,
+    ConferenceEventPhotosComponent,
     ConferenceContactUsComponent,
     ConferenceSponsorRequestComponent,
     ConferenceSponsorRequestPartialComponent,

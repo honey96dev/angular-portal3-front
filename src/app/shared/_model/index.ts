@@ -2,6 +2,7 @@
 export * from './course';
 export * from './director-card';
 export * from './event';
+export * from './event-photo';
 export * from './partner-card';
 export * from './service-card';
 export * from './slide';

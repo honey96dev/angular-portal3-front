@@ -52,18 +52,7 @@ export class SharedEventJoinComponent implements OnInit{
 
   ngOnInit() {
     this.lang = this.translate.instant('LANG');
-    this.form = this.formBuilder.group({
-      firstName: new FormControl('', [Validators.required]),
-      lastName: new FormControl('', [Validators.required]),
-      country: new FormControl('', [Validators.required]),
-      city: new FormControl('', [Validators.required]),
-      company: new FormControl('', [Validators.required]),
-      jobTitle: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
-      phone: new FormControl('', [Validators.required]),
-    });
 
-    this.user = this.authService.currentUserValue;
     this.data = this.service.editableRowValue();
     this.route.paramMap.subscribe(map => {
       this.id = map.get('id');
@@ -82,14 +71,34 @@ export class SharedEventJoinComponent implements OnInit{
           }
         });
     }
-    this.f.firstName.patchValue(this.user.firstName);
-    this.f.lastName.patchValue(this.user.lastName);
-    this.f.country.patchValue(this.user.country);
-    this.f.city.patchValue(this.user.city);
-    this.f.company.patchValue(this.user.company);
-    // this.f.jobTitle.patchValue(this.user.lastName);
+    this.form = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required, Validators.maxLength(20)]],
+      firstName: ['', [Validators.required]],
+      fatherName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      gender: ['', [Validators.required]],
+      birthday: ['', [Validators.required]],
+      jobTitle: ['', [Validators.required]],
+      sector: ['', [Validators.required]],
+      company: ['', [Validators.required]],
+      city: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
+    });
+
+    this.user = this.authService.currentUserValue;
     this.f.email.patchValue(this.user.email);
-    this.f.phone.patchValue(this.user.phone);
+    this.f.username.patchValue(this.user.username);
+    this.f.firstName.patchValue(this.user.firstName);
+    this.f.fatherName.patchValue(this.user.fatherName);
+    this.f.lastName.patchValue(this.user.lastName);
+    this.f.gender.patchValue(this.user.gender);
+    this.f.birthday.patchValue(this.user.birthday);
+    this.f.jobTitle.patchValue(this.user.jobTitle);
+    this.f.sector.patchValue(this.user.sector);
+    this.f.company.patchValue(this.user.company);
+    this.f.city.patchValue(this.user.city);
+    this.f.phone.patchValue(`${this.user.countryCode}${this.user.phone}`);
   }
 
   get f() {
@@ -109,11 +118,11 @@ export class SharedEventJoinComponent implements OnInit{
     // const city = this.f.city.value;
     // const company = this.f.company.value;
     const jobTitle = this.f.jobTitle.value;
-    // const email = this.f.email.value;
+    const email = this.f.email.value;
     // const phone = this.f.phone.value;
 
     // const params = {firstName, lastName, country, city, company, email, phone, target: this.data.id};
-    const params = {target: this.data.id, userId: this.user.id, jobTitle};
+    const params = {target: this.data.id, userId: this.user.id, jobTitle, email};
 
     this.service.join(params).pipe(first())
       .subscribe(res => {
