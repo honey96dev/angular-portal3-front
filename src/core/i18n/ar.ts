@@ -109,8 +109,9 @@ export const locale = {
       COUNTRY: 'البلد',
       CITY: 'المدينة',
       PHONE: 'الهاتف النقال',
+      PASSWORD3: 'كلمة المرور',
       CURRENT_PASSWORD: 'كلمة المرور الحالية',
-      PASSWORD: 'كلمة سر جديدة',
+      PASSWORD: 'كلمة مرور جديدة',
       PASSWORD2: 'تأكيد كلمة المرور',
     },
     SHARED_MEDIA_SLIDER: {

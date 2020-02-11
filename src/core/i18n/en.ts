@@ -109,6 +109,7 @@ export const locale = {
       COUNTRY: 'Country',
       CITY: 'City',
       PHONE: 'Phone',
+      PASSWORD3: 'Password',
       CURRENT_PASSWORD: 'Current Password',
       PASSWORD: 'New Password',
       PASSWORD2: 'Confirm Password',

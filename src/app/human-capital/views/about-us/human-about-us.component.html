@@ -22,7 +22,7 @@
     </div>
   </div>
   <div *ngIf="!!video" class="view w-100 mb-5">
-    <video class="media-slider-image mx-auto" controls [autoplay]="true" [loop]="true" [muted]="true">
+    <video class="media-slider-image mx-auto" [controls]="true" [autoplay]="true" [loop]="true">
       <source [src]="video['url']" [type]="video['mime']" />
     </video>
     <div class="rgba-black-light waves-light" mdbWavesEffect></div>
